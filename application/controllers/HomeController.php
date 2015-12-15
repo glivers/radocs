@@ -12,8 +12,6 @@
  */
 
 use Helpers\View\View;
-use Helpers\Input\Input;
-use Libraries\CronLibrary\SampleCronController;
 
 class HomeController extends BaseController {
 

@@ -18,15 +18,15 @@ return array(
 /**
  *The home route.
  *This route loads the home controller
- *@param null
- *@return void
+ *@param int $id The user id to update
+ *@param string $sessid The session id of this logged in user
  */
 'homepage' => 'Home@index/id/sessid',
 /**
  *This routes loads the search users page.
- *@param null
- *@return void
+ *@param string $name The post category name to load
+ *@param int $id The id of particular post to load
  */
-'work' => 'Home/id/sessid'
+'blog' => 'Home/name/id'
 
 );

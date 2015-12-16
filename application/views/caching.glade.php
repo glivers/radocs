@@ -11,6 +11,14 @@
 
 
             <div class="col-lg-9 lmargin">
+
+                <a href="{{Url::base('home/caching')}}"><h1>Caching</h1></a>
+
+                <a href="{{Url::base('home/caching#memcache')}}" class="lead">Memcache</a><br>
+                <a href="{{Url::base('home/caching#memcached')}}" class="lead">Memcached</a><br>
+                <a href="{{Url::base('home/caching#redis')}}" class="lead">Redis</a><br>
+
+
                 <h4 id="memcache">Memcache</h4>
                 <p>
                 Coming soon...

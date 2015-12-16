@@ -7,11 +7,24 @@
     <div class="row">
         
 
-        @include('sidebar')
+        @include('sidebar') 
 
         <div class="col-lg-9 lmargin">
 
-           <h4 id="glance">Gliver at a glance</h4>
+                <a href="{{Url::base('home/getstarted')}}"><h1>Getting Started</h1></a><br>
+
+                <a href="{{Url::base('home/getstarted#glance')}}" class="lead">Gliver at a glance</a><br>
+                <a href="{{Url::base('home/getstarted#supported_features')}}" class="lead">Supported Features</a><br>
+                <a href="{{Url::base('home/getstarted#flowchart')}}" class="lead">Application Flow Chart</a><br>
+                <a href="{{Url::base('home/getstarted#configuration')}}" class="lead">Configuration</a><br>
+                <a href="{{Url::base('home/getstarted#routing')}}" class="lead">Routing</a><br>
+                <a href="{{Url::base('home/getstarted#input')}}" class="lead">Request/Input</a><br>
+                <a href="{{Url::base('home/getstarted#views')}}" class="lead">Views/Responses</a><br>
+                <a href="{{Url::base('home/getstarted#errors')}}" class="lead">Errors/Logging</a><br>
+
+
+           <h3 id="glance">Gliver at a glance</h3>
+
            <h4 id="glance">Gliver: An extensible light weight Application framework</h4>
             
            <p>
@@ -25,7 +38,7 @@
              </p>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
         
-            <h4 id="supported_features">Supported Features</h4>
+            <h3 id="supported_features">Supported Features</h3>
                 <p>
                 </p>
                  <p>
@@ -45,13 +58,13 @@
            </p>  
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
 
-            <h4 id="flowchart">Application Flowchart</h4>
+            <h3 id="flowchart">Application Flowchart</h3>
                 <p>
                     <img src="{{ Url::assets('img/gliverarch.png') }}" alt="gliver application flow chart" width="100%" />
                 </p>  
                <div class='row' style="padding-bottom: 5%">&nbsp;</div>
  
-            <h4 id="configuration">Configuration</h4>
+            <h3 id="configuration">Configuration</h3>
                 
             <p>
                     There are two configuration(<code>config/config.php</code> and <code>config/database.php</code>) files for Gliver framework. Both files are in <code>config</code> Directory.
@@ -74,7 +87,7 @@
                 
                 <div class='row' style="padding-bottom: 5%">&nbsp;</div>
  
-            <h4 id="routing">Routing</h4>
+            <h3 id="routing">Routing</h3>
                 <p>
                     Routing can be configure in <code>application/routes.php</code> file.
                     
@@ -106,7 +119,7 @@
                 
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
 
-            <h4 id="input">Request / Response</h4>
+            <h3 id="input">Request / Response</h3>
             <h5 >Request Handling</h5>
             <p>
                 Request handling in Gliver framework is handled through Input Helper class(<code>system/Helpers/Input.php</code>)
@@ -149,7 +162,7 @@
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
            
-            <h4 id="views">Views/Responses</h4>
+            <h3 id="views">Views/Responses</h3>
                 <p>
                     We discussed this in <a href='{{ Url::base('brief#views') }}'>View</a> Section. 
                     For sake of completion, we are putting that example here:
@@ -183,7 +196,7 @@
                 
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
    
-            <h4 id="errors">Errors/Logging</h4>
+            <h3 id="errors">Errors/Logging</h3>
                 <p>
                     Gliver extends basic exception handling through Helper exception class (<code>/system/Helpers/Exceptions/HelperException.php</code>)
                 </p> 

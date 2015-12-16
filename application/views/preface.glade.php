@@ -7,42 +7,42 @@
     <div class="container">
 
         <div class="row">
-        
+
 
             @include('sidebar')
             
             <div class="col-md-9">
 
-                <a href="{{Url::base('home/preface')}}" class="lead">Preface</a><br>
-                    <a href="{{Url::base('home/preface#introduction')}}" class="">Introduction</a><br>
-                    <a href="{{Url::base('home/preface#quick_start')}}" class="">Quick Start</a><br>
-                    <a href="{{Url::base('home/preface#release_notes')}}" class="">Release Notes</a><br>
-                    <a href="{{Url::base('home/preface#upgrade_guide')}}" class="">Upgrade Guide</a><br>
-                    <a href="{{Url::base('home/preface#upgrade_guide')}}" class="">Contribution Guide</a><br>
+                <a href="{{Url::base('home/preface')}}"><h1>Preface</h1></a><br>
+                <a href="{{Url::base('home/preface#introduction')}}" class="lead">Introduction</a><br>
+                <a href="{{Url::base('home/preface#quick_start')}}" class="lead">Quick Start</a><br>
+                <a href="{{Url::base('home/preface#release_notes')}}" class="lead">Release Notes</a><br>
+                <a href="{{Url::base('home/preface#upgrade_guide')}}" class="lead">Upgrade Guide</a><br>
+                <a href="{{Url::base('home/preface#contribution_guide')}}" class="lead">Contribution Guide</a><br>
 
 
-                <h4 id="introduction" class="text-danger lead">Introduction</h4>
+                <h3 id="introduction" class="text-danger">Introduction</h3>
 
 
             
                 <p>The Gliver MVC Framework is for PHP developers, both new and seasoned to write cutting edge web applicaitions, APIs, Web Services, Software Back ends and much more just in a matter of minutes. 
-                This framework was inspited by a community of developers who needed a light weight framework with a relatively faster execution time on the server as compared to other frameworks based on <a href="http://php.net/releases/5_4_0.php"> <strong>PHP >=5.4</strong> </a>. Gliver comes with a built in
+                This framework is inspired by a community of developers who needed a light weight framework with a relatively faster execution time on the server as compared to other frameworks based on <a href="http://php.net/releases/5_4_0.php"> <strong>PHP >=5.4</strong> </a>. Gliver comes with a built in
                 templating engine that removes all the monotonous repeated php tags, therefore being less scary for a front end developer with almost no learning curve</p>
                        
 
 
 
-                <h4 id="quick_start" class="text-danger lead">Quick Start</h4>
+                <h3 id="quick_start" class="text-danger">Quick Start</h3>
 
 
 
 
                 <p>To get started with Gliver MVC , you need a runing web server and then head to <a href="https://github.com/gliver-mvc/gliver">Github.com</a> and download the source code. You might choose to use 
-                the various distributions of Apache, depending on your operating system and that would suffice. No special software or environment will you again to use this framework.  </p>
+                the various distributions of Apache, depending on your operating system and that would suffice. No special software or environment will you need again to use this framework.  </p>
                 <p>Once you have downloaded the source code, extract it into the root directory of your web server and access the application vai a web browser, specifying the name of your installation directory, and there you go! Wish you a happy coding experience after...</p>
                 <p>For example, let's say you extracted your code into a folder in your web root called <code>gliver</code>, you access via your url in this manner <code>http://localhost/gliver</code> </p>
                 <p>By default, the page that loads the application home page... How did we get here? Check the directory structure below</p>
-                <pre>
+<pre>
 application
 bin
 config
@@ -53,7 +53,7 @@ vendor
 license.txt
 readme.md
 composer.json
-                </pre>
+</pre>
 
                 <p>At the very top is the application folder. This is where all of your code is gonna reside. In here you are going to write your code for the <code>Controllers</code>, <code>Models</code>, <code>Views</code> <code>Libraries</code> among others... For instance, you get to your controllers in this manner <code>application/controllers/</code>. In here
                 you will always find a <code>BaseController.php</code> class, do not delete this class as all controllers need to extend this class</p>
@@ -102,7 +102,7 @@ config
                 in your application, and it exists at <a href="https://packagist.org/"> packagist</a>, you can do a <a href="https://getcomposer.org/"><code>composer install</code></a> and it would be right here! This is ideal for those who would like to contribute by writing packages for use by the gliver framework, 
                 . Again in here you don't wanna edit anything.<br/>
                 In order to add a package for installation using composer, you add the package as a dependancy on the <code>composer.json</code> file in your root directory as follows:
-                <pre>
+<pre>
 {
     "require": {
         "vendor/package": "1.3.2",
@@ -110,18 +110,18 @@ config
         "vendor/package3": "^2.0.3"
     }
 }                
-                </pre>
+</pre>
                 after this you can run a <code>php composer.phar install</code> to download package contents. Note that you need to have composer installed on your local computer if you would like this to work. There is a more in depth guide on how to use composer with Gliver in the tutorials sections.
                 </p>
 
 
-                <h4 id="release_notes" class="text-danger" class="text-danger lead">Release Notes</h4>
+                <h3 id="release_notes" class="text-danger">Release Notes</h3>
                 
                 <p>This is the official release of the Gliver mvc version 0.0.1. Gliver MVC is, however, under active developemnt and updates are being pushed to the <a href="https://github.com/gliver-mvc/gliver">repository</a> every day. However, the syntax defined in version 0.0.1 will not change, only functionlity will be added. 
                 So if you have already learnt the syntax with this version, you are good to go, nothing would change, only for better functionality. However, you might want to keep checking out for new updates, 
                 so remember to subscribe to our newsletter so that we can keep you informed of every advanced made or inline. The updates would only include the very cool features that you have been waiting for...you don't want to be left out.</p>           
 
-                <h4 id="upgrade_guide" class="text-danger lead">Upgrade Guide</h4>
+                <h3 id="upgrade_guide" class="text-danger">Upgrade Guide</h3>
                 
                     <p>Things can only always get better. If you realize that we have updates and there are some really cool 
                     features that you like in the updates, you can always pull the new code and put you application on steriods. At the moment, for you to 
@@ -131,7 +131,7 @@ config
                     this is done so that you can begin using it right away. </p>
 
 
-                <h4 id="contribution_guide" class="text-danger lead">Contribution Guide</h4>
+                <h3 id="contribution_guide" class="text-danger">Contribution Guide</h3>
                 
 
 

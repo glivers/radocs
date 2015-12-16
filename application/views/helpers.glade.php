@@ -10,6 +10,42 @@
 
 
         <div class="col-lg-9">
+
+                <a href="{{Url::base('home/helpers')}}"><h1>Helpers</h1></a><br>
+
+                <a href="{{Url::base('home/helpers#array')}}" class="lead">Array</a><br>
+                <a href="{{Url::base('home/helpers#calendar')}}" class="lead">Calendar</a><br>
+                <a href="{{Url::base('home/helpers#captcha')}}" class="lead">CAPTCHA</a><br>
+                <a href="{{Url::base('home/helpers#cart')}}#cart" class="lead">Cart</a><br>
+                <a href="{{Url::base('home/helpers#config')}}" class="lead">Config</a><br>
+                <a href="{{Url::base('home/helpers#date')}}" class="lead">Date</a><br>
+                <a href="{{Url::base('home/helpers#directory')}}" class="lead">Directory</a><br>
+                <a href="{{Url::base('home/helpers#download')}}" class="lead">Download</a><br>
+                <a href="{{Url::base('home/helpers#email')}}" class="lead">Email</a><br>
+                <a href="{{Url::base('home/helpers#file')}}" class="lead">File</a><br>
+                <a href="{{Url::base('home/helpers#form')}}" class="lead">Form</a><br>
+                <a href="{{Url::base('home/helpers#html')}}" class="lead">HTML</a><br>
+                <a href="{{Url::base('home/helpers#encryption')}}" class="lead">Encryption</a><br>
+                <a href="{{Url::base('home/helpers#inflector')}}" class="lead">Inflector</a><br>
+                <a href="{{Url::base('home/helpers#input')}}" class="lead">Input</a><br>
+                <a href="{{Url::base('home/helpers#language')}}" class="lead">Language</a><br>
+                <a href="{{Url::base('home/helpers#migration')}}" class="lead">Migration</a><br>
+                <a href="{{Url::base('home/helpers#number')}}" class="lead">Number</a><br>
+                <a href="{{Url::base('home/helpers#pagination')}}" class="lead">Pagination</a><br>
+                <a href="{{Url::base('home/helpers#sath')}}" class="lead">Path</a><br>
+                <a href="{{Url::base('home/helpers#security')}}" class="lead">Security</a><br>
+                <a href="{{Url::base('home/helpers#session')}}" class="lead">Session</a><br>
+                <a href="{{Url::base('home/helpers#smiley')}}" class="lead">Smiley</a><br>
+                <a href="{{Url::base('home/helpers#string')}}" class="lead">String</a><br>
+                <a href="{{Url::base('home/helpers#template_parser')}}" class="lead">Template Parser</a><br>
+                <a href="{{Url::base('home/helpers#text')}}" class="lead">Text</a><br>
+                <a href="{{Url::base('home/helpers#Typography')}}" class="lead">Typography</a><br>
+                <a href="{{Url::base('home/helpers#unit_testing')}}" class="lead">Unit testing</a><br>
+                <a href="{{Url::base('home/helpers#validation')}}" class="lead">Validation</a><br>
+                <a href="{{Url::base('home/helpers#xml')}}" class="lead">XML</a><br>
+                <a href="{{Url::base('home/helpers#zip')}}" class="lead">ZIP Encoding</a><br>
+
+
            
         <h4 id="array">Array</h4>
         <div class="col-lg-12" id='array_div'>

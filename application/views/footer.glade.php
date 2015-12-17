@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="">Home</a>
+                            <a href="{{Url::base('home')}}">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>

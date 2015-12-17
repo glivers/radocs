@@ -13,7 +13,7 @@
             
             <div class="col-md-9">
 
-                <a href="{{Url::base('home/preface')}}" class="lead">Preface</a><br>
+                <a href="{{Url::base('home/preface')}}"><h1>Preface</h1></a><br>
                     <a href="{{Url::base('home/preface#introduction')}}" class="">Introduction</a><br>
                     <a href="{{Url::base('home/preface#quick_start')}}" class="">Quick Start</a><br>
                     <a href="{{Url::base('home/preface#release_notes')}}" class="">Release Notes</a><br>

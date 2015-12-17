@@ -16,14 +16,6 @@
                 <a href="#upgrade_guide" class="list-group-item">Troubleshooting</a>
             </div>
 
-            <a href="{{Url::base('home/brief')}}" class="lead">Brief Tour</a>
-            <div class="list-group">
-                <a href="#controllers" class="list-group-item">Controllers</a>
-                <a href="#views" class="list-group-item">Views</a>
-                <a href="#models" class="list-group-item">Models</a>
-            </div>
-
-
             <a href="{{Url::base('home/getstarted')}}" class="lead">Getting Started</a>
             <div class="list-group">
                 <a href="#glance" class="list-group-item">Gliver at a glance</a>
@@ -35,6 +27,14 @@
                 <a href="#views" class="list-group-item">Views/Responses</a>
                 <a href="#errors" class="list-group-item">Errors/Logging</a>
             </div>
+           
+            <a href="{{Url::base('home/brief')}}" class="lead">Brief Tour</a>
+            <div class="list-group">
+                <a href="#controllers" class="list-group-item">Controllers</a>
+                <a href="#views" class="list-group-item">Views</a>
+                <a href="#models" class="list-group-item">Models</a>
+            </div>
+
 
  
             <a href="{{Url::base('home/helpers')}}" class="lead">Helpers</a>

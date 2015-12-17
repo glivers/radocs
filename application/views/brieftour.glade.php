@@ -11,6 +11,16 @@
         @include('sidebar')
             
         <div class="col-lg-9">
+            
+                <a href="{{Url::base('home/brief')}}"><h1>Brief Tour</h1></a><br>
+
+                <a href="{{Url::base('home/brief#controllers')}}" class="lead">Controllers</a><br>
+                <a href="{{Url::base('home/brief#views')}}" class="lead">Views</a><br>
+                <a href="{{Url::base('home/brief#models')}}" class="lead">Models</a><br>
+
+
+
+
            <h4 id="controllers">Controllers</h4>
             <p> You place all your controller classes in the <code>application/controllers</code> directory.</p>
             <p>The entry point into your application is via the controllers. So it is from here that all the code for your application is executed. 

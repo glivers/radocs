@@ -10,6 +10,20 @@
             @include('sidebar')
 
             <div class="col-lg-9">
+
+            	<a href="{{Url::base('home/database')}}"><h1>Database</h1></a><br>
+
+                <a href="{{Url::base('home/database#basic_usage')}}" class="lead">Basic Usage</a><br>
+                <a href="{{Url::base('home/database#query_builder')}}" class="lead">Query Builder</a><br>
+                <a href="{{Url::base('home/database#eloquent')}}" class="lead">Eloquent ORM</a><br>
+                <a href="{{Url::base('home/database#schema_builder')}}" class="lead">Schema Builder</a><br>
+                <a href="{{Url::base('home/database#migration_seeding')}}" class="lead">Migration/Seeding</a><br>
+                <a href="{{Url::base('home/database#sql')}}" class="lead">SQL</a><br>
+                <a href="{{Url::base('home/database#nosql')}}" class="lead">NoSQL-MongoDB</a><br>
+                <a href="{{Url::base('home/database#postgre')}}" class="lead">PostgreSQl</a><br>
+                <a href="{{Url::base('home/database#errors')}}" class="lead">Errors/Logging</a><br>
+
+
                         <h4 id="basic_usage">Basic Usage</h4>
 			             <p>
                             Gliver easily connect application to database in a simple way.

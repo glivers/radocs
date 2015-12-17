@@ -5,10 +5,10 @@
 
     <meta charset="UTF-8">
     <title>Gliver - Documentation</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Custom Fonts -->
+    <link href="{{Url::assets('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
      <!--    LOAD CUSTOM STYLES    -->
-    <link rel="stylesheet" href="{{Url::assets('css/style.css')}}">
     <link rel="stylesheet" href="{{Url::assets('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{Url::assets('css/home-page.css')}}">
     <!-- Optional theme -->

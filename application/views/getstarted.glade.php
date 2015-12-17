@@ -71,6 +71,67 @@
                     
                 </p>
                 <h5>Basic Configuration</h5>
+                <p>By default, the page that loads the application home page... How did we get here? Check the directory structure below</p>
+<pre>
+application
+bin
+config
+public
+system
+vendor
+.htaccess
+license.txt
+readme.md
+composer.json
+</pre>
+
+                <p>At the very top is the application folder. This is where all of your code is gonna reside. In here you are going to write your code for the <code>Controllers</code>, <code>Models</code>, <code>Views</code> <code>Libraries</code> among others... For instance, you get to your controllers in this manner <code>application/controllers/</code>. In here
+                you will always find a <code>BaseController.php</code> class, do not delete this class as all controllers need to extend this class</p>
+                <p>Next is the <code>bin</code> folder. In here we have three directories,as below:
+                <pre>
+bin
+../cache
+../logs/error.log
+../sessions
+                </pre>
+                If you chose to enable caching through either Memcached or Redis, all the cached content would be written into the <code>cache</code> directory<br />
+                All error messages during your application are logged into the <code>logs</code> directory in a file called <code>error.log</code>. So if you want to read the error messages,
+                you will open up this file in a text editor. You will have an option of choosing to either only write error logs to file, this is ideal for a production environment and an option to as
+                well display error messages in the browser, in the configuration settings. If you choose to display errors in the browser, ideal for a development environment, the error messages would
+                as well be written to the log file though, for your future reference. You can always clear the contents of the <code>bin/logs/error.log</code> file at any time you feel like.
+                The <code>sessions</code> directory is where all the session data is stored. </p>
+                <br />
+                <p>Following is the <code>config</code> folder. All of your application specific settings reside here, including the database configuration settings. The settings are stored in an array format from where they are loaded at run time. So you will want to ensure you maintain a valid array after making your changes.
+                We have two configuration files...</p>
+                <pre>
+config
+../config.php
+../database.php
+                </pre>
+                <p>The <code>config.php</code> file is for all the general configuration while the <code>database.php</code> is particularly for the database configuration settings. There are already placeholders for you
+                 in the form of array keys, so you don't have to add any array for a new configutation, all you do is to change the values as you wish. Besides, there are comment lines to guide on what fits where... <br/>
+                 For instance, say you would like to change the application enviroment to development so that errors are displayed in the browser, you would so as below:
+                 <pre>
+/**
+*Set the application environment. Set boolean true for development and false for production 
+*all without quotes.
+*/
+'dev' => false,
+                 </pre>
+                 We would set the value of the <code>'dev' => true</code> to turn into development mode, <code>'dev' => false,</code> toggles production. These are booleans, so no need for quotes on the values. 
+                 </p>
+
+                <p>Just below the config directory is the <code>public</code> directory. Here you put the resources that you need for your applicaiton. These include the <code>css, javascript</code> and <code>images</code>
+                To load the content in here to your from end view files you will use a <code>Url::assets()</code> helper class, by passing in the name directory and name of the file as a first parameter to the method.
+                For instance, let's say you want to load your bootstrap.min.css file in you header file, and say your bootstrap file lies in this folder <code>public/css/bootstrap.min.css</code>, you will call the helper class as follows,
+                <code>Url::assets('css/bootstrap.min.css')</code>. You will learn more of these in the <code>Helpers</code> class sections </p>
+                <p>Next is the <code>system</code> directory.This is the core of the Gliver MVC Framework. All the code upon which this framework is built reside here. There is nothing for you to configure or touch here. However, 
+                you can browse and appreciate the directory structure if you will to. Do not make any changes though as any changes made here would be overriden when you update the framework, plus you might make modifications 
+                that could ground you application and fail to be able to fix it..</p>
+                <p>Last is the  <code>vendor</code> directory. Gliver has the ability to fetch code from the <code>packagist</code> repository and install them for use in this framework. So if you have some decoupled libraries that you would wanna use
+                in your application, and it exists at <a href="https://packagist.org/"> packagist</a>, you can do a <a href="https://getcomposer.org/"><code>composer install</code></a> and it would be right here! This is ideal for those who would like to contribute by writing packages for use by the gliver framework, 
+                . Again in here you don't wanna edit anything.<br/>
+                         
                 <p>
                     Basic configuration can configure in <code>config/config.php</code> file. 
                     You can do default settings of some important parameters like page tile, server name,root directory. You can assign default controller and default method of that controller in this file.

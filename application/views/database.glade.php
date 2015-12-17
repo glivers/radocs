@@ -24,7 +24,7 @@
                 <a href="{{Url::base('home/database#errors')}}" class="lead">Errors/Logging</a><br>
 
 
-                        <h4 id="basic_usage">Basic Usage</h4>
+                        <h3 id="basic_usage" class="text-danger">Basic Usage</h3>
 			             <p>
                             Gliver easily connect application to database in a simple way.
                             It currently support following database systems:
@@ -159,44 +159,44 @@
                         </p>
                         <div class='row' style="padding-bottom: 5%">&nbsp;</div>
            
-			<h4 id="query_builder">Query Builder</h4>
+			<h3 id="query_builder" class="text-danger">Query Builder</h3>
 			    <p>
                                 Coming soon...
                             </p> 
                             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
 
-			<h4 id="eloquent">Eloguent ORM</h4>
+			<h3 id="eloquent" class="text-danger">Eloguent ORM</h3>
 			    <p>
                                 Coming soon...
                             </p> 
                             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
   
-			<h4 id="schema_builder">Schema Builder</h4>
+			<h3 id="schema_builder" class="text-danger">Schema Builder</h3>
 			    <p>
                                 Coming soon...
                             </p> 
                             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
 
-			<h4 id="migration_seeding">Migration Seeding</h4>
+			<h3 id="migration_seeding" class="text-danger">Migration Seeding</h3>
 			<p>
                                 Coming soon...
                             </p> 
                             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
 
 			           
-			<h4 id="sql">SQL</h4>
+			<h3 id="sql" class="text-danger">SQL</h3>
 			<p>
                                 Coming soon...
                             </p> 
                             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
 
-			<h4 id="nosql">NoSQL</h4>
+			<h3 id="nosql" class="text-danger">NoSQL</h3>
 			 <p>
                                 Coming soon...
                             </p> 
                             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
    
-			<h4 id="postgre">PostgreSQL</h4>
+			<h3 id="postgre" class="text-danger">PostgreSQL</h3>
 			    <p>
                                 Coming soon...
                             </p> 

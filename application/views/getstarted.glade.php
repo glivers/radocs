@@ -23,7 +23,7 @@
                 <a href="{{Url::base('home/getstarted#errors')}}" class="lead">Errors/Logging</a><br>
 
 
-           <h3 id="glance">Gliver at a glance</h3>
+           <h3 id="glance" class="text-danger">Gliver at a glance</h3>
 
            <h4 id="glance">Gliver: An extensible light weight Application framework</h4>
             
@@ -38,7 +38,7 @@
              </p>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
         
-            <h3 id="supported_features">Supported Features</h3>
+            <h3 id="supported_features" class="text-danger">Supported Features</h3>
                 <p>
                 </p>
                  <p>
@@ -58,13 +58,13 @@
            </p>  
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
 
-            <h3 id="flowchart">Application Flowchart</h3>
+            <h3 id="flowchart" class="text-danger">Application Flowchart</h3>
                 <p>
                     <img src="{{ Url::assets('img/gliverarch.png') }}" alt="gliver application flow chart" width="100%" />
                 </p>  
                <div class='row' style="padding-bottom: 5%">&nbsp;</div>
  
-            <h3 id="configuration">Configuration</h3>
+            <h3 id="configuration" class="text-danger">Configuration</h3>
                 
             <p>
                     There are two configuration(<code>config/config.php</code> and <code>config/database.php</code>) files for Gliver framework. Both files are in <code>config</code> Directory.
@@ -87,7 +87,7 @@
                 
                 <div class='row' style="padding-bottom: 5%">&nbsp;</div>
  
-            <h3 id="routing">Routing</h3>
+            <h3 id="routing" class="text-danger">Routing</h3>
                 <p>
                     Routing can be configure in <code>application/routes.php</code> file.
                     
@@ -119,7 +119,7 @@
                 
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
 
-            <h3 id="input">Request / Response</h3>
+            <h3 id="input" class="text-danger">Request / Response</h3>
             <h5 >Request Handling</h5>
             <p>
                 Request handling in Gliver framework is handled through Input Helper class(<code>system/Helpers/Input.php</code>)
@@ -162,7 +162,7 @@
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
            
-            <h3 id="views">Views/Responses</h3>
+            <h3 id="views" class="text-danger">Views/Responses</h3>
                 <p>
                     We discussed this in <a href='{{ Url::base('brief#views') }}'>View</a> Section. 
                     For sake of completion, we are putting that example here:
@@ -196,7 +196,7 @@
                 
             <div class='row' style="padding-bottom: 5%">&nbsp;</div>
    
-            <h3 id="errors">Errors/Logging</h3>
+            <h3 id="errors" class="text-danger">Errors/Logging</h3>
                 <p>
                     Gliver extends basic exception handling through Helper exception class (<code>/system/Helpers/Exceptions/HelperException.php</code>)
                 </p> 

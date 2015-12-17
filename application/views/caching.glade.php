@@ -19,20 +19,20 @@
                 <a href="{{Url::base('home/caching#redis')}}" class="lead">Redis</a><br>
 
 
-                <h4 id="memcache">Memcache</h4>
+                <h3 id="memcache" class="text-danger">Memcache</h3>
                 <p>
                 Coming soon...
                 </p> 
                 <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
 
                        
-                <h4 id="memcached">Memcached</h4>
+                <h3 id="memcached" class="text-danger">Memcached</h3>
                 <p>
                 Coming soon...
                 </p> 
                 <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
 
-                <h4 id="redis">Redis</h4>
+                <h3 id="redis" class="text-danger">Redis</h3>
                <p>
                 Coming soon...
                 </p> 

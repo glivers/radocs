@@ -21,7 +21,7 @@
 
 
 
-           <h4 id="controllers">Controllers</h4>
+           <h3 id="controllers" class="text-danger">Controllers</h3>
             <p> You place all your controller classes in the <code>application/controllers</code> directory.</p>
             <p>The entry point into your application is via the controllers. So it is from here that all the code for your application is executed. 
             When writing your controller, you need to specify the namespace so that the autoloader can detect it. Besides, all controllers extend the <code>BaseController</code> class. </p>
@@ -70,7 +70,7 @@
             </div>
             
                        
-            <h4 id="views">Views</h4>
+            <h3 id="views" class="text-danger">Views</h3>
                 <p>
                     
                A view contains HTML and keep separate business business logic from presentation logic. 
@@ -228,7 +228,9 @@
               </div>
                 
             </p>
-            <h4 id="models">Models</h4>
+
+
+            <h3 id="models" class="text-danger">Models</h3>
                 <p>
                     Model are used to add business logic to your application. You can create model class in <code>/application/model</code> directory.
                     Controller calls model and send appropriate response to view using that model. 

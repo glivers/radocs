@@ -47,7 +47,9 @@
 
 
            
-        <h4 id="array">Array</h4>
+        <h3 id="array" class="text-danger">Array</h3>
+
+
         <div class="col-lg-12" id='array_div'>
         <p>
             Array helper class functions helps in working with arrays.
@@ -136,7 +138,9 @@
          <div class='row' style="padding-bottom: 5%">&nbsp;</div>
 
 
-         <h4 id="calendar">Calendar</h4>
+         <h3 id="calendar" class="text-danger">Calendar</h3>
+
+
             <div class="col-lg-12" id='calendar_div'>
             <p>
             Calendar helper class uses for calendar related functions. <br />
@@ -146,15 +150,22 @@
          <div class='row' style="padding-bottom: 5%">&nbsp;</div>
 
 
-        <h4 id="captcha">Captcha</h4>
+        <h3 id="captcha" class="text-danger">Captcha</h3>
+
+
            <div class="col-lg-12" id='captcha_div'>
             <p>
             Captcha class uses for captcha related functions. <br />
             Details are coming soon...
             </p 
         </div>
-         <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="cart">Cart</h4>
+         <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+
+
+        <h3 id="cart" class="text-danger">Cart</h3>
+
+
+
            <div class="col-lg-12" id='cart_div'>
             <p>
             Cart class uses for Cart related functions. <br />
@@ -163,15 +174,21 @@
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
 
-        <h4 id="config">Config</h4>
+        <h3 id="config" class="text-danger">Config</h3>
+
+
               <div class="col-lg-12" id='conf_div'>
             <p>
             Config class uses for configuration related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
-        <h4 id="cookie">Cookie</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
+
+
+        <h3 id="cookie" class="text-danger">Cookie</h3>
+
+
            <div class="col-lg-12" id='cookie_div'>
             <p>
             Cookie class deals with cookie related functions. <br />
@@ -180,31 +197,46 @@
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
                    
-        <h4 id="date">Date</h4>
+        <h3 id="date" class="text-danger">Date</h3>
+
+
              <div class="col-lg-12" id='date_div'>
             <p>
             Date class uses for date functions. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="directory">Directory</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+
+
+
+        <h3 id="directory" class="text-danger">Directory</h3>
+
+
             <div class="col-lg-12" id='dir_div'>
             <p>
             Directory class uses for Directory related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>    
-        <h4 id="download">Download</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+
+
+        <h3 id="download" class="text-danger">Download</h3>
+
+
            <div class="col-lg-12" id='down_div'>
             <p>
             This class uses for downloading related functionality. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>      
-        <h4 id="email">Email</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
+
+
+        <h3 id="email" class="text-danger">Email</h3>
+
+
               <div class="col-lg-12" id='email_div'>
             <p>
             Email class uses for Email related functions. <br />
@@ -212,15 +244,23 @@
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="encryption">Encryption</h4>
+
+
+        <h3 id="encryption" class="text-danger">Encryption</h3>
+
+
             <div class="col-lg-12" id='enc_div'>
             <p>
             Encryption class uses for encryption related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>    
-        <h4 id="file">File</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
+
+
+        <h3 id="file" class="text-danger">File</h3>
+
+
             <div class="col-lg-12" id='file_div'>
             <p>
             File class uses for File management related functions. <br />
@@ -228,15 +268,23 @@
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="form">Form</h4>
+
+
+        <h3 id="form" class="text-danger">Form</h3>
+
+
                <div class="col-lg-12" id='form_div'>
             <p>
             Form class uses for Form related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>    
-        <h4 id="html">HTML</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+
+
+        <h3 id="html" class="text-danger">HTML</h3>
+
+
            <div class="col-lg-12" id='html_div'>
             <p>
             This class uses for html related functions. <br />
@@ -245,7 +293,10 @@
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
                    
-        <h4 id="inflector">Inflector</h4>
+
+        <h3 id="inflector" class="text-danger">Inflector</h3>
+
+
             <div class="col-lg-12" id='inf_div'>
             <p>
             This class uses for inflector related functions. <br />
@@ -253,7 +304,11 @@
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="input">Input</h4>
+
+
+        <h3 id="input" class="text-danger">Input</h3>
+
+
               <div class="col-lg-12" id='input_div'>
         <p>
             Input helper class functions helps in  HTTP Requests.
@@ -318,16 +373,24 @@
           
         </div>
               </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>       
-        <h4 id="language">Language</h4>
-       <div class="col-lg-12" id='lang_div'>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+
+
+        <h3 id="language" class="text-danger">Language</h3>
+
+
+            <div class="col-lg-12" id='lang_div'>
             <p>
             This class uses for language related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>       
-        <h4 id="migration">Migration</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+
+
+        <h3 id="migration" class="text-danger">Migration</h3>
+
+
            <div class="col-lg-12" id='mig_div'>
             <p>
             This class uses for migration functions. <br />
@@ -335,15 +398,23 @@
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-            <h4 id="number">Number</h4>
-          <div class="col-lg-12" id='number_div'>
+
+
+        <h3 id="number" class="text-danger">Number</h3>
+
+
+            <div class="col-lg-12" id='number_div'>
             <p>
             Number class uses for numbers related functions. <br />
             Details are coming soon...
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="pagination">Pagination</h4>
+
+
+        <h3 id="pagination" class="text-danger">Pagination</h3>
+
+
            <div class="col-lg-12" id='pag_div'>
             <p>
             This class uses for pagination related functions. <br />
@@ -352,7 +423,9 @@
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
                    
-        <h4 id="security">Security</h4>
+        <h3 id="security" class="text-danger">Security</h3>
+
+
             <div class="col-lg-12" id='sec_div'>
             <p>
             This class uses for security related functions. <br />
@@ -360,7 +433,11 @@
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="session">Session</h4>
+
+
+        <h3 id="session" class="text-danger">Session</h3>
+
+
                <div class="col-lg-12" id='sess_div'>
         <p>
             This class functions are useful for session related functionality.
@@ -569,9 +646,13 @@
                  </div>
                 </div>
               </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>      
-        <h4 id="smiley">Smiley</h4>
-        <div class="col-lg-12" id='smi_div'>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+
+
+        <h3 id="smiley" class="text-danger">Smiley</h3>
+
+
+            <div class="col-lg-12" id='smi_div'>
             <p>
             This class uses for smiley related functions. <br />
             Details are coming soon...
@@ -579,7 +660,9 @@
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
                    
-        <h4 id="string">String</h4>
+        <h3 id="string" class="text-danger">String</h3>
+
+
            <div class="col-lg-12" id='str_div'>
             <p>
             String class uses for string manipulation. <br />
@@ -587,56 +670,80 @@
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="template_parser">Template</h4>
+
+
+        <h3 id="template_parser" class="text-danger">Template</h3>
+
+
            <div class="col-lg-12" id='temp_div'>
             <p>
             This class uses for template related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>    
-        <h4 id="text">Text</h4>
-           <div class="col-lg-12" id='text_div'>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+
+
+        <h3 id="text">Text</h3>
+
+
+            <div class="col-lg-12" id='text_div'>
             <p>
             This class uses for inflector related functions. <br />
             Details are coming soon...
             </p> 
             </div>
             <div class='row' style="padding-bottom: 5%">&nbsp;</div> 
-        <h4 id="typography">Typography</h4>
-        <div class="col-lg-12" id='typo_div'>
+
+
+        <h3 id="typography">Typography</h3>
+
+
+            <div class="col-lg-12" id='typo_div'>
             <p>
             This class uses for typography related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-        <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
-        <h4 id="unit">Unit</h4>
-        <div class="col-lg-12" id='text_unit'>
+        <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+
+
+        <h3 id="unit" class="text-danger">Unit</h3>
+
+
+            <div class="col-lg-12" id='text_unit'>
             <p>
             This class uses for unit related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-        <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
                    
-        <h4 id="validation">Validation</h4>
+
+        <h3 id="validation">Validation</h3>
+
+
             <div class="col-lg-12" id='val_div'>
             <p>
             This class uses for Validation related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-        <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
-        <h4 id="xml">XML</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+
+
+        <h3 id="xml" class="text-danger">XML</h3>
+
+
             <div class="col-lg-12" id='xml_div'>
             <p>
             This class uses for XML related functions. <br />
             Details are coming soon...
             </p> 
             </div>
-        <div class='row' style="padding-bottom: 5%">&nbsp;</div>   
-        <h4 id="zip">Zip Encoding</h4>
+            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+
+        <h3 id="zip" class="text-danger">Zip Encoding</h3>
             <div class="col-lg-12" id='text_zip'>
             <p>
             This class uses for zip encoding related functions. <br />

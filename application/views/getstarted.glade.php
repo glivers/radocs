@@ -25,39 +25,32 @@
 
            <h3 id="glance" class="text-danger">Gliver at a glance</h3>
 
-           <h4 id="glance">Gliver: An extensible light weight Application framework</h4>
+           <h4 id="glance"></h4>
             
-           <p>
-               Gliver is an application framework based on Laravel. It is an essential tool for PHP web developers who want easy to use yet powerful framework.
-               It is specially designed for each level of PHP developer. Novice PHP developers can benefit from this by simple installation and start developing good applications.
-               It is equally useful for middle level programmer to proficient programmer with very useful Helper classes. 
-           </p><p>   Its ORM based database architecture is beneficial for developing scalable and complex Large scale applications. 
-               Memcache is also supported in this framework. Developers who want not to use structured database have freedom to use NoSQL database like MongoDB.
-               
-           
-             </p>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+           <p>Gliver: An extensible light weight Application framework. Gliver is an application framework based on PHP <a href="http://php.net/ChangeLog-5.php#5.6.16">v5.6</a>. It is an essential tool for PHP web developers who want easy to use yet powerful framework.
+               It is specially designed for each level of PHP developer. Novice PHP developers can benefit from this by simple installation and start developing cutting edge applications.
+               It is equally useful for middle level to advanced programmers with very useful Helper classes. </p>
+            <p>Its ORM based database architecture is beneficial for developing scalable and complex Large scale applications. 
+               Memcache is also supported in this framework. Developers who do not want to use structured database have freedom to use NoSQL database like MongoDB.</p>
         
             <h3 id="supported_features" class="text-danger">Supported Features</h3>
-                <p>
-                </p>
-                 <p>
-               Some considerable features of Gliver are:
-           <ul style='list-style: circle'>
-               <div class='row' style='padding-left: 3%'><li>It is light Weight. Unlike Laravel, it is very light weight but powerful.</li></div>
-               <div class='row' style='padding-left: 3%'><li>Gliver is fast and give you better performance then other frameworks</li></div>
-                <div class='row' style='padding-left: 3%'><li>With easy to use extensible architecture, you can extend it on all ends.</li></div>
-                <div class='row' style='padding-left: 3%'><li>It is supported MVC architecture which is need of the day.</li></div>
-                <div class='row' style='padding-left: 3%'><li>This framework provides very clean URL and .htaccess is already managed for clean urls. </li></div>
-                <div class='row' style='padding-left: 3%'><li>Gliver does not need any separate engine. It uses Gliver template engine which is very much same with PHP code.</li></div>
-                <div class='row' style='padding-left: 3%'><li>Helper Classes for all general purpose tasks like FORM building, Calendar,Captcha Cart,Directory,Download,Email,Pagination, Security, Unit testing and many more</li></div>
+            
+            <p>What is unique about Gliver framework so that it stands out?</p>
 
-
+            <ul>
+                <li>Gliver is very lightweight with a very small footprint, so your server memory is optmally utilized.</li>
+                <li>Configuration is very simple. You just specify all in array format, something you are already familiar with and can be changed any time as you feel like.</li>
+                <li>With the use of namespaces in your controllers, you can have as many controllers with similar names without any name conflict.</li>
+                <li>Defined routes, specified in an array format, makes route mapping very fast thereby reducing your request response time significantly.</li>
+                <li>PHP code loitered in the views files? Not looking nice. Glade templating out of the box, beatiful syntax as substitute for PHP code.</li>
+                <li>You deal with databases and you know writing query strings is not where you want to spend your time. With Intuitive ORM Model class - all these automated Rodger!</li>
+                <li>Having to keep memorizing your directory structure in order to load views files cannot help but introduce errors because you are human and will definitely forget - look, Express View loader comes to your help, all automated! Sounds cool huh?</li>
+                <li>So yesterday you wrote that sweet user management library, and now you thinking of Gliver and you wonder, what about your library of code! It's not going to be any distance from you. Either submit it as a package
+                    to the packagist repository then intall it into Gliver via <code>Composer</code> as a dependency or copy and paste that code into the <code>libraries</code> directory and enjoy functionality at full speed...</li>
+                <li>With advanced rules in our .htaccess file, you can only have but pretty clean urls. </li>
+                <li>Helper Classes for all general purpose tasks like Form building, Calendar,Captcha, Cart, Directory, Email, Pagination, Security, Unit testing...you needed more? Talk about it <a href="https://github.com/gliver-mvc/gliver/issues">here</a>  and it will be up tomorrow morning.</li>
            </ul>
                
-           </p>  
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
-
             <h3 id="flowchart" class="text-danger">Application Flowchart</h3>
                 <p>
                     <img src="{{ Url::assets('img/gliverarch.png') }}" alt="gliver application flow chart" width="100%" />

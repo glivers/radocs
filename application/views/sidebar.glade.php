@@ -10,6 +10,7 @@
 
             <a href="{{Url::base('home/installation')}}" class="lead">Installation</a>
             <div class="list-group">
+                <a href="{{Url::base('home/installation#requirements')}}" class="list-group-item">System Requirements</a>
                 <a href="{{Url::base('home/installation#via_composer')}}" class="list-group-item">Via Composer</a>
                 <a href="{{Url::base('home/installation#downloading')}}" class="list-group-item">Downloading</a>
                 <a href="{{Url::base('home/installation#upgrade')}}" class="list-group-item">Upgrade from previous versions</a>

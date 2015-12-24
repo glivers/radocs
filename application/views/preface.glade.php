@@ -37,7 +37,7 @@
 
 
 
-                <p>To get started with Gliver MVC , you need a runing web server and then head to <a href="https://github.com/gliver-mvc/gliver">Github.com</a> and download the source code. You might choose to use 
+                <p>To get started with Gliver MVC , you need a runing web server then <a href="https://github.com/gliver-mvc/gliver">download</a> the source code. You might choose to use 
                 the various distributions of Apache, depending on your operating system and that would suffice. No special software or environment will you need again to use this framework.  </p>
                 <p>Once you have downloaded the source code, extract it into the root directory of your web server and access the application vai a web browser, specifying the name of your installation directory, and there you go! Wish you a happy coding experience after...</p>
                 <p>For example, let's say you extracted your code into a folder in your web root called <code>gliver</code>, you access via your url in this manner <code>http://localhost/gliver</code> </p>
@@ -51,13 +51,13 @@
     }
 }                
 </pre>
-                after this you can run a <code>php composer.phar update</code> to download and install package contents. NOTE that you need to have composer installed on your local computer if you would like this to work. There is a more in depth guide on how to use <a href="https://getcomposer.org/" target="_blank">Composer </a> and <a href="https://packagist.org/" target="_blank">Packagist</a>  repositories on the respective sites.
+                after this you can run a <code>composer update</code> to download and install package contents. NOTE that you need to have composer installed on your local computer if you would like this to work. There is a more in depth guide on how to use <a href="https://getcomposer.org/" target="_blank">Composer </a> and <a href="https://packagist.org/" target="_blank">Packagist</a>  repositories on the respective sites.
                 </p>
 
 
                 <h3 id="release_notes" class="text-danger">Release Notes</h3>
                 
-                <p>This is the official release of the Gliver mvc version 0.0.1. Gliver MVC is, however, under active developemnt and updates are being pushed to the <a href="https://github.com/gliver-mvc/gliver">repository</a> every day. However, the syntax defined in version 0.0.1 will not change, only functionlity will be added. 
+                <p>The official stable release of Gliver framework is <span class="text-danger">v1.0.0</span>. Gliver MVC is, however, under active developemnt and updates are being pushed to the <a href="https://github.com/gliver-mvc/gliver">repository</a> every day. However, the syntax defined in version 0.0.1 will not change, only functionlity will be added. 
                 So if you have already learnt the syntax with this version, you are good to go, nothing would change, only for better functionality. However, you might want to keep checking out for new updates, 
                 so remember to subscribe to our newsletter so that we can keep you informed of every advancement. The updates would only include the very cool features that you have been waiting for...you don't want to miss out on this.</p>   
 

@@ -24,9 +24,9 @@
                 <a href="{{Url::base('home/getstarted#flowchart')}}" class="list-group-item">Application Flow Chart</a>
                 <a href="{{Url::base('home/getstarted#configuration')}}" class="list-group-item">Configuration</a>
                 <a href="{{Url::base('home/getstarted#routing')}}" class="list-group-item">Routing</a>
-                <a href="{{Url::base('home/getstarted#input')}}" class="list-group-item">Request/Input</a>
-                <a href="{{Url::base('home/getstarted#views')}}" class="list-group-item">Views/Responses</a>
-                <a href="{{Url::base('home/getstarted#errors')}}" class="list-group-item">Errors/Logging</a>
+                <a href="{{Url::base('home/getstarted#input')}}" class="list-group-item">Requests</a>
+                <a href="{{Url::base('home/getstarted#views')}}" class="list-group-item">Responses</a>
+                <a href="{{Url::base('home/getstarted#errors')}}" class="list-group-item">Error Handling</a>
             </div>
            
             <a href="{{Url::base('home/brief')}}" class="lead">Brief Tour</a>

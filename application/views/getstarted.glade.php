@@ -3,13 +3,13 @@
 
 @include('navbar')
 
-<div class="container" style='margin-bottom: 20%'>
+<div class="container">
     <div class="row">
         
 
         @include('sidebar') 
 
-        <div class="col-lg-9 lmargin">
+        <div class="col-md-9">
 
                 <a href="{{Url::base('home/getstarted')}}"><h1>Getting Started</h1></a><br>
 
@@ -48,264 +48,155 @@
                 <li>So yesterday you wrote that sweet user management library, and now you thinking of Gliver and you wonder, what about your library of code! It's not going to be any distance from you. Either submit it as a package
                     to the packagist repository then intall it into Gliver via <code>Composer</code> as a dependency or copy and paste that code into the <code>libraries</code> directory and enjoy functionality at full speed...</li>
                 <li>With advanced rules in our .htaccess file, you can only have but pretty clean urls. </li>
-                <li>Helper Classes for all general purpose tasks like Form building, Calendar,Captcha, Cart, Directory, Email, Pagination, Security, Unit testing...you needed more? Talk about it <a href="https://github.com/gliver-mvc/gliver/issues">here</a>  and it will be up tomorrow morning.</li>
+                <li>Helper Classes for all general purpose tasks like Form building, Calendar,Captcha, Cart, Directory, Email, Pagination, Security, Unit testing...you needed more? Talk about it <a target="_target" href="https://github.com/gliver-mvc/gliver/issues">here</a>  and it will be up tomorrow morning.</li>
            </ul>
                
             <h3 id="flowchart" class="text-danger">Application Flowchart</h3>
-                <p>
-                    <img src="{{ Url::assets('img/gliverarch.png') }}" alt="gliver application flow chart" width="100%" />
-                </p>  
-               <div class='row' style="padding-bottom: 5%">&nbsp;</div>
- 
+                <div>
+                    <img class="img img-resposive" src="{{ Url::assets('img/gliverarch.png') }}" alt="gliver application flow chart" width="100%" />
+                </div>
+
             <h3 id="configuration" class="text-danger">Configuration</h3>
-                
-            <p>
-                    There are two configuration(<code>config/config.php</code> and <code>config/database.php</code>) files for Gliver framework. Both files are in <code>config</code> Directory.
-                    
-                </p>
-                <h5>Basic Configuration</h5>
-                <p>By default, the page that loads the application home page... How did we get here? Check the directory structure below</p>
-<pre>
-application
-bin
-config
-public
-system
-vendor
-.htaccess
-license.txt
-readme.md
-composer.json
-</pre>
 
-                <p>At the very top is the application folder. This is where all of your code is gonna reside. In here you are going to write your code for the <code>Controllers</code>, <code>Models</code>, <code>Views</code> <code>Libraries</code> among others... For instance, you get to your controllers in this manner <code>application/controllers/</code>. In here
-                you will always find a <code>BaseController.php</code> class, do not delete this class as all controllers need to extend this class</p>
-                <p>Next is the <code>bin</code> folder. In here we have three directories,as below:
-                <pre>
-bin
-../cache
-../logs/error.log
-../sessions
-                </pre>
-                If you chose to enable caching through either Memcached or Redis, all the cached content would be written into the <code>cache</code> directory<br />
-                All error messages during your application are logged into the <code>logs</code> directory in a file called <code>error.log</code>. So if you want to read the error messages,
-                you will open up this file in a text editor. You will have an option of choosing to either only write error logs to file, this is ideal for a production environment and an option to as
-                well display error messages in the browser, in the configuration settings. If you choose to display errors in the browser, ideal for a development environment, the error messages would
-                as well be written to the log file though, for your future reference. You can always clear the contents of the <code>bin/logs/error.log</code> file at any time you feel like.
-                The <code>sessions</code> directory is where all the session data is stored. </p>
-                <br />
-                <p>Following is the <code>config</code> folder. All of your application specific settings reside here, including the database configuration settings. The settings are stored in an array format from where they are loaded at run time. So you will want to ensure you maintain a valid array after making your changes.
-                We have two configuration files...</p>
-                <pre>
-config
-../config.php
-../database.php
-                </pre>
-                <p>The <code>config.php</code> file is for all the general configuration while the <code>database.php</code> is particularly for the database configuration settings. There are already placeholders for you
-                 in the form of array keys, so you don't have to add any array for a new configutation, all you do is to change the values as you wish. Besides, there are comment lines to guide on what fits where... <br/>
-                 For instance, say you would like to change the application enviroment to development so that errors are displayed in the browser, you would so as below:
-                 <pre>
-/**
-*Set the application environment. Set boolean true for development and false for production 
-*all without quotes.
-*/
-'dev' => false,
-                 </pre>
-                 We would set the value of the <code>'dev' => true</code> to turn into development mode, <code>'dev' => false,</code> toggles production. These are booleans, so no need for quotes on the values. 
-                 </p>
+                <p>Configuring your application is the fun part after installing Gliver - and i bet you wanna do this before you begin writing any code. Configuring Gliver comes in different flavors depending on what you would like to configure.</p>
+            
+            <p class="alert alert-success">Note that the configutation files are always autoloaded by default and so do not require any special action from you - all you need to do is specify the values against the keys in the respective files. Do not modify key names as these are used to access the values
+            that you specify as is.</p>
 
-                <p>Just below the config directory is the <code>public</code> directory. Here you put the resources that you need for your applicaiton. These include the <code>css, javascript</code> and <code>images</code>
-                To load the content in here to your from end view files you will use a <code>Url::assets()</code> helper class, by passing in the name directory and name of the file as a first parameter to the method.
-                For instance, let's say you want to load your bootstrap.min.css file in you header file, and say your bootstrap file lies in this folder <code>public/css/bootstrap.min.css</code>, you will call the helper class as follows,
-                <code>Url::assets('css/bootstrap.min.css')</code>. You will learn more of these in the <code>Helpers</code> class sections </p>
-                <p>Next is the <code>system</code> directory.This is the core of the Gliver MVC Framework. All the code upon which this framework is built reside here. There is nothing for you to configure or touch here. However, 
-                you can browse and appreciate the directory structure if you will to. Do not make any changes though as any changes made here would be overriden when you update the framework, plus you might make modifications 
-                that could ground you application and fail to be able to fix it..</p>
-                <p>Last is the  <code>vendor</code> directory. Gliver has the ability to fetch code from the <code>packagist</code> repository and install them for use in this framework. So if you have some decoupled libraries that you would wanna use
-                in your application, and it exists at <a href="https://packagist.org/"> packagist</a>, you can do a <a href="https://getcomposer.org/"><code>composer install</code></a> and it would be right here! This is ideal for those who would like to contribute by writing packages for use by the gliver framework, 
-                . Again in here you don't wanna edit anything.<br/>
-                         
-                <p>
-                    Basic configuration can configure in <code>config/config.php</code> file. 
-                    You can do default settings of some important parameters like page tile, server name,root directory. You can assign default controller and default method of that controller in this file.
-                    
-                </p>
-                <h5>Database Configuration</h5>
-                <p>
-                    We can configure database related settings in this <code>config/database.php</code> file. 
-                    Here different database management servers settings are available. You can choose your choice database server and add your Database server setting in this file. 
-                    You have to make your database server name as default(first parameter of array in <code>config/database.php</code> ).
-                    
-                </p>
-                
-                
-                <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+            <p>There are four configuration files where you can specify options for your application. These options are always available throughout the entire application and can be accessed from anywhere in your application using the right classes. Include your configuration in either <span class="text-success">config.php, database.php or constants.php</span> </p>
+            
+            <h4 class="text-primary">Config.php</h4>  
+
+            <p>This file contains the general configuration options of your application. The config.php resides in the <code>config/config.php</code> directory. 
+            Comments appear before every config element to describe the purpose of the option. Most of the options are set to defaults with the associated datatype. So you can set the config options to your value of choice.
+            Always be sure of what you are doing before you make changes to configuration. Not all options in this file are alterable, for example, do not alter the root option.  </p> 
+
+            <p>Among other options, the values you can set in this file include application author, copyright, license, version... e.t.c - these values are automatically used to fill in metadata when generating classes using the <span class="text-primary">gliverich console</span>  terminal commands. </p>
+
+            <p>Set the value of <code>dev => true</code> if your application is running in development mode and make sure 
+                to set this to <code>false</code> as soon as you deploy to production. All that this would do is to ensure that error messages are not shown to the user when in production mode
+                in order to avoid exposing your server directory structure to that malicious jerk.</p>
+            
+            <p>An important thing you want to ensure you do before you leave this file is to set your default controller and action. These are key as they will be loaded as your homepage i.e. whenever you access you application without specifying the controller name and action to load - something like this <code>http://localhost/gliver</code></p>
+
+            <p>If you would like to make take advantage of caching technology, a feature Gliver proudly supports, then this is the place you want to define settings for accessing your Memcached server or Redis for that matter...</p>
+            
+            <h4 class="text-primary">Database.php</h4>  
+
+            <p>This is sister to Config.php as they reside in the same directory here <code>config/database.php</code> </p>
+            <p>The database configuration is separated from the general configuration as we intend to support as many databases as we can imagine and would to 
+                we would like to set these apart from the rest so as to avoid confusion - noting that database settings changed frequently (as soon as you realize your password is leaked!).</p>
+            <p>In the database configuration, you can specify the settings for any supported database then specify the default database you would like the application to alwasy connect to. As soon as you change your mind
+                and would like to use a different database, just set it as the default and that's all you need - all database database connections henceforth would default to you new set default. Ensure to enclose all you database setting values within single or double quotes. As well you do not need to modify the key names or add to any. They are already good to go.</p>
+            
+            <h4 class="text-primary">Constants.php</h4>  
+
+            <p>Here you can define all the values that you will need throughout all your application. Defining constants here would follow the same rules you observe when defining
+                constants in PHP. Once you define your contants here, you can access them from anywhere in your application by using the constant name.</p>
+                <p>You define constants of in this manner <code>define('NETWORK_ID', 'gliver');</code> then you can access them from anywhere in this manner <code> echo NETWORK_ID; </code> </p>
+
  
             <h3 id="routing" class="text-danger">Routing</h3>
-                <p>
-                    Routing can be configure in <code>application/routes.php</code> file.
-                    
-                    Here is sample code 
-                    <div class='row'>&nbsp;</div>
-                    <h5>Router - Example 1 <span>&nbsp;&nbsp;&nbsp; application/routes.php</span></h5>
-                    <div class="well">
-                        <code>
-                        return array(
-                        <br /><br />
-                        /**<br />
-                         *The home route.<br />
-                         *This route loads the home controller and use index method of home controller.<br />
-                         *@param null<br />
-                         *@return void<br />
-                         */<br /><br />
-                        'homepage' => 'home@index',<br /><br />
-                        /**<br />
-                         *This routes loads the search users page.<br />
-                         *@param null<br />
-                         *@return void<br />
-                         */<br /><br />
-                        'userspage' => 'home'<br /><br />
 
-                        );<br />
-                    </code>
-                    </div>
-                </p>    
-                
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+            <p>The routing feature enables mapping of defined keywords to particular controllers/action pairs. Routing also enabels you to pass url parameters to your controllers 
+            which it parses and includes as part of the Input parameters and you access them via the Input helper class. The routing class gives much flexibility so that you can map a defined route to a controller, a controller method pair and optionally name the parameters
+            that you expect to recieve along with the Url request</p>
 
-            <h3 id="input" class="text-danger">Request / Response</h3>
-            <h5 >Request Handling</h5>
-            <p>
-                Request handling in Gliver framework is handled through Input Helper class(<code>system/Helpers/Input.php</code>)
-                You can call this class in Controller. In following example, you will see how Input Helper class is used to get HTTP Requests.
-            </p>
-            <h5>Helper - Example 1: Request/Input <span>&nbsp;&nbsp;&nbsp; application/controllers/HelloController.php</span></h5>
-            <div class="well">
-                <code>
-                    namespace Controllers;
-            <div class='row'>&nbsp;</div>
- 
+            <p>Defined routes are set in the <span class="text-success">routes.php</span> file that resides in the <code>application/routes.php</code> directory. 
+                The routing class would then get the contents of this file at execution time and parse the route accordingly. Defining routes is, however, optional as you can decide to call your controllers
+                directly from the url and pass unamed parameters - accessing them using numbered indexes.</p>
+            <p>The comments in the routes.php file give a pretty self explanatory example of how to define routes, but let's take sometime and look at this into details</p>
+            <p class="alert alert-info">Remember that the routes.php file is an array and therefore should maintain a valid array format.</p>
+            <p>First be able to locate the routes.php file from within the <code>application/</code> directory then follow along...</p>
 
-            use Helpers\View;
-            <div class='row'>&nbsp;</div><div class='row'>&nbsp;</div>
+<pre>
+/**
+ *The admin users route.This route loads the home controller and getUser() method
+ *@param int $id The user id for which to load profile
+ *@param string $mode Whether to load profile in edit or view mode
+ */
+<span class="text-info">'adminusers' => 'Home@getUser/id/mode',</span>
+/**
+ *This routes loads the controller that display blog posts
+ *@param string $category The category from which to get blog content
+ *@param int $id The id of the post to load in this category
+ */
+ <span class="text-info">'blog' => 'Load/category/id',</span>
+</pre>
 
-            class HelloController extends BaseController{ 
-            <div class='row'>&nbsp;</div><div class='row'>&nbsp;</div>
+            <p>Say you have a controller class named <span class="text-info">LoadController</span> that you would like to invoke using the word <span class="text-info">blog</span>. 
+            In order to achieve this you will define this name value pair in the routes file as <code>"blog" => "Load",</code> - this simply means that word blog maps to the LoadController class, so that when you 
+            access the LoadController class from the url you use the word blog in this manner <code>http://localhost/gliver/blog</code>.
+            May be you have many articles so that you have put them into categories, and that each blog has a unique id. Inorder to load the right article, you  might wanna pass along with the route name
+            the blog category and the particular article id to load as part of the url. To make this even better, you can define the names with which to access the values of these parameters in your routes so that 
+            your work is made even easier. You do this by separating the controller name by a forward slash and then specifying the names of the parameters - each separated with a forward slash without any whitespace as so
+            <code>"blog"=>"Load/category/id"</code>. A sampe url would be this <code>http://localhost/gliver/blog/pages/electronics/45</code></p>
 
-                public function Index()
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div>
-                
-                { 
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div> 
-                <div style='padding-left:5%'>$input = Input::get();</div> 
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div>
-                <div style='padding-left:5%'>$data['email'] = $input['inputEmail'];// where 'inputEmail' is textbox name in Form</div>
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div> 
-                }	
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div>
-            }
-            <div class='row'>&nbsp;</div>
-            <div class='row'>&nbsp;</div> 
-                </code>
-                
+            <p>The above is rather general purpose. A case in study is where you would like to be more specific and define a route that maps to a controller class with the particular method to be executed. Sounds right? Yeah. 
+                Specifying a controller and method pair involves separating the controller class name with an @ symbol. We have a <span class="text-info">HomeController</span> class that among other things, helps us load user profiles
+                for view by the account admin. We can define an adminusers routes that maps to this controller and to be particular, the getUser() method in order to assist in loading user profiles. Look at this <code>"adminusers"=>"Home@getUser"</code>. Of course each user on
+                your system has a unique indentifier - this could be a unique integer value or id. Besides, you would like to load different pages for editing mode or for just viewing - sounds complex now? Things never got easier.... You can pass
+                all these parameters in the url and give them names with which to access them in this manner <code>"adminusers"=>"Home@getUser/id/mode"</code>. <br> Here is a sample url   <code>http://localhost/gliver/adminusers/4957450723/edit</code> </p>
+            <p>You may not just want to map a route to a controller alone, but go ahead and also specify a method to be executed along with the controller
+                whenever that route is accessed in the url. We still gat you covered in this - in order to specify a controller method pair you check below... We have our <span class="text-info">HomeController</span>
+                class that we would like ti invoke by calling 'adminhome' in the url.</p>
+            <div class="alert alert-info">
+            NOTE:
+            <ul>
+                <li>If you specify a route to map to a controller without specifying a particular method to be excecuted, then you need to supply the method name as the second parameter in the url, if not the default method set in your config.php would 
+                be excecuted whenever this route is accessed.</li>
+                <li>If you define named url parameters in routes file for a particular route, any additional parameters passed along with the url would be discarded and only the named values would to available.</li>
+                <li>If you don't name your url parameters, you can access unlimited number of url parameters in the order in which they appear in the url by using indexes begining from 0...onwards.</li>
+            </ul>
+
             </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
-           
-            <h3 id="views" class="text-danger">Views/Responses</h3>
-                <p>
-                    We discussed this in <a href='{{ Url::base('brief#views') }}'>View</a> Section. 
-                    For sake of completion, we are putting that example here:
-                </p>
-                <h5>Controller - Example 1: Views/Responses <span>&nbsp;&nbsp;&nbsp; /application/controllers/HelloController.php</span></h5>
-              
-                <div class="well">
-                    <p>
-                    <code>
-                        $data['title'] = 'Hello Word';  
-                        <div class='row'>&nbsp;</div>
+                
+            <h3 id="input" class="text-danger">Requests</h3>
 
-                        View::render('helloword/helloword',$data);
-                    </code>
-                    </p>
-                </div>
+            <p>What would be the purpose of a framework if it were not able to handle requests? Proper and secure request handling is key to a strong framework that 
+                wants to be efficient and at the same time safeguard your application and server resources. </p>
+            <p>A request in Gliver is invoked by accessing a url, for example <code>http://localhost/gliver</code>. This would look rather simple but there is much that goes in here Rodger!</p>
+            <p>For the security of our application, excecutable PHP code does not reside in the root of the application. With the use of rules in our .htaccess file in the root directory, all requests are re-routed into the 
+                public directory. The second .htaccess file in the public directory would check for the nature of this request. If this is a request for an asset file i.e. a css, js, img files it would return the resource. 
+                If not, it would direct this request to the index.php file - thereby infering that this would be a request to load a controller. The controller is the entry point into your application.</p>
+            <p>This means that we would then invoke the routing class. This class would first check and disarm the request url against XXS(Cross Site Scripting), as a security measure, before going ahead to parse the url into controller/method pairs.</p>
+            <p>When making a request Gliver enables you to send with the request data in the form of GET, POST and URL parameters. All these you access using the <span class="text-primary">Input</span> helper class. More would be discussed about the Input helper class in 
+                the helpers section but you will need the parameter name in order to access its value. For example, if you submitted a form with field of name email in it, you will 
+                access the value of the email parameter in this manner <code>Input::get('email')</code>. </p>
+            <p>If you defined a route in this manner <code>'adminusers' => 'Home@getUser/id/mode',</code> and you have a url of this nature <code>http://localhost/gliver/adminusers/4957450723/edit</code>, you access the value of the id parameter in this 
+                manner <code>Input::get('id')</code> - which would return <span class="text-primary">4957450723</span>.</p>
+            <p class="alert alert-info">Gliver framework would only help you map a request to a controller and method pair to excecute passing along the parameters sent by request, besides securing your application from XXS. However, the rest of the logic on how, what and when your request is handled is code that you will have to write yourself.</p>
             
-            </p>
-            <p>
-                Now, assign this variable using Gliver template engine as
-                <h5>View - Example 1: Views/Responsers<span>&nbsp;&nbsp;&nbsp; /application/views/helloword/helloword.php</span></h5>
-              
-                <div class="well">
-                <p>
-                <code>
-                    <span><</span>title<span>></span><span> {<span>{</span> $title <span>}</span><span>} </span>
-                 <span><</span><span>/</span>title<span>></span><span>
-                </code>
-                </p>
-              </div>
-                
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
-   
-            <h3 id="errors" class="text-danger">Errors/Logging</h3>
-                <p>
-                    Gliver extends basic exception handling through Helper exception class (<code>/system/Helpers/Exceptions/HelperException.php</code>)
-                </p> 
-                <p>In following Code snippet, we used exception handling in Helper Form class using HelperException Class.</p>
-                <h5>Helper - Example 1:Exception Handling <span>&nbsp;&nbsp;&nbsp; /system/Helpers/Form.php</span></h5>
-              
-                <div class="well">
-                    <p>
-                    <code>
-                        <br />
-                        public static function open($form_attr=array()) 
-                        {<br /><br />
-                            //this try block is excecuted to enable throwing and catching of errors as appropriate.<br /><br />
-                        try {<br /><br />
 
-                        //this block throwing exception if method argument is not an array
-                        <br /><br />
-                            if(! is_array($form_attr)){
-                         <br /><br />  
-                                throw new HelperException(sprintf('Expecting array of form attributes.e.g.$form_attr = array(\'name\'=>\'form1\',\'action\'=>\'post\')',$form_attr));
-                            <br /><br />
-                            }
-                            <br /><br />
-                                $form_attr_str='';<br /><br />
-                                foreach($form_attr as $key=>$val) { <br /><br />
-                                    $form_attr_str .= $key.'="'.$val.'" ';<br /><br />
-                                }<br /><br />
-                                //$form_attr_str = implode('= ',$form_attr);<br /><br />
-                                return "<form .$form_attr_str.' >';<br /><br />
-                            }<br /><br />
+            <h3 id="views" class="text-danger">Responses</h3>
 
-                            catch(BaseException $e) {<br /><br />
+            <p>Whenever a request is made, there is need for a response - or their might be no point of the request.</p>
+            <p>After processing a url request, it's time to respond back to the user and let them know what you did, the outcome of it and their next steps.... Most, if not all, responses are handled with the <span class="text-primary">View</span> helper class.
+            The result of the request could be loading a view file, responding with json data, csv, pdf and others options as you may wish. You will look more on how to load and use the View helper class in the helpers section but we will show an example of how to load 
+            a view file using the View helper class.</p>
+            <p>Place all your view files in the <code>application/views/</code> directory. Gliver has glade templating inbuilt and is enabled by default and all view files must have a <span class="text-info">.glade.php</span> extension. </p>
+            <p>Say you have a users.glade.php view file under the views/home directory so that your dir structure is <code>application/views/home/users.glade.php</code>, you 
+                will load the users.glade.php view file in this manner <code>View::render('home/users')</code>.</p>        
+                   
+            <h3 id="errors" class="text-danger">Error Handling</h3>
 
-                                //echo $e->getMessage();<br /><br />
-                                $e->show();<br /><br />
+            <p>Error handling in Gliver comes in two flavors - either through PHP errors or Exceptions.</p>
+            <p>Most likely when writing, testing and deploying your application you are going to break something - you are human, right? Informative error information is a very quick and effective way to 
+                troubleshoot and fix the bug. All errors encoutered in your application are logged into the error.log file found in the <code>bin/logs/error.log</code> directory. However, you can also choose to display these errors to the screen - a good idea if you are working in development 
+                mode to mend things a little faster. </p>
 
-                            }<br /><br />
+            <p>The setting on whether to display or hide and log error messages is defined in the config.php file where you set <code>"dev"=>true,</code> when 
+                working in a development environment - this makes error messages to be displayed to the screen. Setting <code>"dev"=>false,</code> would turn off 
+                error display on the screen, so that whenever there is an error message it is logged in the log file and a template error page is shown in the browser. This 
+                is good for production mode to avoid exposing your application or server directory structure to a malicious jerk.</p>
+            
 
-                            catch(Exception $e) {<br /><br />
-
-                              echo $e->getMessage();<br /><br />
-
-                            }<br /><br />
-
-                        }
-                        <div class='row'>$data['title'] = 'Hello Word';</div>
-                        <div class='row'>&nbsp;</div>
-
-                        View::render('helloword/helloword',$data);
-                    </code>
-                    </p>
-                </div>
-                
-                <div class='row' style="padding-bottom: 5%">&nbsp;</div>
-
+            <p>You might however want to create custom error messages that might be more sensible to your users - who may not be techies...</p>
+            <p>In that case, therefore, you might want to consider using <span class="text-info">Exceptions</span>. You might want to use your exceptions within a try...catch block, but that is 
+            entrely up-to you. Create your own Exception class by extending the <span class="text-primary">Exceptions/BaseExceptionClass</span> so that you enjoy 
+            all the built in functionality in the exception class already. In order to make use of this class, throw exceptions by passing the custom error message in this manner <code>throw new BaseExceptionClass("...your error message here...");</code> then catch this in a block 
+            and display the error message by calling the errorShow() method like so <code>$BaseExceptionClassInstance->errorShow()</code>.</p>
+        
         </div>
 
     </div>

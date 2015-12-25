@@ -9,7 +9,7 @@
         @include('sidebar')
 
 
-        <div class="col-lg-9">
+        <div class="col-md-9">
 
                 <a href="{{Url::base('home/installation')}}"><h1>Installation</h1></a><br>
 

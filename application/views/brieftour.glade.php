@@ -21,54 +21,57 @@
 
 
 
-           <h3 id="controllers" class="text-danger">Controllers</h3>
-            <p> You place all your controller classes in the <code>application/controllers</code> directory.</p>
-            <p>The entry point into your application is via the controllers. So it is from here that all the code for your application is executed. 
-            When writing your controller, you need to specify the namespace so that the autoloader can detect it. Besides, all controllers extend the <code>BaseController</code> class. </p>
-            <p>For example,let's try to create a simple <code>HelloController</code> class.</p>
-            <h5>Controller - Example 1: Hello Word <span>&nbsp;&nbsp;&nbsp; /application/controllers/HelloController.php</span></h5>
-             <div class="well">
-            <p>
-            <code>
-                <<span>?</span>php namespace Controllers; //controller namespace included
-            <div class='row'>&nbsp;</div>
- 
+            <h3 id="controllers" class="text-danger">Controllers</h3>
 
-            use Input; //Input helper class is added
-            <div class='row'>&nbsp;</div><div class='row'>&nbsp;</div>
+            <p>Controllers form the entry point into your application. It is from here that you can call your model classes, libraries and load the view files, among other things... </p>
+<pre>
+&lt;?php <span class="text-warning">namespace Controllers;</span>
 
-            class HelloController extends BaseController {  // class hellocontroller defined
-            <div class='row'>&nbsp;</div><div class='row'>&nbsp;</div>
+/**
+ *This class loads the application homepage
+ *<span class="text-danger">@author</span> Geoffrey Bans &lt;geoffreybans@gmail.com>
+ *<span class="text-danger">@copyright</span> 2015 - 2020 Geoffrey Bans
+ *<span class="text-danger">@category</span> Controllers
+ *<span class="text-danger">@package</span> Controllers\Home
+ *<span class="text-danger">@link</span> https://github.com/gliver-mvc/gliver
+ *<span class="text-danger">@license</span> http://opensource.org/licenses/MIT MIT License
+ *<span class="text-danger">@version</span> 1.0.1
+ */
 
-                public function Index() //hellocontroler method index is defined
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div>
-                
-                { 
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div>
-                    
-                <div style='padding-left:5%'>echo 'hello word!';</div> 
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div>
-                
-                }	
-                <div class='row'>&nbsp;</div>
-                <div class='row'>&nbsp;</div>
-            }
-            <div class='row'>&nbsp;</div>
-            <div class='row'>&nbsp;</div> 
+<span class="text-danger">use</span> <span class="text-warning">Helpers\View\View;</span>
+
+<span class="text-primary">class</span> HomeController <span class="text-danger">extends</span> <span class="text-success">BaseController</span>  {
+
+    /**
+     *This method loads the preface page.
+     *<span class="text-danger">@param</span> null
+     *<span class="text-danger">@return</span> void
+     */
+    <span class="text-danger">public</span> <span class="text-primary">function</span> <span class="text-success">getIndex()</span>
+    {
+        //get the ending date today
+        <span class="text-primary">View</span>::render('home/index');
+
+    }   
+</pre>         
 
             
-            </code>
-            </p>
-            </div>
+           <p>Controllers reside in the <code>application/controllers/</code> directory - and are always autoloaded as need be, so all you need is define the code to be executed and the excecution would proceed seamlessly. When defining your 
+            controllers, you wanna ensure you stick to these pattern:</p>
+            <ul>
+                <li>The file that contains your controller class must reside within the <code>application/controllers</code> directory or subdirectory</li>
+                <li>One file can only contain one controller class.</li>
+                <li>Controller class files must have a <span class="text-info">.php</span> file extension. The name of the controller class must be the same as the name of the file: <span class="text-info">HomeController</span> class should be in <span class="text-info">HomeController.php</span>. </li>
+                <li>Controller class and file names must have the 'Controller' suffix as <span class="text-info">HomeController</span>.</li>
+                <li>When accessing controllers from a url, you only specify the controller name without the 'Controller' suffix as <span class="text-danger">http://localhost/gliver/home</span></li>
+                <li>All controllers classes must extend the <span class="text-primary">BaseController</span> class.</li>
+                <li>You want to ensure you namespace your controllers, so that they will be autoloaded as expected. If your controller class resides in the <span class="text-warning">application/controllers</span> directory 
+                    then use <span class="text-primary">namespace Controllers;</span> else if your controller resides within a subdirectory like 'Admin' as <span class="text-warning">application/controllers/Admin</span> use <span class="text-primary">namespace Controllers\Admin;</span> - this follows psr-4 namespace pattern.</li>
 
-            <div class="alert alert-info" role="alert">
-                <p>  <strong>Note!</strong> The first thing to note is that the name of the php file wherein you have your class must be the same as the name of the Controller class. One file can only contain one controller class
-                </p>
-            </div>
-            
+            </ul>
+
+            <p class="alert alert-info">Use PHPDoc commenting style to add metadata to your class - as part of your documentation. This would help you and other developers looking at your code understand the purpose of your controller 
+                classes, methods and expected behavior of the controllers.</p>
                        
             <h3 id="views" class="text-danger">Views</h3>
                 <p>

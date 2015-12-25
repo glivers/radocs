@@ -18,9 +18,9 @@
                 <a href="{{Url::base('home/getstarted#flowchart')}}" class="lead">Application Flow Chart</a><br>
                 <a href="{{Url::base('home/getstarted#configuration')}}" class="lead">Configuration</a><br>
                 <a href="{{Url::base('home/getstarted#routing')}}" class="lead">Routing</a><br>
-                <a href="{{Url::base('home/getstarted#input')}}" class="lead">Request/Input</a><br>
-                <a href="{{Url::base('home/getstarted#views')}}" class="lead">Views/Responses</a><br>
-                <a href="{{Url::base('home/getstarted#errors')}}" class="lead">Errors/Logging</a><br>
+                <a href="{{Url::base('home/getstarted#input')}}" class="lead">Requests</a><br>
+                <a href="{{Url::base('home/getstarted#views')}}" class="lead">Responses</a><br>
+                <a href="{{Url::base('home/getstarted#errors')}}" class="lead">Error Handling</a><br>
 
 
            <h3 id="glance" class="text-danger">Gliver at a glance</h3>
@@ -112,14 +112,14 @@
 <pre>
 /**
  *The admin users route.This route loads the home controller and getUser() method
- *@param int $id The user id for which to load profile
- *@param string $mode Whether to load profile in edit or view mode
+ *<span class="text-danger">@param</span> int $id The user id for which to load profile
+ *<span class="text-danger">@param</span> string $mode Whether to load profile in edit or view mode
  */
 <span class="text-info">'adminusers' => 'Home@getUser/id/mode',</span>
 /**
  *This routes loads the controller that display blog posts
- *@param string $category The category from which to get blog content
- *@param int $id The id of the post to load in this category
+ *<span class="text-danger">@param</span> string $category The category from which to get blog content
+ *<span class="text-danger">@param</span> int $id The id of the post to load in this category
  */
  <span class="text-info">'blog' => 'Load/category/id',</span>
 </pre>
@@ -150,6 +150,8 @@
             </ul>
 
             </div>
+
+            <p>If you would like to define a route for a controller that is within a subdirectory, e.g <code>application/controllers/Admin/HomeController</code>, you specify the namespace in this manner <span class="text-primary">"adminusers"=>"Admin\Home@getUser/id/mode</span>.</p>
                 
             <h3 id="input" class="text-danger">Requests</h3>
 
@@ -167,6 +169,13 @@
                 manner <code>Input::get('id')</code> - which would return <span class="text-primary">4957450723</span>.</p>
             <p class="alert alert-info">Gliver framework would only help you map a request to a controller and method pair to excecute passing along the parameters sent by request, besides securing your application from XXS. However, the rest of the logic on how, what and when your request is handled is code that you will have to write yourself.</p>
             
+            <p>Gliver framework can detect the request method - which can either be GET or POST. With this feature comes a cool ability of Gliver to load a controller method based on your request method. 
+                This means that you can use the same method name in different request methods. For example:</p>
+            <p>Say you have a controller class named <span class="text-primary">LoginController</span> and would like to use the same method name for loading a login form and at the same time processing user login information - you will do this as below.</p>
+            <p>Create two methods named <span class="text-primary">getLogin()</span> and <span class="text-primary">postLogin()</span>. You will access both methods with the same url as <code>http://localhost/gliver/login/login</code>. Accessing this url in your address bar 
+                will load the user login form as the request method would be GET and the <span class="text-primary">getLogin</span> method would be excecuted. Once the user fills up the form, you specify in your 
+                action attribute the same url for form submission as this <code>&lt;form action="http://localhost/gliver/login/login" method="post" ></code>. When the user then submits the form, 
+                Gliver would detect this as a POST request and therefore submit your form to the <span class="text-primary">postLogin</span> method of the LoginController. So, there you go! Using the same method name to excecute different methods depening on the request method.</p>
 
             <h3 id="views" class="text-danger">Responses</h3>
 
@@ -176,7 +185,8 @@
             a view file using the View helper class.</p>
             <p>Place all your view files in the <code>application/views/</code> directory. Gliver has glade templating inbuilt and is enabled by default and all view files must have a <span class="text-info">.glade.php</span> extension. </p>
             <p>Say you have a users.glade.php view file under the views/home directory so that your dir structure is <code>application/views/home/users.glade.php</code>, you 
-                will load the users.glade.php view file in this manner <code>View::render('home/users')</code>.</p>        
+                will load the users.glade.php view file in this manner <code>View::render('home/users')</code>.</p>
+            <p>If you would like to pass data to be used by your view files, pass it as the second parameter in array format as <code>View::render('home/users', array('title'=>'Gliver - Official Site'))</code>, you will then access this variable in your view file as <span class="text-success">$title</span>.</p>        
                    
             <h3 id="errors" class="text-danger">Error Handling</h3>
 

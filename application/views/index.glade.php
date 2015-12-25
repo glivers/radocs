@@ -19,7 +19,7 @@
 
     <!-- Custom Fonts -->
     <link href="{{Url::assets('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="{{Url::assets('css/font-css.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 

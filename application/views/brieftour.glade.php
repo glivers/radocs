@@ -10,7 +10,7 @@
 
         @include('sidebar')
             
-        <div class="col-lg-9">
+        <div class="col-md-9">
             
                 <a href="{{Url::base('home/brief')}}"><h1>Brief Tour</h1></a><br>
 

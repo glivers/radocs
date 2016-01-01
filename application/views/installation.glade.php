@@ -11,13 +11,13 @@
 
         <div class="col-md-9">
 
-                <a href="{{Url::base('home/installation')}}"><h1>Installation</h1></a><br>
+                <a href="{{Url::link('home/installation')}}"><h1>Installation</h1></a><br>
 
-                <a href="{{Url::base('home/installation#requirements')}}" class="lead">System Requirements</a><br>
-                <a href="{{Url::base('home/installation#via_composer')}}" class="lead">Via Composer</a><br>
-                <a href="{{Url::base('home/installation#downloading')}}" class="lead">Downloading</a><br>
-                <a href="{{Url::base('home/installation#upgrade')}}" class="lead">Upgrade from previous versions</a><br>
-                <a href="{{Url::base('home/installation#troubleshooting')}}" class="lead">Troubleshooting</a><br>
+                <a href="{{Url::link('home/installation#requirements')}}" class="lead">System Requirements</a><br>
+                <a href="{{Url::link('home/installation#via_composer')}}" class="lead">Via Composer</a><br>
+                <a href="{{Url::link('home/installation#downloading')}}" class="lead">Downloading</a><br>
+                <a href="{{Url::link('home/installation#upgrade')}}" class="lead">Upgrade from previous versions</a><br>
+                <a href="{{Url::link('home/installation#troubleshooting')}}" class="lead">Troubleshooting</a><br>
 
             <h3 id="requirements" class="text-danger">System Requirements</h3>
 

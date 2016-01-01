@@ -11,14 +11,14 @@
 
             <div class="col-lg-9">
 
-            	<a href="{{Url::base('home/database')}}"><h1>Database</h1></a><br>
+            	<a href="{{Url::link('home/database')}}"><h1>Database</h1></a><br>
 
-                <a href="{{Url::base('home/database#basic_usage')}}" class="lead">Basic Usage</a><br>
-                <a href="{{Url::base('home/database#query_builder')}}" class="lead">Query Builder</a><br>
-                <a href="{{Url::base('home/database#eloquent')}}" class="lead">Intuitive ORM</a><br>
-                <a href="{{Url::base('home/database#schema_builder')}}" class="lead">Schema Builder</a><br>
-                <a href="{{Url::base('home/database#migration_seeding')}}" class="lead">Migration/Seeding</a><br>
-                <a href="{{Url::base('home/database#errors')}}" class="lead">Errors/Logging</a><br>
+                <a href="{{Url::link('home/database#basic_usage')}}" class="lead">Basic Usage</a><br>
+                <a href="{{Url::link('home/database#query_builder')}}" class="lead">Query Builder</a><br>
+                <a href="{{Url::link('home/database#eloquent')}}" class="lead">Intuitive ORM</a><br>
+                <a href="{{Url::link('home/database#schema_builder')}}" class="lead">Schema Builder</a><br>
+                <a href="{{Url::link('home/database#migration_seeding')}}" class="lead">Migration/Seeding</a><br>
+                <a href="{{Url::link('home/database#errors')}}" class="lead">Errors/Logging</a><br>
 
 
                         <h3 id="basic_usage" class="text-danger">Basic Usage</h3>

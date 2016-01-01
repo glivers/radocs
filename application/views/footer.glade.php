@@ -9,11 +9,11 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="{{Url::base('home')}}">Home</a>
+                            <a href="{{Url::link('home')}}">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="{{Url::base('preface')}}">Documentation</a>
+                            <a href="{{Url::link('preface')}}">Documentation</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>

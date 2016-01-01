@@ -12,12 +12,12 @@
             
         <div class="col-md-9">
             
-                <a href="{{Url::base('home/brief')}}"><h1>Brief Tour</h1></a><br>
+                <a href="{{Url::link('home/brief')}}"><h1>Brief Tour</h1></a><br>
 
-                <a href="{{Url::base('home/brief#controllers')}}" class="lead">Controllers</a><br>
-                <a href="{{Url::base('home/brief#views')}}" class="lead">Views</a><br>
-                <a href="{{Url::base('home/brief#templating')}}" class="lead">Templating</a><br>
-                <a href="{{Url::base('home/brief#models')}}" class="lead">Models</a><br>
+                <a href="{{Url::link('home/brief#controllers')}}" class="lead">Controllers</a><br>
+                <a href="{{Url::link('home/brief#views')}}" class="lead">Views</a><br>
+                <a href="{{Url::link('home/brief#templating')}}" class="lead">Templating</a><br>
+                <a href="{{Url::link('home/brief#models')}}" class="lead">Models</a><br>
 
 
 
@@ -289,7 +289,7 @@ class HomeController <span class="text-danger">extends</span> <span class="text-
 }
 </pre>     
 
-      <p class="alert alert-info">For more information on how to make use of the Query Builder and ORM read more on the <a href="{{Url::base('home/database')}}" class="lead">Database</a> section of this documentation.</p>
+      <p class="alert alert-info">For more information on how to make use of the Query Builder and ORM read more on the <a href="{{Url::link('home/database')}}" class="lead">Database</a> section of this documentation.</p>
         </div>
     
     </div>

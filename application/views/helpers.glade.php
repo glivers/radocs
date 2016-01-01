@@ -11,17 +11,17 @@
 
         <div class="col-lg-9">
 
-                <a href="{{Url::base('home/helpers')}}"><h1>Helpers</h1></a><br>
+                <a href="{{Url::link('home/helpers')}}"><h1>Helpers</h1></a><br>
 
-                <a href="{{Url::base('home/helpers#array')}}" class="lead">Array</a><br>
-                <a href="{{Url::base('home/helpers#date')}}" class="lead">Date</a><br>
-                <a href="{{Url::base('home/helpers#file')}}" class="lead">File</a><br>
-                <a href="{{Url::base('home/helpers#form')}}" class="lead">Form</a><br>
-                <a href="{{Url::base('home/helpers#input')}}" class="lead">Input</a><br>
-                <a href="{{Url::base('home/helpers#path')}}" class="lead">Path</a><br>
-                <a href="{{Url::base('home/helpers#url')}}" class="lead">Url</a><br>
-                <a href="{{Url::base('home/helpers#session')}}" class="lead">Session</a><br>
-                <a href="{{Url::base('home/helpers#upload')}}" class="lead">Upload</a><br>
+                <a href="{{Url::link('home/helpers#array')}}" class="lead">Array</a><br>
+                <a href="{{Url::link('home/helpers#date')}}" class="lead">Date</a><br>
+                <a href="{{Url::link('home/helpers#file')}}" class="lead">File</a><br>
+                <a href="{{Url::link('home/helpers#form')}}" class="lead">Form</a><br>
+                <a href="{{Url::link('home/helpers#input')}}" class="lead">Input</a><br>
+                <a href="{{Url::link('home/helpers#path')}}" class="lead">Path</a><br>
+                <a href="{{Url::link('home/helpers#url')}}" class="lead">Url</a><br>
+                <a href="{{Url::link('home/helpers#session')}}" class="lead">Session</a><br>
+                <a href="{{Url::link('home/helpers#upload')}}" class="lead">Upload</a><br>
 
         <br><br>
         <p class="alert alert-info">You only need to load the Helper classes when using them from your controllers, models or libraries. However, in the view files the helper classes are automatically loaded using the alias names specified in the <span class="text-info">config.php</span>. <br>
@@ -345,7 +345,7 @@ class HomeController extends BaseController {
         <p>To load this class use <code>use Helpers\Url\Url;</code></p>
 
 
-        <h3 class="text-info">Url::base()</h3>
+        <h3 class="text-info">Url::link()</h3>
 
         <p>This method returns the base url string - the url to your root installation</p>
         <p>This method does not expect any parameter</p>
@@ -355,7 +355,7 @@ class HomeController extends BaseController {
 <pre class="bg-success">
 //say you have installed you framework in gliver folder in your localhost, this is how you get the url
 
-$base_url = Url::base();
+$base_url = Url::link();
 
 echo $base_url; //should output http://localhost/gliver/
 </pre>
@@ -385,10 +385,10 @@ echo $base_url; //should output http://localhost/gliver/
          </p>
          <p>
          <ul style="list-style: circle;margin-left: 5%;">
-             <div class='row'><li><a href='{{Url::base('helpers#inload')}}'>Loading Input Helper</a></li>
+             <div class='row'><li><a href='{{Url::link('helpers#inload')}}'>Loading Input Helper</a></li>
              </div>
              <div class='row'>
-             <li><a href='{{Url::base('helpers#infunc')}}'>Input Functions</a></li>
+             <li><a href='{{Url::link('helpers#infunc')}}'>Input Functions</a></li>
             </div>
          </ul>
          </p> 
@@ -455,10 +455,10 @@ echo $base_url; //should output http://localhost/gliver/
          </p>
          <p>
          <ul style="list-style: circle;margin-left: 5%;">
-             <div class='row'><li><a href='{{Url::base('helpers#sessload')}}'>Loading Session Helper</a></li>
+             <div class='row'><li><a href='{{Url::link('helpers#sessload')}}'>Loading Session Helper</a></li>
              </div>
              <div class='row'>
-             <li><a href='{{Url::base('helpers#sessfunc')}}'>Session Functions</a></li>
+             <li><a href='{{Url::link('helpers#sessfunc')}}'>Session Functions</a></li>
             </div>
          </ul>
          </p> 

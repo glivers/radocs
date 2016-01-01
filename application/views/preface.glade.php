@@ -13,12 +13,12 @@
             
             <div class="col-md-9">
 
-                <a href="{{Url::base('home/preface')}}"><h1>Preface</h1></a><br>
-                <a href="{{Url::base('home/preface#introduction')}}" class="lead">Introduction</a><br>
-                <a href="{{Url::base('home/preface#quick_start')}}" class="lead">Quick Start</a><br>
-                <a href="{{Url::base('home/preface#release_notes')}}" class="lead">Release Notes</a><br>
-                <a href="{{Url::base('home/preface#upgrade_guide')}}" class="lead">Upgrade Guide</a><br>
-                <a href="{{Url::base('home/preface#contribution_guide')}}" class="lead">Contribution Guide</a><br>
+                <a href="{{Url::link('home/preface')}}"><h1>Preface</h1></a><br>
+                <a href="{{Url::link('home/preface#introduction')}}" class="lead">Introduction</a><br>
+                <a href="{{Url::link('home/preface#quick_start')}}" class="lead">Quick Start</a><br>
+                <a href="{{Url::link('home/preface#release_notes')}}" class="lead">Release Notes</a><br>
+                <a href="{{Url::link('home/preface#upgrade_guide')}}" class="lead">Upgrade Guide</a><br>
+                <a href="{{Url::link('home/preface#contribution_guide')}}" class="lead">Contribution Guide</a><br>
 
 
                 <h3 id="introduction" class="text-danger">Introduction</h3>

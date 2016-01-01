@@ -41,12 +41,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{Url::base('home/preface')}}">Documentation</a></li>
+                    <li><a href="{{Url::link('home/preface')}}">Documentation</a></li>
                     <li><a href="https://github.com/gliver-mvc/gliver/archive/master.zip">Download</a></li>
-                    <li><a href="{{Url::base('#contact')}}">Contact</a></li>
+                    <li><a href="{{Url::link('#contact')}}">Contact</a></li>
                     <li><a href="http://eddy.glivers.com/blog/gliver-mvc/">Blog</a></li>
                     <li><a href="#">Community</a></li>
-                    <li><a href="{{Url::base('#contribute')}}">Contribute</a></li>
+                    <li><a href="{{Url::link('#contribute')}}">Contribute</a></li>
                
                 </ul>
             </div>
@@ -243,12 +243,12 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="{{Url::base('home')}}">Home</a>
+                            <a href="{{Url::link('home')}}">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="{{Url::base('home/preface')}}">Documentation</a>
+                            <a href="{{Url::link('home/preface')}}">Documentation</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>

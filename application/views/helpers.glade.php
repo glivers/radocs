@@ -22,6 +22,7 @@
                 <a href="{{Url::link('home/helpers#url')}}" class="lead">Url</a><br>
                 <a href="{{Url::link('home/helpers#session')}}" class="lead">Session</a><br>
                 <a href="{{Url::link('home/helpers#upload')}}" class="lead">Upload</a><br>
+                <a href="{{Url::link('home/helpers#redirect')}}" class="lead">Redirect</a><br>
 
         <br><br>
         <p class="alert alert-info">You only need to load the Helper classes when using them from your controllers, models or libraries. However, in the view files the helper classes are automatically loaded using the alias names specified in the <span class="text-info">config.php</span>. <br>
@@ -360,304 +361,45 @@ $base_url = Url::link();
 echo $base_url; //should output http://localhost/gliver/
 </pre>
 
-        <h3 class="text-info">Url::assets()</h3>
 
 
+        <h2 id="redirect" class="text-danger">Redirect</h2>
 
-        <h3 id="form" class="text-danger">Form</h3>
+        <p>This helper class helps you to manage php session re-direction</p>
+        <p>You load this class in this manner <code>use Helpers\Redirect\Redirect;</code></p>
+        <p>This class sends header back to the browser and returns a REDIRECT(302) status code to the browser.</p>
+        
+        <h3 class="text-info">Redirect::to()</h3>
+        <p>This method redirects the browser to the url specified</p>
+        <p>This method can take two parameters like so <code>Redirect::to($path, array $data = null)</code>.</p>
+        <p><code>$path</code> The controller or route name to redirect to. This parameter is required.</p>
+        <p><code>$data</code> The data to append to the url as query string. This has to be in a valid array format. This parameter is optional.</p>
 
+        <p class="text-danger">Example</p>
 
-               <div class="col-lg-12" id='form_div'>
-            <p>
-            Form class uses for Form related functions. <br />
-            Details are coming soon...
-            </p> 
-            </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>
+<pre class="bg-success">
+//say we would like to redirect to the ProfileController view() method with user id information
+//lets compose the data array
+$data = array('id'=>9897717171);
 
+Redirect::to('profile/view', $data); //this loads this url http://localhost/gliver/profile/view?id=9897717171
+</pre>
 
-        <h3 id="input" class="text-danger">Input</h3>
+        <h3 class="text-info">Redirect::with()</h3>
+        <p>This method enables you to specify parameters to be set as part of the redirect url. These parameters will be appended as a query string to the url string generated.</p>
+        <p>This method expects one parameter - an array with the key/value pairs to be appended to url. Array keys with null or empty elements will be stripped off from the query string.</p>
+        <p><code>$data</code> The array with parameter to pass to url as query string. This parameter is required.</p>
+        <p>You call this method chainied with the to() method in this manner <code>Redirect::with($data)->to('home');</code></p>
+        <p>Calling this method is the same as passing the $data array as a second parameter to the Redirect::to() method</p>
 
+        <p class="text-danger">Example</p>
+<pre class="bg-success">
+//say we would like to redirect to the ProfileController view() method with user id information
+//lets compose the data array
+$data = array('id'=>9897717171);
 
-              <div class="col-lg-12" id='input_div'>
-        <p>
-            Input helper class functions helps in  HTTP Requests.
-         </p>
-         <p>
-         <ul style="list-style: circle;margin-left: 5%;">
-             <div class='row'><li><a href='{{Url::link('helpers#inload')}}'>Loading Input Helper</a></li>
-             </div>
-             <div class='row'>
-             <li><a href='{{Url::link('helpers#infunc')}}'>Input Functions</a></li>
-            </div>
-         </ul>
-         </p> 
-         <div class='row'>&nbsp;</div>
-         <h5 id='inload'>Loading Input Helper</h5>
-         <p>
-          
-             Just add <code>use Input;</code> in controller or where you want to use. 
-         </p>
-         <h5 id='infunc'>Input Functions</h5>
-         <p>
-             Following functions are available:
-         <p>
-             <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Function Name: <strong>get</strong></h3>
-                </div>
-                <div class="panel-body">
-                    <div class='row'>
-                        <div class='col-lg-3'><strong>Parameters:</strong> </div> 
-                        <div class='col-lg-9'>
-                            <ul>
-                                <li>void</li>
-                                </ul>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='col-lg-3'><strong>Return:</strong> </div> 
-                        <div class='col-lg-9'>
-                            <ul>
-                                <li>return current $_POST or $_GET data</li>
-                               </ul>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <div class='col-lg-3'><strong>{{ $func_usage_lbl }}:</strong> </div> 
-                        <div class='col-lg-9'>
-                            This method return current $_POST or $_GET data
-                            <p>
-                                See following code snippet <bR><br />
-                                <code>
-                                    $input = Input::get(); // Call helper class function. It returns request/response array
-                                    <br /><br />
-                                    $data['email'] = $input['inputEmail']; // assign request/response array element to PHP variable.
-                                    
-                                </code>
-                            </p>
-                        </div>
-              </div>
-            </div>
-         
-          
-        </div>
-              </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
-
-             
-        <h3 id="session" class="text-danger">Session</h3>
-
-
-               <div class="col-lg-12" id='sess_div'>
-        <p>
-            This class functions are useful for session related functionality.
-         </p>
-         <p>
-         <ul style="list-style: circle;margin-left: 5%;">
-             <div class='row'><li><a href='{{Url::link('helpers#sessload')}}'>Loading Session Helper</a></li>
-             </div>
-             <div class='row'>
-             <li><a href='{{Url::link('helpers#sessfunc')}}'>Session Functions</a></li>
-            </div>
-         </ul>
-         </p> 
-         <div class='row'>&nbsp;</div>
-         <h5 id='sesload'>Loading Session Helper</h5>
-         <p>
-          
-             Just add <code>use Session;</code> in controller or where you want to use. 
-         </p>
-         <h5 id='infunc'>Session Functions</h5>
-         <p>
-             Following functions are available:
-         <p>
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Function Name: <strong>start</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Parameters:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>void</li>
-                                    </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Return:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>void</li>
-                                   </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>{{ $func_usage_lbl }}:</strong> </div> 
-                            <div class='col-lg-9'>
-                               This method initializes the session environment.
-                                <p>
-                                    See following code snippet <bR><br />
-                                    <code>
-                                        Session::start(); //new server session will start 
-
-                                    </code>
-                                </p>
-                        </div>
-                    </div>
-                 </div>
-                </div>
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Function Name: <strong>set</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Parameters:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>string $key Then key with which to store this data.</li>
-                                    <li>mixed $input The input data to be stored.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Return:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>void</li>
-                                   </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>{{ $func_usage_lbl }}:</strong> </div> 
-                            <div class='col-lg-9'>
-                              This method stores data into session
-                                <p>
-                                    See following code snippet <bR><br />
-                                    <code>
-                                        Session::set($key); //store $key in session  
-
-                                    </code>
-                                </p>
-                        </div>
-                    </div>
-                 </div>
-                </div>
-                
-         
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Function Name: <strong>get</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Parameters:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>string $key The key with which to search session data</li>
-                                    </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Return:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>mixed The value stored in session</li>
-                                   </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>{{ $func_usage_lbl }}:</strong> </div> 
-                            <div class='col-lg-9'>
-                               This method returns a session data by key
-                                <p>
-                                    See following code snippet <bR><br />
-                                    <code>
-                                        Session::get($key); //get session data stored against $key
-
-                                    </code>
-                                </p>
-                        </div>
-                    </div>
-                 </div>
-                </div>
-         
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Function Name: <strong>flush</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Parameters:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>void</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Return:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>void</li>
-                                   </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>{{ $func_usage_lbl }}:</strong> </div> 
-                            <div class='col-lg-9'>
-                                This method erases all session data
-                                <p>
-                                    See following code snippet <bR><br />
-                                    <code>
-                                        Session::flush(); // remove all session data 
-
-                                    </code>
-                                </p>
-                        </div>
-                    </div>
-                 </div>
-                </div>
-                    <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Function Name: <strong>has</strong></h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Parameters:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>string $key</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>Return:</strong> </div> 
-                            <div class='col-lg-9'>
-                                <ul>
-                                    <li>bool true|false Returns true if key was found or false if null</li>
-                                   </ul>
-                            </div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-lg-3'><strong>{{ $func_usage_lbl }}:</strong> </div> 
-                            <div class='col-lg-9'>
-                                This method checks if a session with a particular key has been set
-                                <p>
-                                    See following code snippet <bR><br />
-                                    <code>
-                                       $is_key =  Session::has(); // return true or false 
-
-                                    </code>
-                                </p>
-                        </div>
-                    </div>
-                 </div>
-                </div>
-              </div>
-            <div class='row' style="padding-bottom: 5%">&nbsp;</div>  
+Redirect::with($data)->to('profile/view'); //this loads this url http://localhost/gliver/profile/view?id=9897717171
+</pre>
 
 
     </div>

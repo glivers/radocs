@@ -8,7 +8,7 @@ return	function() use($config){
 		//check of the routes configuration file exists
 		if ( ! file_exists( __DIR__ . '/../application/routes.php'))
 
-			throw new Exceptions\Routes\RouteException("The defined routes file cannot be found! Please restore if you deleted");
+			throw new Drivers\Routes\RouteException("The defined routes.php file cannot be found! Please restore if you deleted");
 		
 		//get the defined routes
 		$definedRoutes = include __DIR__ . '/../application/routes.php';
@@ -98,12 +98,12 @@ return	function() use($config){
 			$action = $dispatch->$action();
 
 			//fire up application
-			$dispatch->$action();
+			$dispatch->set_gliver_fr_controller_trait_properties()->$action();
 
 		}
 
 		//method exists, go ahead and dispatch
-		else $dispatch = new $controller; call_user_func_array(array($dispatch, $action), $parameters = array());
+		else $dispatch = new $controller; $dispatch->set_gliver_fr_controller_trait_properties()->$action();
 
 	}
 	catch(Drivers\Routes\RouteException $ExceptionObjectInstance){

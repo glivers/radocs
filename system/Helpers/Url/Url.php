@@ -42,7 +42,7 @@ class Url {
 	 *@throws this method does not throw an error
 	 *
 	 */
-	public static function base($fileName)
+	public static function base()
 	{
 
 		//get the server name from global $_SERVER[] array()
@@ -69,7 +69,7 @@ class Url {
     	$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != "off") ? "https" : "http";
 
 		//compose the url string
-		return $protocol . '://' . $base . $fileName;
+		return $protocol . '://' . $base;
 
 	}
 
@@ -81,7 +81,7 @@ class Url {
 	 *@throws this method does not throw an error
 	 *
 	 */
-	public static function assets($assetName)
+	public static function assets($assetName = null)
 	{
 		//get the server name from global $_SERVER[] array()
 		$base  = $_SERVER['SERVER_NAME']; 

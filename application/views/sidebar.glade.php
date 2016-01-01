@@ -50,6 +50,7 @@
                 <a href="{{Url::link('home/helpers#url')}}" class="list-group-item">Url</a>
                 <a href="{{Url::link('home/helpers#session')}}" class="list-group-item">Session</a>
                 <a href="{{Url::link('home/helpers#upload')}}" class="list-group-item">Upload</a>
+                <a href="{{Url::link('home/helpers#redirect')}}" class="list-group-item">Redirect</a>
             </div>
 
 

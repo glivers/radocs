@@ -12,7 +12,8 @@
  *@version 1.0.1
  */
 
-use Drivers\Utilities\ArrayUtility;
+use Helpers\ArrayHelper\ArrayHelper as ArrayUtility;
+use Drivers\Database\MySQL\MySQLResultObject;
 
 class MySQLQuery {
 
@@ -77,6 +78,11 @@ class MySQLQuery {
 	protected $wheres = array();
 
 	/**
+	*@var object Query Response Object
+	*/
+	protected $responseObject;
+
+	/**
 	 *This stores the database connection instance object
 	 *
 	 **@param object $instance This is the database connection object instance
@@ -85,6 +91,9 @@ class MySQLQuery {
 	{
 		//assign the connection object instance to the $this->connnector variable
 		$this->connector = $instance['connector'];
+
+		//create the reponse object instance
+		$this->responseObject = new MySQLResponseObject();
 
 	}
 
@@ -771,9 +780,22 @@ class MySQLQuery {
 			$sql = $this->buildUpdate($data);
 
 		}
-//echo $sql . '<pre>';print_r($data); exit();
+
+		//set the value of the query string
+		$this->responseObject
+			->setQueryString($sql);
+
+		//start timer
+		$query_start_time = microtime(true);
+
 		//excecute query
 		$result = $this->connector->execute($sql);
+
+		$query_stop_time = microtime(true);
+		$query_excec_time = $query_stop_time - $query_start_time;
+
+		$this->responseObject
+			->setQueryTime($query_excec_time);
 
 		//check if query execution failure
 		if ( $result === false) 
@@ -786,12 +808,20 @@ class MySQLQuery {
 		//if this was an insert, get the insert id
 		if( $doInsert )
 		{
-			//get last insert id and retunr
-			return $this->connector->lastInsertId();
+			$this->responseObject
+				->setLastInsertId($this->connector->lastInsertId());
+
+			return $this->responseObject;
 		}
 
-		//if this was update and sucess, return 0 to show operation successful
-		return true;
+		else{
+
+			$this->responseObject
+				->setUpdateSuccess(true)
+				->setAffectedRows($this->connector->affectedRows());
+
+			return $this->responseObject;
+		}
 
 	}
 	/**
@@ -822,8 +852,18 @@ class MySQLQuery {
 			$sql = $this->buildBulkUpdate($data, $fields, $ids, $key);
 		}
 
+		//set the value of the query string
+		$this->responseObject
+			->setQueryString($sql);
+
+		$query_start_time = microtime(true);
+
 		//excecute query
 		$result = $this->connector->execute($sql);
+
+		$query_stop_time = microtime(true);
+		$query_excec_time = $query_stop_time - $query_start_time;
+		$this->setQueryTime($query_excec_time);
 
 		//check if query execution failure
 		if ( $result === false) 
@@ -836,12 +876,22 @@ class MySQLQuery {
 		//if this was an insert, get the insert id
 		if( $doInsert )
 		{
-			//get last insert id and retunr
-			return $this->connector->lastInsertId();
+			//set the insert id
+			$this->responseObject
+				->setLastInsertId($this->connector->lastInsertId());
+
+			return $this->responseObject;
 		}
 
-		//if this was update and sucess, return 0 to show operation successful
-		return 0;
+		else 
+		{
+			$this->responseObject
+				->setUpdateSuccess(true)
+				->setAffectedRows($this->connector->affectedRows());
+
+			return $this->responseObject;
+
+		}
 
 	}
 
@@ -856,8 +906,18 @@ class MySQLQuery {
 		//build the delete query string
 		$sql = $this->buildDelete();
 
+		//set the value of the query_string
+		$this->responseObject->setQueryString($sql);
+
+		//time query execution
+		$query_start_time = microtime(true);
+
 		//execute the query string
 		$result = $this->connector->execute($sql);
+
+		$query_stop_time = microtime(true);
+		$query_excec_time = $query_stop_time - $query_start_time;
+		$this->responseObject->setQueryTime($query_excec_time);
 
 		//throw error if there was an error perfrorming this query
 		if ( $result === false ) 
@@ -868,7 +928,10 @@ class MySQLQuery {
 		}
 
 		//if delete was successfull, get and return the number of affected rows
-		return $this->connector->affectedRows();
+		$this->responseObject
+			->setAffectedRows($this->connector->affectedRows());
+
+		return $this->responseObject;
 
 	}
 
@@ -893,7 +956,7 @@ class MySQLQuery {
 		$all = $this->all();
 
 		//get the first
-		$first = ArrayUtility::first($all);
+		$first = ArrayUtility::first($all->result_array())->get();
 
 		//if limit is defined
 		if ( $limit ) 
@@ -911,8 +974,12 @@ class MySQLQuery {
 
 		}
 
-		//return the first query row
-		return $first;
+		//get the response object instance
+		$this->responseObject
+			->setResultArray($first);
+
+		//return the full response object
+		return $this->responseObject;
 
 	}
 
@@ -941,7 +1008,7 @@ class MySQLQuery {
 		$this->limit(1);
 
 		//get the first row
-		$row = $this->first();
+		$row = $this->first()->result_array();
 
 		//set the value of the fields
 		$this->fields = $fields;
@@ -970,8 +1037,13 @@ class MySQLQuery {
 
 		}
 
-		//return the rows count
-		return $row[0]['rows'];
+		//get the response object instance
+		$this->responseObject 
+			->setNumRows($row[0]['rows'])
+			->setResultArray($row);
+
+		//return the full response object
+		return $this->responseObject;
 
 	}
 
@@ -986,8 +1058,20 @@ class MySQLQuery {
 		//build the select query
 		$sql = $this->buildSelect();
 
+		//set the value of the query string
+		$this->query_string = $sql;
+
+		//set the query excecution start time
+		$query_start_time = microtime(true);
+
 		//execute the sql query
 		$result = $this->connector->execute($sql);
+
+		//set the query excecution end time
+		$query_stop_time = microtime(true);
+
+		//get the query_excecution
+		$query_excec_time = $query_stop_time - $query_start_time;
 
 		//check if the query return an error and throw exception
 		if ( $result === false ) 
@@ -1001,18 +1085,26 @@ class MySQLQuery {
 		}
 
 		//define container rows() array
-		$rows = array();
+		$result_array = array();
 
-		//loop through the result object composing the rows array
-		for( $i = 0; $i < $result->num_rows; $i++ )
-		{
-			//add to the rows array
-			$rows[] = $result->fetch_array(MYSQLI_ASSOC);
+		//loop through resultset setting the values of arrays and objects
+		while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+
+			$result_array[] = $row;
 
 		}
 
-		//return the full rows array
-		return $rows;
+		//get the response object instance
+		$this->responseObject
+			->setQueryString($this->query_string)
+			->setQueryTime($query_excec_time)
+			->setFieldCount($result->field_count)
+			->setNumRows($result->num_rows)
+			->setQueryFields($result->fetch_fields())
+			->setResultArray($result_array);
+
+		//return the full response object
+		return $this->responseObject;
 	}
 
 }

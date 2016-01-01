@@ -11,7 +11,7 @@
  *@version 1.0.1
  */
 
-use Helpers\View\View;
+use Drivers\Templates\View;
 
 class HomeController extends BaseController {
 

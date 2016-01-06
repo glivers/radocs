@@ -8,7 +8,7 @@ return	function() use($config){
 		//check of the routes configuration file exists
 		if ( ! file_exists( __DIR__ . '/../application/routes.php'))
 
-			throw new Drivers\Routes\RouteException("The defined routes.php file cannot be found! Please restore if you deleted");
+			throw new Drivers\Routes\RouteException("Drivers\Routes\RouteException : The defined routes.php file cannot be found! Please restore if you deleted");
 		
 		//get the defined routes
 		$definedRoutes = include __DIR__ . '/../application/routes.php';
@@ -84,7 +84,7 @@ return	function() use($config){
 		//get the namespaced controller class
 		$controller 	= 'Controllers\\' . ucwords($controller) . 'Controller';
 
-		if( ! class_exists($controller) ) throw new Drivers\Routes\RouteException("The class " . $controller . ' is undefined');
+		if( ! class_exists($controller) ) throw new Drivers\Routes\RouteException("Drivers\Routes\RouteException : The class " . $controller . ' is undefined');
 		
 		if( ! (int)method_exists($controller, $action) )
 		{
@@ -92,18 +92,41 @@ return	function() use($config){
 			$dispatch = new $controller;
 
 			//throw exception if no method can be found
-			if( ! $dispatch->$action() ) throw new Drivers\Routes\RouteException("Access to undefined method " . $controller . '->' . $action);
+			if( ! $dispatch->$action() ) throw new Drivers\Routes\RouteException("Drivers\Routes\RouteException : Access to undefined method " . $controller . '->' . $action);
 			
 			//get the method name
 			$action = $dispatch->$action();
 
-			//fire up application
-			$dispatch->set_gliver_fr_controller_trait_properties()->$action();
-
 		}
 
 		//method exists, go ahead and dispatch
-		else $dispatch = new $controller; $dispatch->set_gliver_fr_controller_trait_properties()->$action();
+		else $dispatch = new $controller;
+
+		//ensure the controller is an instance of the Controllers\BaseController class
+		if( ! $dispatch instanceof Controllers\BaseController) throw new Drivers\Routes\RouteException("Drivers\Routes\RouteException : $controller class must extend Controllers\BaseController class!");
+		
+		//set the controller defaults
+		$dispatch->set_gliver_fr_controller_trait_properties();
+
+		//get the number of parameters from the reflector
+		$method_params_count = count(Drivers\Utilities\Inspector::Create($dispatch)->getMethod($action)->getParameters());
+		
+		//get the method parameters passed
+		$method_params_array = $RouteParserObject->getParameters();
+
+		//get the number of keys
+		$requestParamKeysLen = $method_params_count;
+
+		//check if the keys are more than then values
+		if($method_params_count > count($method_params_array)){
+
+			//padd the $method_params_array with null values
+			$method_params_array = array_pad($method_params_array, $method_params_count, null);
+
+		}
+
+		//launch the infered method for this request
+		call_user_func_array(array($dispatch, $action), $method_params_array);
 
 	}
 	catch(Drivers\Routes\RouteException $ExceptionObjectInstance){

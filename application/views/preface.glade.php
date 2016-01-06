@@ -21,7 +21,7 @@
                 <a href="{{Url::link('home/preface#contribution_guide')}}" class="lead">Contribution Guide</a><br>
 
 
-                <h3 id="introduction" class="text-danger">Introduction</h3>
+                <h2 id="introduction" class="text-danger">Introduction</h2>
 
 
             
@@ -32,7 +32,7 @@
 
 
 
-                <h3 id="quick_start" class="text-danger">Quick Start</h3>
+                <h2 id="quick_start" class="text-danger">Quick Start</h2>
 
 
 
@@ -55,13 +55,30 @@
                 </p>
 
 
-                <h3 id="release_notes" class="text-danger">Release Notes</h3>
+                <h2 id="release_notes" class="text-danger">Release Notes</h2>
                 
                 <p>The official stable release of Gliver framework is <span class="text-danger">v1.0.0</span>. Gliver MVC is, however, under active developemnt and updates are being pushed to the <a href="https://github.com/gliver-mvc/gliver">repository</a> every day. However, the syntax defined in version 0.0.1 will not change, only functionlity will be added. 
                 So if you have already learnt the syntax with this version, you are good to go, nothing would change, only for better functionality. However, you might want to keep checking out for new updates, 
                 so remember to subscribe to our newsletter so that we can keep you informed of every advancement. The updates would only include the very cool features that you have been waiting for...you don't want to miss out on this.</p>   
 
-                        <h4>Gliver 1.0.0</h4> 
+                   <h3 class="text-success">Gliver v.1.0.1  Release</h3> 
+                   <p>We are happy that there is continuous development of this framework - Thanks to all who are supporting this project so that we can take this framework to the level we would desire.
+                    This is an update of the v1.0.0 with a few additions and subtractions</p>
+
+                    <h3 class="text-danger"> Release Notes</h3>
+                    <ul>
+                        <li>Namespace change of Helpers\View\View class to <span class="text-info">Drivers\Templates\View;</span> </li>
+                        <li>Ability to set default timezone and file upload_path in the config.php file</li>
+                        <li>Release of the Helpers\Upload\Upload class and related API</li>
+                        <li>Inclusion of <span class="text-info"> MySQLResponseObject</span> as default response class for all MySQL queries</li>
+                        <li>Addition of the ability of the View class to return json header and parsed template files through methods <code>View::renderJson()</code>  and <code>View::get()</code> </li>
+                        <li>You can now get site title from your controller using <code>$this->site_title</code></li>
+                        <li>You can now benchmark your request execution time using <code>$this->request_exec_time()</code>  method</li>
+                    </ul>       
+       
+
+
+                        <h3 class="text-success">Gliver v1.0.0 Release</h3> 
                         <p>This is the first stable official release of Gliver framework after the many alpha versions released earlier. Out of the box, this version has</p>
                         <ul>
                             <li>Glade Templating Implementation with .glade.php extension for all view files</li>
@@ -69,7 +86,7 @@
                             <li>Express Query Builder and Model Class for automated query generation and execution</li>
                         </ul>      
 
-                <h3 id="upgrade_guide" class="text-danger">Upgrade Guide</h3>
+                <h2 id="upgrade_guide" class="text-danger">Upgrade Guide</h2>
                 
                     <p>Things can only always get better. If you realize that we have updates and there are some really cool 
                     features that you like in the updates, you can always pull the new code and put you application on steriods. At the moment, for you to 
@@ -79,7 +96,7 @@
                     this is done so that you can begin using it right away. </p>
 
 
-                <h3 id="contribution_guide" class="text-danger">Contribution Guide</h3>
+                <h2 id="contribution_guide" class="text-danger">Contribution Guide</h2>
                 
 
 

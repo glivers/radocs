@@ -22,14 +22,13 @@
             <h3 id="requirements" class="text-danger">System Requirements</h3>
 
                 <ul>
-                    <li>Gliver Framework requires PHP version 5.4 or greater to run. In order to avoid broken functionality or code and opening security holes in your application, upgrade to version >=5.4.</li>
+                    <li>Gliver Framework requires PHP version 5.5 or greater to run. In order to avoid broken functionality or code and opening security holes in your application, upgrade to version >=5.5.</li>
                 </ul>
 
             <h3 id="downloading" class="text-danger">Downloading Gliver</h3>
 
                 <p>One option of installing Gliver framework is to <a href="https://github.com/gliver-mvc/gliver/archive/master.zip">download the source code</a>  directly to your local hard drive and run it!
-                    This will always give you the latest stable version of Gliver. Most of the time the source has the most upto date code, but to ensure you are using the latest versions of all the 
-                    dependencies and Helper classes, you can run a <code>composer update</code> from the root of your installation to get the framework core to latest stable distribution. Once you 
+                    This will always give you the latest stable version of Gliver. If you would like to install the <span class="text-info">gliverich</span> console terminal commands run <code>composer install</code> from the root of your gliver framework directory. Once you 
                     download or install Gliver, run the folder itself in this manner <code>localhost/gliver</code> 
                 </p>
 
@@ -40,7 +39,7 @@
 
             <p>Create an installation of Gliver using the <span class="text-danger">create-project</span> command, specifying the Gliver framework name on packagist and the name of the directory in which to install Gliver</p>
             <p> <code>composer create-project gliver/core myapp</code> </p>
-            <p>This command would download the latest stable version of Gliver framework and all dependencies and install them in the directory <span class="text-danger">myapp</span>. You can change the name of the directory to your directory of choice, or better still rename it after installation... This might be the best way to install Gliver!</p>               
+            <p>This command would download the latest stable version of Gliver framework and all dependencies and install them in the directory <span class="text-danger">myapp</span>. You can change the name of the directory to your directory of choice, or better still rename it after installation...</p>               
 
 
 			<h3 id="upgrade" class="text-danger">Upgrading from previous versions</h3>

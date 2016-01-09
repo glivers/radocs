@@ -63,7 +63,7 @@
             <p class="alert alert-success">Note that the configutation files are always autoloaded by default and so do not require any special action from you - all you need to do is specify the values against the keys in the respective files. Do not modify key names as these are used to access the values
             that you specify as is.</p>
 
-            <p>There are four configuration files where you can specify options for your application. These options are always available throughout the entire application and can be accessed from anywhere in your application using the right classes. Include your configuration in either <span class="text-success">config.php, database.php or constants.php</span> </p>
+            <p>There are three configuration files where you can specify options for your application. These options are always available throughout the entire application and can be accessed from anywhere in your application using the right classes. Include your configuration in either <span class="text-success">config.php, database.php or constants.php</span> </p>
             
             <h4 class="text-primary">Config.php</h4>  
 
@@ -84,27 +84,27 @@
             <h4 class="text-primary">Database.php</h4>  
 
             <p>This is sister to Config.php as they reside in the same directory here <code>config/database.php</code> </p>
-            <p>The database configuration is separated from the general configuration as we intend to support as many databases as we can imagine and would to 
-                we would like to set these apart from the rest so as to avoid confusion - noting that database settings changed frequently (as soon as you realize your password is leaked!).</p>
-            <p>In the database configuration, you can specify the settings for any supported database then specify the default database you would like the application to alwasy connect to. As soon as you change your mind
-                and would like to use a different database, just set it as the default and that's all you need - all database database connections henceforth would default to you new set default. Ensure to enclose all you database setting values within single or double quotes. As well you do not need to modify the key names or add to any. They are already good to go.</p>
+            <p>The database configuration is separated from the general configuration as we intend to support as many databases as we can imagine and we would like to set these apart from the rest so as to avoid confusion - noting that database settings changed frequently (as soon as you realize your password is leaked!).</p>
+            <p>In the database configuration, you can specify the settings for any supported database then specify the default database you would like the application to always connect to. As soon as you change your mind
+                and would like to use a different database, just set it as the default and that's all you need - all database connections henceforth would default to your new set default. Ensure to enclose all you database setting values within single or double quotes. As well you do not need to modify the key names or add to any. They are already good to go.</p>
             
             <h4 class="text-primary">Constants.php</h4>  
 
             <p>Here you can define all the values that you will need throughout all your application. Defining constants here would follow the same rules you observe when defining
                 constants in PHP. Once you define your contants here, you can access them from anywhere in your application by using the constant name.</p>
-                <p>You define constants of in this manner <code>define('NETWORK_ID', 'gliver');</code> then you can access them from anywhere in this manner <code> echo NETWORK_ID; </code> </p>
+                <p>You define constants in this manner <code>define('NETWORK_ID', 'gliver');</code> then you can access them from anywhere in this manner <code> echo NETWORK_ID; </code> </p>
 
  
             <h3 id="routing" class="text-danger">Routing</h3>
 
             <p>The routing feature enables mapping of defined keywords to particular controllers/action pairs. Routing also enabels you to pass url parameters to your controllers 
-            which it parses and includes as part of the Input parameters and you access them via the Input helper class. The routing class gives much flexibility so that you can map a defined route to a controller, a controller method pair and optionally name the parameters
-            that you expect to recieve along with the Url request</p>
+            which it parses and includes as part of arguments passed to your controller methods so that you can access their values from within your controllers as regular variables. The routing class gives much flexibility so that you can map a defined route to a controller, a controller method pair as well
+            as load controllers classes in sub namespaces. In order to get the values of the url parameters just expect them as arguments in your controller method and they will be supplied in 
+            the order in which you specify them.</p>
 
-            <p>Defined routes are set in the <span class="text-success">routes.php</span> file that resides in the <code>application/routes.php</code> directory. 
+            <p>Defined routes are set in the <span class="text-success">routes.php</span> file that resides in the <code>application/routes.php</code> file path. 
                 The routing class would then get the contents of this file at execution time and parse the route accordingly. Defining routes is, however, optional as you can decide to call your controllers
-                directly from the url and pass unamed parameters - accessing them using numbered indexes.</p>
+                directly from the url and pass your url parameters along.</p>
             <p>The comments in the routes.php file give a pretty self explanatory example of how to define routes, but let's take sometime and look at this into details</p>
             <p class="alert alert-info">Remember that the routes.php file is an array and therefore should maintain a valid array format.</p>
             <p>First be able to locate the routes.php file from within the <code>application/</code> directory then follow along...</p>

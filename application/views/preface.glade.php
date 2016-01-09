@@ -55,7 +55,7 @@
                 </p>
 
 
-                <h2 id="release_notes" class="text-danger">Release Notes</h2>
+                <h2 id="release_notes" class="text-danger">Releases</h2>
                 
                 <p>The official stable release of Gliver framework is <span class="text-danger">v1.0.0</span>. Gliver MVC is, however, under active developemnt and updates are being pushed to the <a href="https://github.com/gliver-mvc/gliver">repository</a> every day. However, the syntax defined in version 0.0.1 will not change, only functionlity will be added. 
                 So if you have already learnt the syntax with this version, you are good to go, nothing would change, only for better functionality. However, you might want to keep checking out for new updates, 
@@ -65,7 +65,7 @@
                    <p>We are happy that there is continuous development of this framework - Thanks to all who are supporting this project so that we can take this framework to the level we would desire.
                     This is an update of the v1.0.0 with a few additions and subtractions</p>
 
-                    <h3 class="text-danger"> Release Notes</h3>
+                    <h4 class="text-danger"> Release Notes</h4>
                     <ul>
                         <li>Namespace change of Helpers\View\View class to <span class="text-info">Drivers\Templates\View;</span> </li>
                         <li>Ability to set default timezone and file upload_path in the config.php file</li>
@@ -80,6 +80,7 @@
 
                         <h3 class="text-success">Gliver v1.0.0 Release</h3> 
                         <p>This is the first stable official release of Gliver framework after the many alpha versions released earlier. Out of the box, this version has</p>
+                        <h4 class="text-danger"> Release Notes</h4>
                         <ul>
                             <li>Glade Templating Implementation with .glade.php extension for all view files</li>
                             <li>Advanced Routing with ability to name url parameters</li>
@@ -92,8 +93,7 @@
                     features that you like in the updates, you can always pull the new code and put you application on steriods. At the moment, for you to 
                     pull down updates to your application, you need to <a href="https://github.com/gliver-mvc/gliver/archive/master.zip"> download </a> the framework extract and replace only the content of the system directory
                     with the contents of the system directory in your application. You thought there was more to it? We are sorry, that's all, your framework is now  up to date. Enjoy the new funcitonality.
-                    We are working on a way to be able to update your whole application by a simple composer update statement on the command line, this is more reason you wanna subscribe to our newsletter, so that you be the first to know when
-                    this is done so that you can begin using it right away. </p>
+                    </p>
 
 
                 <h2 id="contribution_guide" class="text-danger">Contribution Guide</h2>

@@ -12,12 +12,12 @@
             
         <div class="col-md-9">
             
-                <a href="{{Url::link('home/brief')}}"><h1>Brief Tour</h1></a><br>
+                <a href="{{Url::link('home', 'brief')}}"><h1>Brief Tour</h1></a><br>
 
-                <a href="{{Url::link('home/brief#controllers')}}" class="lead">Controllers</a><br>
-                <a href="{{Url::link('home/brief#views')}}" class="lead">Views</a><br>
-                <a href="{{Url::link('home/brief#templating')}}" class="lead">Templating</a><br>
-                <a href="{{Url::link('home/brief#models')}}" class="lead">Models</a><br>
+                <a href="{{Url::link('home', 'brief#controllers')}}" class="lead">Controllers</a><br>
+                <a href="{{Url::link('home', 'brief#views')}}" class="lead">Views</a><br>
+                <a href="{{Url::link('home', 'brief#templating')}}" class="lead">Templating</a><br>
+                <a href="{{Url::link('home', 'brief#models')}}" class="lead">Models</a><br>
 
 
 

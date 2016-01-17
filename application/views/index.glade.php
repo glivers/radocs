@@ -41,7 +41,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{Url::link('home/preface')}}">Documentation</a></li>
+                    <li><a href="{{Url::link('home','preface')}}">Documentation</a></li>
                     <li><a href="https://github.com/gliver-mvc/gliver/archive/master.zip">Download</a></li>
                     <li><a href="{{Url::link('#contact')}}">Contact</a></li>
                     <li><a href="http://eddy.glivers.com/blog/gliver-mvc/">Blog</a></li>
@@ -70,7 +70,7 @@
                         <h3 class="text-center">Gliver Framework offers you very lightweight and therefore lightning fast MVC environment for writing Web Applications using PHP!</h3>
 
                         <br>
-                        <img src="img/logo.png" class="img img-responsive center-block" width="60px" height="60px">
+                        <img src="{{Url::assets('img/logo.png')}}" class="img img-responsive center-block" width="60px" height="60px">
 
                         <p class="text-center">All Controllers are namespaced so you can have as many controllers classes as your application needs without fear of conflicting class names...</p>
                     </div>
@@ -81,7 +81,7 @@
 
                     <div class="col-lg-8 col-lg-offset-2">
 
-                            <img src="img/controllers.png" class="img img-responsive">
+                            <img src="{{Url::link("img/controllers.png")}}" class="img img-responsive">
 
                     </div>
 
@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <img src="img/routing.png" class="img img-responsive">
+                        <img src="{{Url::link('img/routing.png')}}" class="img img-responsive">
                     </div>
 
 
@@ -124,7 +124,7 @@
 
 
                     <div class="col-lg-6">
-                        <img src="img/models.png" class="img img-responsive">
+                        <img src="{{Url::link('img/models.png')}}" class="img img-responsive">
                     </div>
 
                     <div class="col-lg-6">
@@ -158,7 +158,7 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <img src="img/view-loading.png" class="img img-responsive">
+                        <img src="{{Url::assets('img/view-loading.png')}}" class="img img-responsive">
                     </div>
 
 
@@ -176,7 +176,7 @@
 
 
                     <div class="col-lg-6">
-                        <img src="img/view-templating.png" class="img img-responsive">
+                        <img src="{{Url::link('img/view-templating.png')}}" class="img img-responsive">
                     </div>
 
                     <div class="col-lg-6">
@@ -213,7 +213,7 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <img src="img/library-loading.png" class="img img-responsive">
+                        <img src="{{Url::link('img/library-loading.png')}}" class="img img-responsive">
                     </div>
 
 
@@ -248,7 +248,7 @@
                         <li class="footer-menu-divider">&sdot;</li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="{{Url::link('home/preface')}}">Documentation</a>
+                            <a href="{{Url::link('home', 'preface')}}">Documentation</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>

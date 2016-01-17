@@ -11,16 +11,16 @@
 
         <div class="col-md-9">
 
-                <a href="{{Url::link('home/getstarted')}}"><h1>Getting Started</h1></a><br>
+                <a href="{{Url::link('home', 'getstarted')}}"><h1>Getting Started</h1></a><br>
 
-                <a href="{{Url::link('home/getstarted#glance')}}" class="lead">Gliver at a glance</a><br>
-                <a href="{{Url::link('home/getstarted#supported_features')}}" class="lead">Supported Features</a><br>
-                <a href="{{Url::link('home/getstarted#flowchart')}}" class="lead">Application Flow Chart</a><br>
-                <a href="{{Url::link('home/getstarted#configuration')}}" class="lead">Configuration</a><br>
-                <a href="{{Url::link('home/getstarted#routing')}}" class="lead">Routing</a><br>
-                <a href="{{Url::link('home/getstarted#input')}}" class="lead">Requests</a><br>
-                <a href="{{Url::link('home/getstarted#views')}}" class="lead">Responses</a><br>
-                <a href="{{Url::link('home/getstarted#errors')}}" class="lead">Error Handling</a><br>
+                <a href="{{Url::link('home', 'getstarted#glance')}}" class="lead">Gliver at a glance</a><br>
+                <a href="{{Url::link('home', 'getstarted#supported_features')}}" class="lead">Supported Features</a><br>
+                <a href="{{Url::link('home', 'getstarted#flowchart')}}" class="lead">Application Flow Chart</a><br>
+                <a href="{{Url::link('home', 'getstarted#configuration')}}" class="lead">Configuration</a><br>
+                <a href="{{Url::link('home', 'getstarted#routing')}}" class="lead">Routing</a><br>
+                <a href="{{Url::link('home', 'getstarted#input')}}" class="lead">Requests</a><br>
+                <a href="{{Url::link('home', 'getstarted#views')}}" class="lead">Responses</a><br>
+                <a href="{{Url::link('home', 'getstarted#errors')}}" class="lead">Error Handling</a><br>
 
 
            <h3 id="glance" class="text-danger">Gliver at a glance</h3>

@@ -12,11 +12,11 @@
 
             <div class="col-lg-9 lmargin">
 
-                <a href="{{Url::link('home/caching')}}"><h1>Caching</h1></a>
+                <a href="{{Url::link('home', 'caching')}}"><h1>Caching</h1></a>
 
-                <a href="{{Url::link('home/caching#memcache')}}" class="lead">Memcache</a><br>
-                <a href="{{Url::link('home/caching#memcached')}}" class="lead">Memcached</a><br>
-                <a href="{{Url::link('home/caching#redis')}}" class="lead">Redis</a><br>
+                <a href="{{Url::link('home', 'caching#memcache')}}" class="lead">Memcache</a><br>
+                <a href="{{Url::link('home', 'caching#memcached')}}" class="lead">Memcached</a><br>
+                <a href="{{Url::link('home', 'caching#redis')}}" class="lead">Redis</a><br>
 
 
                 <h3 id="memcache" class="text-danger">Memcache</h3>

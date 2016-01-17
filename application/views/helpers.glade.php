@@ -11,18 +11,18 @@
 
         <div class="col-lg-9">
 
-                <a href="{{Url::link('home/helpers')}}"><h1>Helpers</h1></a><br>
+                <a href="{{Url::link('home', 'helpers')}}"><h1>Helpers</h1></a><br>
 
-                <a href="{{Url::link('home/helpers#array')}}" class="lead">Array</a><br>
-                <a href="{{Url::link('home/helpers#date')}}" class="lead">Date</a><br>
-                <a href="{{Url::link('home/helpers#file')}}" class="lead">File</a><br>
-                <a href="{{Url::link('home/helpers#form')}}" class="lead">Form</a><br>
-                <a href="{{Url::link('home/helpers#input')}}" class="lead">Input</a><br>
-                <a href="{{Url::link('home/helpers#path')}}" class="lead">Path</a><br>
-                <a href="{{Url::link('home/helpers#url')}}" class="lead">Url</a><br>
-                <a href="{{Url::link('home/helpers#session')}}" class="lead">Session</a><br>
-                <a href="{{Url::link('home/helpers#upload')}}" class="lead">Upload</a><br>
-                <a href="{{Url::link('home/helpers#redirect')}}" class="lead">Redirect</a><br>
+                <a href="{{Url::link('home', 'helpers#array')}}" class="lead">Array</a><br>
+                <a href="{{Url::link('home', 'helpers#date')}}" class="lead">Date</a><br>
+                <a href="{{Url::link('home', 'helpers#file')}}" class="lead">File</a><br>
+                <a href="{{Url::link('home', 'helpers#form')}}" class="lead">Form</a><br>
+                <a href="{{Url::link('home', 'helpers#input')}}" class="lead">Input</a><br>
+                <a href="{{Url::link('home', 'helpers#path')}}" class="lead">Path</a><br>
+                <a href="{{Url::link('home', 'helpers#url')}}" class="lead">Url</a><br>
+                <a href="{{Url::link('home', 'helpers#session')}}" class="lead">Session</a><br>
+                <a href="{{Url::link('home', 'helpers#upload')}}" class="lead">Upload</a><br>
+                <a href="{{Url::link('home', 'helpers#redirect')}}" class="lead">Redirect</a><br>
 
         <br><br>
         <p class="alert alert-info">You only need to load the Helper classes when using them from your controllers, models or libraries. However, in the view files the helper classes are automatically loaded using the alias names specified in the <span class="text-info">config.php</span>. <br>

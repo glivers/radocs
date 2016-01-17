@@ -41,7 +41,7 @@ return array(
 	/**
 	 *Set the Site Title
 	 */
-	'title' => 'Gliver Framework',
+	'title' => 'Gliver - Official Site',
 	/**
 	 *Set the protocol for this url
 	 */
@@ -50,6 +50,10 @@ return array(
 	 *The server name for this application
 	 */
 	'servername' => 'localhost',
+	/**
+	 *The url component separator character
+	 */
+	'url_component_separator' => '.',
 	/**
 	*The default upload file path
 	*/

@@ -12,6 +12,7 @@
  */
 
 use Drivers\Templates\View;
+use Helpers\Url\Url;
 
 class HomeController extends BaseController {
 
@@ -23,6 +24,7 @@ class HomeController extends BaseController {
 	 */
 	public function getIndex()
 	{
+
 		//get the ending date today
 		View::render('index');
 

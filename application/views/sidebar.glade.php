@@ -60,8 +60,6 @@
                 <a href="{{Url::link('home', 'database#query_builder')}}" class="list-group-item">Query Builder</a>
                 <a href="{{Url::link('home', 'database#eloquent')}}" class="list-group-item">Intuitive ORM</a>
                 <a href="{{Url::link('home', 'database#schema_builder')}}" class="list-group-item">Schema Builder</a>
-                <a href="{{Url::link('home', 'database#migration_seeding')}}" class="list-group-item">Migration/Seeding</a>
-                <a href="{{Url::link('home', 'database#errors')}}" class="list-group-item">Errors/Logging</a>
             </div>
 
             <a href="{{Url::link('home', 'caching')}}" class="lead">Caching</a>

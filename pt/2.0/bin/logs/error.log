@@ -1,0 +1,33 @@
+E_ERROR Class 'Url' not found in D:\xampp\htdocs\documentation\system\Helpers\View\View.php(70) : eval()'d code on line (4) As seen from  D:\xampp\htdocs\documentation\system\Exceptions\Debug\BaseShutdown.php(38): handler(1, 'Class 'Url' not...', 'D:\\xampp\\htdocs...', 4)
+#1 [internal function]: shut()
+#2 {main}
+E_ERROR Class 'Url' not found in D:\xampp\htdocs\documentation\system\Helpers\View\View.php(70) : eval()'d code on line (4) As seen from  D:\xampp\htdocs\documentation\system\Exceptions\Debug\BaseShutdown.php(38): handler(1, 'Class 'Url' not...', 'D:\\xampp\\htdocs...', 4)
+#1 [internal function]: shut()
+#2 {main}
+E_ERROR Class 'Url' not found in D:\xampp\htdocs\documentation\system\Helpers\View\View.php(70) : eval()'d code on line (4) As seen from  D:\xampp\htdocs\documentation\system\Exceptions\Debug\BaseShutdown.php(38): handler(1, 'Class 'Url' not...', 'D:\\xampp\\htdocs...', 4)
+#1 [internal function]: shut()
+#2 {main}
+E_ERROR Class 'Helpers\View\View' not found in D:\xampp\htdocs\documentation\application\controllers\HomeController.php on line (40) As seen from  D:\xampp\htdocs\documentation\system\Exceptions\Debug\BaseShutdown.php(38): handler(1, 'Class 'Helpers\\...', 'D:\\xampp\\htdocs...', 40)
+#1 [internal function]: shut()
+#2 {main}
+E_NOTICE Undefined property: Controllers\HomeController::$site_tile in D:\xampp\htdocs\documentation\application\controllers\HomeController.php on line (26) As seen from  D:\xampp\htdocs\documentation\application\controllers\HomeController.php(26): handler(8, 'Undefined prope...', 'D:\\xampp\\htdocs...', 26, Array)
+#1 D:\xampp\htdocs\documentation\system\start.php(101): Controllers\HomeController->getIndex()
+#2 D:\xampp\htdocs\documentation\system\bootstrap.php(104): {closure}()
+#3 D:\xampp\htdocs\documentation\public\index.php(60): require_once('D:\\xampp\\htdocs...')
+
+E_NOTICE Undefined property: Controllers\HomeController::$request_time in D:\xampp\htdocs\documentation\application\controllers\HomeController.php on line (26) As seen from  D:\xampp\htdocs\documentation\application\controllers\HomeController.php(26): handler(8, 'Undefined prope...', 'D:\\xampp\\htdocs...', 26, Array)
+#1 D:\xampp\htdocs\documentation\system\start.php(101): Controllers\HomeController->getIndex()
+#2 D:\xampp\htdocs\documentation\system\bootstrap.php(104): {closure}()
+#3 D:\xampp\htdocs\documentation\public\index.php(60): require_once('D:\\xampp\\htdocs...')
+
+E_NOTICE Undefined property: Controllers\HomeController::$request_exec_time in D:\xampp\htdocs\documentation\application\controllers\HomeController.php on line (26) As seen from  D:\xampp\htdocs\documentation\application\controllers\HomeController.php(26): handler(8, 'Undefined prope...', 'D:\\xampp\\htdocs...', 26, Array)
+#1 D:\xampp\htdocs\documentation\system\start.php(101): Controllers\HomeController->getIndex()
+#2 D:\xampp\htdocs\documentation\system\bootstrap.php(104): {closure}()
+#3 D:\xampp\htdocs\documentation\public\index.php(60): require_once('D:\\xampp\\htdocs...')
+
+E_ERROR Class 'Helpers\View\View' not found in D:\xampp\htdocs\documentation\application\controllers\HomeController.php on line (28) As seen from  D:\xampp\htdocs\documentation\system\Exceptions\Debug\BaseShutdown.php(38): handler(1, 'Class 'Helpers\\...', 'D:\\xampp\\htdocs...', 28)
+#1 [internal function]: shut()
+#2 {main}
+E_ERROR Class 'Helpers\View\View' not found in D:\xampp\htdocs\documentation\application\controllers\HomeController.php on line (28) As seen from  D:\xampp\htdocs\documentation\system\Exceptions\Debug\BaseShutdown.php(38): handler(1, 'Class 'Helpers\\...', 'D:\\xampp\\htdocs...', 28)
+#1 [internal function]: shut()
+#2 {main}

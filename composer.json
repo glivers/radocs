@@ -1,0 +1,14 @@
+{
+    "name": "gliver/docs",
+    "description": "The is the official Gliver framework documentation project for all languages",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Geoffrey Bans",
+            "email": "geoffreybans@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

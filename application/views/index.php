@@ -37,8 +37,11 @@
 <body>
     <a id="fork-me" href="#" target="_blank"><img style="border: 0px currentColor; border-image: none; top: 0px; right: 0px; position: fixed; z-index: 999999;" alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
 
-@include('navbar')
-     
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom:120px;">
+
+        @include('menubar')
+    
+    </nav>
 
     <div class="container-fluid" style="margin-top:50px;">
       <div class="row">

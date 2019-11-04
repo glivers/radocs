@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	  
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	 
+	RewriteRule ^(.*)$ index.php?url8g6l67i6v4chdgetrcswyr=$1 [QSA]
+ 
+</IfModule>

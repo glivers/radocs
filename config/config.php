@@ -41,7 +41,7 @@ return array(
 	/**
 	 *Set the Site Title
 	 */
-	'title' => 'Gliver Framework',
+	'title' => 'Gliver Documentation',
 	/**
 	 *Set the protocol for this url
 	 */

@@ -4,93 +4,23 @@
 <link rel="icon" type="image/ico" href="{{ Url::assets('img/logo.png') }}">
 
     <meta charset="UTF-8">
-    <title>{{$title}}</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-     <!--    LOAD CUSTOM STYLES    -->
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="{{ Url::assets('css/style.css') }}">
-    
-</head>
-<body>
-<div class="gliverContainer clearfix">
-    <header>
-        <img src="{{ Url::assets('img/logo.png') }}" alt="gliver logo" class="gliverLogo">
-        <div class="headerText">
-            <h1>Welcome to Gliver<br><span class="subtext">MVC at it’s finest...</span> </h1>
-
-            <p>Request Time = {{$request_time}} Gliver is a powerful open-source PHP framework with a very small footprint.
-                Was made to be a simple and elegant toolkit, enabling rapid application development
-                of both web sites and web applications.
-            </p>
-        </div>
-    </header>
-    <div class="content">
-        <div class="left-col">
-            <h2>Why you need Gliver MVC </h2>
-            <ul class="arrow">
-                <li>Package Management is a snap due to Composer</li>
-                <li>Implements caching in Memcache or Redis, faster applications.</li>
-                <li>Simple syntax, close to no learning curve.</li>
-                <li>Light and best suited for extensibility</li>
-            </ul>
-        </div>
-
-@include('subview')
-
-            <ul class="circles">
-                <li>
-                    <div class="number">1</div>
-                    <div class="wrapper">
-                        <h4 class="gliver-text">To edit this page </h4>
-                        <p><a href="{{ Url::link(array('home','index')) }}">application/views/index.php</a></p>
-                    </div>
-                </li>
-                <li>
-                    <div class="number">2</div>
-                    <div class="wrapper">
-                        <h4 class="gliver-text">Controller</h4>
-                        <p><a href="{{ Url::link(array('home','index')) }}">application/controllers/HomeController</a></p>
-                    </div>
-                </li>
-                <li class="bmarg">
-                    <div class="number">3</div>
-                    <div class="wrapper">
-                        <h4 class="gliver-text">Read the users guider found here: </h4>
-                        <p><a href="{{ Url::link(array('home','index')) }}">https://getgliver.com/documentation{{ '@{{' }}  {{ '@' }}for</a></p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-
-</div><!--EO gliverContainer-->
-</body>
-</html>
-
-
-
-
-
-<!doctype html>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <title>Document-Bootstrap</title>
-    <!-- Mobile viewport optimized -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!-- Mobile Internet Explorer allows us to activate ClearType technology for smoothing fonts for easy reading -->
     <meta http-equiv="cleartype" content="on">
-
+    <title>{{$title}}</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,600' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link href="{{ Url::assets('css/bootswatch/Cosmo/bootstrap.min.css') }}" rel="stylesheet">
+     <!--    LOAD CUSTOM STYLES    -->
     <!-- Le styles -->
-    <link href="css/bootswatch/Cosmo/bootstrap.min.css" rel="stylesheet">
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/black-tie/jquery-ui.css" rel="stylesheet">
-    <link href="css/jquery.tocify.css" rel="stylesheet">
-    <link href="css/prettify.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link href="css/rainbow/themes/tomorrow-night.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/rainbowlines/theme.css" media="screen" />
+    <link href="{{ Url::assets('css/jquery.tocify.css') }}" rel="stylesheet">
+    <link href="{{ Url::assets('css/prettify.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ Url::assets('css/styles.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ Url::assets('css/rainbow/themes/tomorrow-night.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ Url::assets('css/rainbowlines/theme.css') }}" rel="stylesheet" type="text/css"  media="screen" />
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -102,9 +32,9 @@
     <link href="../assets/ico/apple-touch-icon-114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114">
     <link href="../assets/ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72">
     <link href="../assets/ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
-  </head>
 
-  <body>
+</head>
+<body>
     <a id="fork-me" href="#" target="_blank"><img style="border: 0px currentColor; border-image: none; top: 0px; right: 0px; position: fixed; z-index: 999999;" alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom:120px;">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -115,7 +45,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Enter Project Name here</a>
+    <a class="navbar-brand" href="#">{{$title}}</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -451,5 +381,10 @@ public class BadgeGenerator : IBadgeGenerator
         });
     </script>
   
-</div></body></html>
 
+</div>
+<!--EO gliverContainer-->
+
+
+</body>
+</html>

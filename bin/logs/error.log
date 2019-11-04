@@ -1,0 +1,3 @@
+Gliver\Routes\RouteException : The class Controllers\Img/gliverarchController is undefined C:\xampp\htdocs\dev\docs\system\start.php(87) As seen from  C:\xampp\htdocs\dev\docs\system\bootstrap.php(93): {closure}()
+#1 C:\xampp\htdocs\dev\docs\public\index.php(60): require_once('C:\\xampp\\htdocs...')
+#2 {main}

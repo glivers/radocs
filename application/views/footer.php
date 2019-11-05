@@ -4,6 +4,7 @@
     <script src="js/rainbow/rainbow.min.js"></script>
     <script src="js/rainbow/language/generic.js"></script>
     <script src="js/rainbow/language/html.js"></script>
+    <script src="js/rainbow/language/php.js"></script>
     <script src="js/rainbow/language/css.js"></script>
     <script src="js/rainbow/language/javascript.js"></script>
     <script src="js/rainbowlines/rainbow.linenumbers.js"></script>

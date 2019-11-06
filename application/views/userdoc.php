@@ -16,128 +16,171 @@
                 <h2>Installation</h2>
 
 
-                <h3>System Requirements</h3>
+                <p class="well">Gliver Framework requires PHP version 7.0 or greater to run. In order to avoid broken functionality or open security holes in your application, upgrade to version >=7.0</p>
 
-                <p class="well">Gliver Framework requires PHP version 5.4 or greater to run. In order to avoid broken functionality or code and opening security holes in your application, upgrade to version >=5.4.</p>
+                <p>You also need to have <a href="https://getcomposer.org/doc/00-intro.md" target="_blank">Composer</a> installed on your computer in order to be able to install the Gliver framework</p>
 
-                <h3>Downloading Gliver</h3>
+                <p><strong>Step 1.</strong></p>
 
-                <p class="well">One option of installing Gliver framework is to <a href="https://github.com/gliver-mvc/gliver/archive/master.zip">download the source code</a>  directly to your local hard drive and run it!</p>
+                <p>Click here to <a href="https://github.com/gliverphp/gliver/archive/master.zip">download the Gliver core</a> from GitGub and extract it in your root directory</p>
 
-                <p>This will always give you the latest stable version of Gliver. Most of the time the source has the most upto date code, but to ensure you are using the latest versions of all the dependencies and Helper classes, you can run a <code>composer update</code> from the root of your installation to get the framework core to latest stable distribution. </p>
+                <p><strong>Step 2.</strong></p>
 
-                <p>Once you download or install Gliver, run the folder itself in this manner <code>localhost/gliver</code></p>
+                <p>Run 'composer update' from the root directory of your Gliver installation to install the Gliver framework dependencies</p>
 
-                <h3>Via Composer</h3>
+<pre>
+<code data-language="html">
+composer update    
+</code>
+</pre>
 
-                <p>You can as well install Gliver framework directly using <span class="text-danger"> Composer </span> without having to manually download anything! Composer is a package management tool for PHP applications. Note that you will need to have composer installed on your computer in order to do this installation with success. For a more detailed instruction on how to install composer, look at this <a href="https://getcomposer.org/doc/00-intro.md" target="_blank">documentation</a></p> 
+                <p><strong>Step 3.</strong></p>
 
-                <p>Create an installation of Gliver using the <span class="text-danger">create-project</span> command, specifying the Gliver framework name on packagist and the name of the directory in which to install Gliver</p>
+                <p>Alternatively, can install Gliver framework directly from Packagist repository by running 'composer create-project gliver/gliver myapp' in from command line</p>
 
-                <p><code>composer create-project gliver/core myapp</code> </p>
+<pre>
+<code data-language="html">
+composer create-project gliver/gliver myapp
+</code>
+</pre>
+
                 
-                <p>This command would download the latest stable version of Gliver framework and all dependencies and install them in the directory <span class="text-danger">myapp</span>. You can change the name of the directory to your directory of choice, or better still rename it after installation... This might be the best way to install Gliver!</p>               
+                <p>This command would download the latest stable version of Gliver framework and all dependencies and install them in the directory <span class="text-danger">myapp</span>.</p>
 
-
-                <h3>Upgrading Guide</h3>
-
-                <p>The Gliver core code resides in the <span class="text-danger">system</span> directory. Once you application is up and running and there are updates that you would like to incorporate into your application download the Gliver framework core and replace the contents of the <span class="text-danger">system</span> directory with the contents of the system directory freshly downloaded, forget about the rest of the code: that's all you need for this purpose! Thought there was more work to it? No. You are done! </p>
-                
-                <p>If you would like to fetch updates for the <span class="text-danger">Gliverich console</span> commands run <code>composer update</code> </p>
- 
-
-                <h3>Troubleshooting</h3>
-
-                <p>Something not working right might mean a number of things with either your application or your server environment, assuming your server is up and running...</p>
-                
-                <ul>
-
-                <li>Error display is turned off by default, but every error message is always logged into a log file located here <code>bin/logs/error.log</code>. You can however change this by setting <span class="text-danger"> dev</span> environment to true in the <span class="text-danger"> config.php</span> file.</li>
-                
-                <li>When running your installation, only specify the installation directory, don't mention the public folder. If this gives you a blank page : check that your server software is up and running, blank page still? Check that the directory name you specified is the correct name of your installation directory, blank page still? Check that you have enabled <span class="text-danger">mode rewrite rule</span> in your php.ini file, no success Roger? Check the error message in your error.log file found here <code>bin/logs/error.log</code>. Nothing in your error log file, gotcha! Enable write permission in your installation directory and there you go! </li>
-                
-                </ul>
-
-
-                  <h2>Getting Started</h2>
-
-                  <h3>Gliver at a glance</h3>
-            
-                  <p>Gliver: An extensible light weight Application framework. Gliver is an application framework based on PHP <a href="http://php.net/ChangeLog-5.php#5.6.16">v5.6</a>. It is an essential tool for PHP web developers who want easy to use yet powerful framework. It is specially designed for each level of PHP developer. Novice PHP developers can benefit from this by simple installation and start developing cutting edge applications. It is equally useful for middle level to advanced programmers with very useful Helper classes. </p>
-
-                  <p>Its ORM based database architecture is beneficial for developing scalable and complex Large scale applications. Memcache is also supported in this framework. Developers who do not want to use structured database have freedom to use NoSQL database like MongoDB.</p>
+                <p>You can change the name of the directory to your directory of choice, or better still rename it after installation...</p>               
         
-                  <h3>Supported Features</h3>
+                  <h2>Configuration</h2>
+
             
-                  <p>What is unique about Gliver framework so that it stands out?</p>
+                  <p>There are four configuration files where you can specify the settings for your application.</p>
 
-                  <ul>
-                  <li>Gliver is very lightweight with a very small footprint, so your server memory is optmally utilized.</li>
-                  <li>Configuration is very simple. You just specify all in array format, something you are already familiar with and can be changed any time as you feel like.</li>
-                  <li>With the use of namespaces in your controllers, you can have as many controllers with similar names without any name conflict.</li>
-                  <li>Defined routes, specified in an array format, makes route mapping very fast thereby reducing your request response time significantly.</li>
-                  <li>PHP code loitered in the views files? Not looking nice. Glade templating out of the box, beatiful syntax as substitute for PHP code.</li>
-                  <li>You deal with databases and you know writing query strings is not where you want to spend your time. With Intuitive ORM Model class - all these automated Rodger!</li>
-                  <li>Having to keep memorizing your directory structure in order to load views files cannot help but introduce errors because you are human and will definitely forget - look, Express View loader comes to your help, all automated! Sounds cool huh?</li>
-                  <li>So yesterday you wrote that sweet user management library, and now you thinking of Gliver and you wonder, what about your library of code! It's not going to be any distance from you. Either submit it as a package to the packagist repository then intall it into Gliver via <code>Composer</code> as a dependency or copy and paste that code into the <code>libraries</code> directory and enjoy functionality at full speed...</li>
-                  <li>With advanced rules in our .htaccess file, you can only have but pretty clean urls. </li>
-                  <li>Helper Classes for all general purpose tasks like Form building, Calendar,Captcha, Cart, Directory, Email, Pagination, Security, Unit testing...you needed more? Talk about it <a target="_target" href="https://github.com/gliver-mvc/gliver/issues">here</a>  and it will be up tomorrow morning.</li>
-                  </ul>
-               
-                  <h3 >Application Flowchart</h3>
+                  <p class="alert alert-info">These options can be accessed from anywhere within your application using specific class methods.</p>
 
-                  <div>
-                      <img class="img img-resposive" src="{{ Url::assets('img/gliverarch.png') }}" alt="gliver application flow chart" width="100%" />
-                  </div>
+                  <h3 class="text-danger">Config.php</h3>  
 
-                  <h3>Configuration</h3>
+                  <p>This file contains the general configuration options of your application. 
 
-                  <p>Configuring your application is the fun part after installing Gliver - and i bet you wanna do this before you begin writing any code. Configuring Gliver comes in different flavors depending on what you would like to configure.</p>
-            
-                  <p>Note that the configutation files are always autoloaded by default and so do not require any special action from you - all you need to do is specify the values against the keys in the respective files. Do not modify key names as these are used to access the values that you specify as is.</p>
+                  <p>The config.php resides in the config directory. 
+<pre>
+<code data-language="html">
+config/config.php
+</code> 
+</pre>
 
-                  <p>There are four configuration files where you can specify options for your application. These options are always available throughout the entire application and can be accessed from anywhere in your application using the right classes. Include your configuration in either <span>config.php, database.php or constants.php</span> </p>
-            
-                  <h4>Config.php</h4>  
 
-                  <p>This file contains the general configuration options of your application. The config.php resides in the <code>config/config.php</code> directory. Comments appear before every config element to describe the purpose of the option. Most of the options are set to defaults with the associated datatype. So you can set the config options to your value of choice. Always be sure of what you are doing before you make changes to configuration. Not all options in this file are alterable, for example, do not alter the root option.  </p> 
 
-                  <p>Among other options, the values you can set in this file include application author, copyright, license, version... e.t.c - these values are automatically used to fill in metadata when generating classes using the <span class="text-primary">gliverich console</span>  terminal commands. </p>
+                  <p>Set the value of 'dev => true' if your application is running in development mode and set this to 'false' as soon as you deploy to production.</p>
 
-                  <p>Set the value of <code>dev => true</code> if your application is running in development mode and make sure to set this to <code>false</code> as soon as you deploy to production. All that this would do is to ensure that error messages are not shown to the user when in production mode in order to avoid exposing your server directory structure to that malicious jerk.</p>
-            
-                  <p>An important thing you want to ensure you do before you leave this file is to set your default controller and action. These are key as they will be loaded as your homepage i.e. whenever you access you application without specifying the controller name and action to load - something like this <code>http://localhost/gliver</code></p>
-
-                  <p>If you would like to make take advantage of caching technology, a feature Gliver proudly supports, then this is the place you want to define settings for accessing your Memcached server or Redis for that matter...</p>
-            
-                  <h4>Database.php</h4>  
-
-                  <p>This is sister to Config.php as they reside in the same directory here <code>config/database.php</code> </p>
-                  
-                  <p>The database configuration is separated from the general configuration as we intend to support as many databases as we can imagine and would to we would like to set these apart from the rest so as to avoid confusion - noting that database settings changed frequently (as soon as you realize your password is leaked!).</p>
-                 
-                  <p>In the database configuration, you can specify the settings for any supported database then specify the default database you would like the application to alwasy connect to. As soon as you change your mind and would like to use a different database, just set it as the default and that's all you need - all database database connections henceforth would default to you new set default. Ensure to enclose all you database setting values within single or double quotes. As well you do not need to modify the key names or add to any. They are already good to go.</p>
-            
-                  <h4>Constants.php</h4>  
-
-                  <p>Here you can define all the values that you will need throughout all your application. Defining constants here would follow the same rules you observe when defining constants in PHP. Once you define your contants here, you can access them from anywhere in your application by using the constant name.</p>
-                  
-                  <p>You define constants of in this manner <code>define('NETWORK_ID', 'gliver');</code> then you can access them from anywhere in this manner <code> echo NETWORK_ID; </code> </p>
-
- 
-                  <h3>Routing</h3>
-
-                  <p>The routing feature enables mapping of defined keywords to particular controllers/action pairs. Routing also enabels you to pass url parameters to your controllers which it parses and includes as part of the Input parameters and you access them via the Input helper class. The routing class gives much flexibility so that you can map a defined route to a controller, a controller method pair and optionally name the parameters that you expect to recieve along with the Url request</p>
-
-                  <p>Defined routes are set in the <span class="text-success">routes.php</span> file that resides in the <code>application/routes.php</code> directory. The routing class would then get the contents of this file at execution time and parse the route accordingly. Defining routes is, however, optional as you can decide to call your controllers directly from the url and pass unamed parameters - accessing them using numbered indexes.</p>
-                  
-                  <p>The comments in the routes.php file give a pretty self explanatory example of how to define routes, but let's take sometime and look at this into details</p>
-                  
-                  <p class="alert alert-info">Remember that the routes.php file is an array and therefore should maintain a valid array format.</p>
-                  
-                  <p>First be able to locate the routes.php file from within the <code>application/</code> directory then follow along...</p>
 <pre>
 <code data-language="php">
+/**
+ *Set the application environment. Set true for development, otherwise, set to false
+ */
+'dev' => true,
+</code>  
+</pre>
+
+                  <p>This would do is to ensure that error messages are not shown to the user when in production mode in order to avoid exposing your server directory structure to that malicious jerk.</p>
+            
+                  <p class="alert alert-info">You can also set your default controller and action here.</p>
+
+                  <p>These are key as they will be loaded as your homepage i.e. whenever you access you application without specifying the controller and method</p>
+
+<pre>
+<code data-language="php">
+/**
+ *Set the default controller
+ */
+'controller' => 'Home',
+/**
+ *Set default action
+ */
+'action' => 'Index' 
+</code>
+</pre>
+
+            
+                  <h3 class="text-danger">Database.php</h3>  
+
+                  <p>The Gliver database configuration file resides in the config directoty.</p>
+
+<pre>
+<code data-language="html">
+config/database.php
+</code>
+</pre>
+                 
+                  <p>In the database configuration, you can specify the settings for any supported database then specify the default database you would like the application to alwasy connect to.</p>
+
+                  <p>As soon as you change your mind and would like to use a different database, just set it as the default.</p>
+
+<pre>
+<code data-language="php">
+/**
+ *Define the database server hostname
+ */
+'host'    => 'localhost',
+/*
+ *Define the username
+ */
+'username'  => 'root',
+/*
+ *Define the database password
+ */
+'password'  => '',  
+</code>
+</pre>
+            
+                  <h3 class="text-danger">Constants.php</h3>  
+
+                  <p>The constants configuration file resides in the application directoy.</p>
+
+<pre>
+<code data-language="html">
+application/constants.php
+</code>
+</pre>
+
+                  <p>Here you can define all the values that you will need throughout all your application.</p>
+
+                  <p>Once defined, you can access them from anywhere in your application by using the constant name.</p>
+
+<pre>
+<code data-language="php">
+//Specify the network id constant
+define('NETWORK_ID', 'gliver'); 
+</code>
+</pre>
+                  
+                  <p>You can then access them from anywhere in this manner:</p>
+<pre>
+<code data-language="php"> 
+echo NETWORK_ID; 
+</code>
+</pre>
+
+ 
+                  <h2>Routing</h2>
+
+                  <p>The routing feature enables mapping of defined keywords to particular controllers/action pairs.</p>
+
+                  <p>Routing also enables you to pass url parameters to your controllers which it parses and includes as part of the GET parameters you access them via the Input helper class.</p>
+
+                  <p>The routing class gives much flexibility so that you can map a defined route to a controller, a controller method pair and optionally name the parameters that you expect to recieve along with the url request</p>
+
+                  <p>Routes are defined in the routes.php file found in the application directory.</p>
+
+<pre>
+<code data-language="html">
+application/routes.php
+</code>
+</pre>
+                  <p>Defining routes is, however, optional as you can decide to call your controllers directly from the url and pass unamed parameters and accessing them using numbered indexes.</p>
+                                    
+                  <p class="alert alert-info">Remember that the routes.php file is an array and therefore should maintain a valid array format.</p>
+                  
+<pre>
+<code data-language="css">
 /**
  *The admin users route.This route loads the home controller and getUser() method
  *@param int $id The user id for which to load profile
@@ -149,14 +192,65 @@
  *@param string $category The category from which to get blog content
  *@param int $id The id of the post to load in this category
  */
- 'blog' => 'Load/category/id',
+'blog' => 'Load/category/id',
 </code>
 </pre>
 
-                  <p>Say you have a controller class named <span class="text-info">LoadController</span> that you would like to invoke using the word <span class="text-info">blog</span>. In order to achieve this you will define this name value pair in the routes file as <code>"blog" => "Load",</code> - this simply means that word blog maps to the LoadController class, so that when you access the LoadController class from the url you use the word blog in this manner <code>http://localhost/gliver/blog</code>. May be you have many articles so that you have put them into categories, and that each blog has a unique id. Inorder to load the right article, you  might wanna pass along with the route name the blog category and the particular article id to load as part of the url. To make this even better, you can define the names with which to access the values of these parameters in your routes so that your work is made even easier. You do this by separating the controller name by a forward slash and then specifying the names of the parameters - each separated with a forward slash without any whitespace as so <code>"blog"=>"Load/category/id"</code>. A sampe url would be this <code>http://localhost/gliver/blog/pages/electronics/45</code></p>
+                  <p>Say you have a controller class named <span class="text-danger">LoadController</span> that you would like to invoke using the word <span class="text-danger">blog</span>.</p>
 
-                  <p>The above is rather general purpose. A case in study is where you would like to be more specific and define a route that maps to a controller class with the particular method to be executed. Sounds right? Yeah. Specifying a controller and method pair involves separating the controller class name with an @ symbol. We have a <span class="text-info">HomeController</span> class that among other things, helps us load user profiles for view by the account admin. We can define an adminusers routes that maps to this controller and to be particular, the getUser() method in order to assist in loading user profiles. Look at this <code>"adminusers"=>"Home@getUser"</code>. Of course each user on your system has a unique indentifier - this could be a unique integer value or id. Besides, you would like to load different pages for editing mode or for just viewing - sounds complex now? Things never got easier.... You can pass all these parameters in the url and give them names with which to access them in this manner <code>"adminusers"=>"Home@getUser/id/mode"</code>. <br> Here is a sample url   <code>http://localhost/gliver/adminusers/4957450723/edit</code> </p>
+                  <p>In order to achieve this you will define this name value pair in the routes file as: 
+
+<pre>
+<code data-language="php">
+"blog" => "Load",
+</code>
+</pre>
+
+                  <p>This simply means the word blog maps to the LoadController class, so that when you access the LoadController class from the url you use the word blog in this manner:</p>
+
+<pre>
+<code data-language="html">
+http://localhost/myapp/blog
+</code>
+</pre>
+
+                  <p>If you want to define a route that maps to a controller class with the particular method to be executed, separate the controller class and method name with an @ symbol.</p>
+
+                  <p>Say you have an <span class="text-danger">AdminController</span> class that loads users profiles using a getUser() method.</p>
+
+                  <p>You can define an 'adminusers' route that maps to this controller class and the getUser() method in order to load a user's profile.</p>
+
+                  <p>It would be something like:</p>
+
+<pre>
+<code data-language="php">
+"adminusers"=>"Home@getUser"
+</code>
+</pre>
+
+                  <p>And you would access it using a url like:</p>
+
+<pre>
+<code data-language="html">
+http://localhost/myapp/adminusers
+</code>
+</pre>                 
                   
+                  <p>In case each user on your system has a unique id and you would like to load different pages for editing or viewing mode, pass all these parameters in the url and give them names with which to access them in this manner:
+
+<pre>
+<code data-language="php">
+"adminusers"=>"Home@getUser/id/mode"
+</code>
+</pre>                    
+
+                  <p>Here is an example url you would use to access it:</p>
+
+<pre>
+<code data-language="html">
+http://localhost/myapp/adminusers/49723/edit
+</code>
+</pre>                  
                   <p>You may not just want to map a route to a controller alone, but go ahead and also specify a method to be executed along with the controller whenever that route is accessed in the url. We still gat you covered in this - in order to specify a controller method pair you check below... We have our <span class="text-info">HomeController</span> class that we would like ti invoke by calling 'adminhome' in the url.</p>
                   
                   <div class="alert alert-info">
@@ -172,7 +266,7 @@
 
                   <p>If you would like to define a route for a controller that is within a subdirectory, e.g <code>application/controllers/Admin/HomeController</code>, you specify the namespace in this manner <span class="text-primary">"adminusers"=>"Admin\Home@getUser/id/mode</span>.</p>
                 
-                  <h3 id="input" class="text-danger">Requests</h3>
+                  <h2 id="input" class="text-danger">Requests</h2>
 
                   <p>What would be the purpose of a framework if it were not able to handle requests? Proper and secure request handling is key to a strong framework that wants to be efficient and at the same time safeguard your application and server resources. </p>
                   
@@ -194,7 +288,7 @@
                   
                   <p>Create two methods named <span class="text-primary">getLogin()</span> and <span class="text-primary">postLogin()</span>. You will access both methods with the same url as <code>http://localhost/gliver/login/login</code>. Accessing this url in your address bar will load the user login form as the request method would be GET and the <span class="text-primary">getLogin</span> method would be excecuted. Once the user fills up the form, you specify in your action attribute the same url for form submission as this <code>&lt;form action="http://localhost/gliver/login/login" method="post" ></code>. When the user then submits the form, Gliver would detect this as a POST request and therefore submit your form to the <span class="text-primary">postLogin</span> method of the LoginController. So, there you go! Using the same method name to excecute different methods depening on the request method.</p>
 
-                  <h3 id="views" class="text-danger">Responses</h3>
+                  <h2 id="views" class="text-danger">Responses</h2>
 
                   <p>Whenever a request is made, there is need for a response - or their might be no point of the request.</p>
                   
@@ -209,7 +303,7 @@
                   
                   <p>If you would like to pass data to be used by your view files, pass it as the second parameter in array format as <code>View::render('home/users', array('title'=>'Gliver - Official Site'))</code>, you will then access this variable in your view file as <span class="text-success">$title</span>.</p>        
                    
-                  <h3 id="errors" class="text-danger">Error Handling</h3>
+                  <h2 id="errors" class="text-danger">Error Handling</h2>
 
                   <p>Error handling in Gliver comes in two flavors - either through PHP errors or Exceptions.</p>
                   
@@ -223,9 +317,7 @@
                   and display the error message by calling the errorShow() method like so <code>$BaseExceptionClassInstance->errorShow()</code>.</p>
 
 
-                  <h2>Brief Tour</h2>
-
-                  <h3>Controllers</h3>
+                  <h2>Controllers</h2>
 
                   <p>Controllers form the entry point into your application. It is from here that you can call your model classes, libraries and load the view files, among other things... </p>
 <pre>
@@ -291,7 +383,7 @@ class HomeController extendsBaseController {
                   <p>Create two methods named <span class="text-primary">getLogin()</span> and <span class="text-primary">postLogin()</span>. You will access both methods with the same url as <code>http://localhost/gliver/login/login</code>. Accessing this url in your address bar will load the user login form as the request method would be GET and the <span class="text-primary">getLogin</span> method would be excecuted. Once the user fills up the form, you specify in your action attribute the same url for form submission as this <code>&lt;form action="http://localhost/gliver/login/login" method="post" ></code>. When the user then submits the form, Gliver would detect this as a POST request and therefore submit your form to the <span class="text-primary">postLogin</span> method of the LoginController. So, there you go! Using the same method name to excecute different methods depening on the request method.</p>
 
 
-                <h3>Views</h3>
+                <h2>Views</h2>
 
                 <p>The view class enables you to invoke a response to the url request. This can in the form of loading view files to provide a graphical interface to enable your users to interact with your application or set header for sending pdf, json, xml responses among others...</p>
 
@@ -306,7 +398,7 @@ class HomeController extendsBaseController {
                 <p>Say we would like to dynamically get the site title from the controller and use it in our view file in this manner <code>&lt;title>&lt;?php echo $title; ?>&lt;/title></code>. Create a $data array and store the value of the title as a key in the array as <code>$data['title'] = "Gliver - Official Site";</code>, then pass this as a second parameter to the View::render() method as <code>View::render('home/index', $data);</code></p>
 
 
-                <h3>Templating</h3>
+                <h2>Templating</h2>
 
                 <p>Out of the box, Gliver has an in built templating engine called glade. This engine is rather simple and has been kept light-weight for the purpose of faster view file parsing - so there are no complicated methods, only the most commonly repeated actions in view files have been abstracted.</p>
 
@@ -314,11 +406,11 @@ class HomeController extendsBaseController {
 
                 <p>Glade basically has the following template methods that you can use in your view files</p>
 
-                <h4>Echo </h4>
+                <h3>Echo </h3>
 
                 <p>In regular PHP in order to echo a string to the browser, you'd open and close PHP tags then use the echo statement in between the tags. You have more than 5 variables to echo in your view files and you are already wishing there was an alternative. Look at this <code>&lt;?php echo $username; ?></code>, ugly? Huh? Let's make it elegant -> <code><?php echo '{'; ?>{$username}}</code>. That's all you need to do to print out the value of a variable to the browser in glade template files. <code>&lt;p><?php echo '{'; ?>{$username}}&lt;/p></code></p>
 
-                <h4><?php echo "@";?>include </h4>
+                <h3><?php echo "@";?>include </h3>
 
                 <p>Subdeviding your view files into parts saves you time when you need to make updates. Say you have 100 view files that have the same content in the header and footer. You might want to ensure that you separate the header and footer and put them in a place where all the other view files refrence them. So if you need to make a change to the footer content, you just update one file - the footer, and all the other view files would be up-to date, as opposed to if you would have had to iterate through all the 100 views files updating header and footer content.</p>
             
@@ -341,14 +433,14 @@ class HomeController extendsBaseController {
 </code>
 </pre>
 
-                <h4>{{"@"}}if...{{"@"}}endif </h4>
+                <h3>{{"@"}}if...{{"@"}}endif </h3>
 <pre class="bg-success">
 <?php echo "@";?>if(isset($email) AND ! empty($email))
   &lt;p>Your email address is <?php echo "{";?>{$email}}&lt;/p>
 <?php echo "@";?>endif
 </pre>
 
-            <h4 class="text-primary"><?php echo "@";?>if...<?php echo "@";?>else...<?php echo "@";?>endif </h4>
+            <h3 class="text-primary"><?php echo "@";?>if...<?php echo "@";?>else...<?php echo "@";?>endif </h3>
 <pre class="bg-success">
 <?php echo "@";?>if(count($users) > 0)
   &lt;p>Registered users(<?php echo "{";?>{count($users)}})&lt;/p>
@@ -357,7 +449,7 @@ class HomeController extendsBaseController {
 <?php echo "@";?>endif
 </pre>
 
-            <h4 class="text-primary"><?php echo "@";?>if...<?php echo "@";?>elseif...<?php echo "@";?>else...<?php echo "@";?>endif </h4>
+            <h3 class="text-primary"><?php echo "@";?>if...<?php echo "@";?>elseif...<?php echo "@";?>else...<?php echo "@";?>endif </h3>
 <pre class="bg-success">
 <?php echo "@";?>if($score > 80) 
   &lt;p>Grade : A  Remarks : Excellent&lt;/p>
@@ -368,7 +460,7 @@ class HomeController extendsBaseController {
 <?php echo "@";?>endif
 </pre>
 
-            <h4 class="text-primary"><?php echo "@";?>while...<?php echo "@";?>endwhile </h4>
+            <h3 class="text-primary"><?php echo "@";?>while...<?php echo "@";?>endwhile </h3>
 <pre class="bg-success">
 <?php echo "@";?>while($number <= 10)
   &lt;p>Number is <?php echo "{";?>{$number}}&lt;/p>
@@ -376,14 +468,14 @@ class HomeController extendsBaseController {
 <?php echo "@";?>endwhile
 </pre>
 
-            <h4 class="text-primary"><?php echo "@";?>for...<?php echo "@";?>endfor </h4>
+            <h3 class="text-primary"><?php echo "@";?>for...<?php echo "@";?>endfor </h3>
 <pre class="bg-success">
 <?php echo "@";?>for($itr = 1; $itr < 10; $itr++)
   &lt;p>This is paragraph number <?php echo "{";?>{$itr}} &lt;/p>
 <?php echo "@";?>endfor
 </pre>
 
-            <h4 class="text-primary"><?php echo "@";?>foreach...<?php echo "@";?>endforeach</h4>
+            <h3 class="text-primary"><?php echo "@";?>foreach...<?php echo "@";?>endforeach</h3>
 <pre class="bg-success">
 <?php echo "@";?>foreach($users as $user)
   &lt;p>Name <?php echo "{";?>{$user['first_name']}} : Email : <?php echo "{";?>{$user['email_address']}}&lt;/p>
@@ -392,7 +484,7 @@ class HomeController extendsBaseController {
 
             <p></p>
 
-                <h3 id="models" class="text-danger">Models</h3>
+                <h2 id="models" class="text-danger">Models</h2>
 
                 <p>Models classes will help you handle database operations or API connection operations.</p>
 
@@ -892,74 +984,6 @@ $data = array('id'=>9897717171);
 Redirect::with($data)->to('profile/view'); //this loads this url http://localhost/gliver/profile/view?id=9897717171
 </pre>
 
-
-                <h2>Database</h2>
-
-
-                <h3>Basic Usage</h3>
-                
-                <p>Gliver easily connect application to database in a simple way. It currently support following database systems:
-                            
-                <div class="row">
-                    <ul style="list-style: circle; margin-left: 5%">
-                        <div class="row"><li>MySQL</li></div>
-                        <div class="row"><li>SQLite</li></div>
-                        <div class="row"><li>Postgre</li></div>                                                
-                    </ul>
-                </div>         
-                </p>
-
-                <h5>Configuration</h5>
-                
-                <p>Database configuration file is located at <code>config/database.php</code> In below code snippet, Mysql is set as default and mysql related configuation are written.</p>
-                
-
-                <h3>Query Builder</h3>
-                
-
-                <p>Coming soon...</p> 
-
-
-                <h3>Intuitive ORM</h3>
-                
-
-                <p>Coming soon...</p> 
-
-            
-                <h3>Schema Builder</h3>
-                
-
-                <p>Coming soon...</p> 
-
-
-                <h3>Migration Seeding</h3>
-                
-
-                <p>Coming soon...</p> 
-                
-
-                <h2>Errors Logging</h2>
-
-
-                <h2>Caching</h2>
-
-
-                <h3>Memcache</h3>
-                
-
-                <p>Coming soon...</p> 
-
-                       
-                <h3>Memcached</h3>
-                
-
-                <p>Coming soon...</p>
-
-
-                <h3>Redis</h3>
-                
-
-                <p>Coming soon...</p> 
 
 
                 <h2>Release Notes</h2>

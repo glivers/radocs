@@ -262,7 +262,7 @@ application/controllers/Admin/HomeController
 
                   <h2>Controllers</h2>
 
-                  <p>Controllers form the entry point into your application.</p>
+                  <p>Controllers form the entry point into your application. It handles requests by loading a controller class and the respective method.</p>
 
                   <p>It is from here that you can call your model classes, libraries and load the view files, among other things... </p>
 
@@ -415,42 +415,129 @@ http://localhost/myapp/login/login
                 <h2>Views</h2>
 
 
-                <p>The view class enables you to invoke a response to the url request. This can in the form of loading view files to provide a graphical interface to enable your users to interact with your application or set header for sending pdf, json, xml responses among others...</p>
-
-                <p>You call the view class from the controller by first requiring it using the statement <code>use Helpers\View\View;</code> after which you access the View class and methods directly without creating an instance. For instance, this is how you will load a view file <code>View::render('home/users', $data);</code> More methods available in the View class are described in the Helpers section</p>
-
-                <p class="alert alert-info">All view files are located in the <span class="text-info">application/views</span> directory.</p>
-            
-                <p>If you put your view files in a subdirectory under the views directory, you access them by separating the directories with a forward slash. Say you have put your index.glade.php view file in your home subdirectory under the views folder - in order to load this view from the view class, you specify <span class="text-warning">View::render('home/index')</span>.</p>
-
-                <p>Most of the time when you are loading your views, you may need to pass variables along so that their values are injected into the views. This is completely in built in Gliver. All you need to do is pass the variables in an array and then access them using the array key.</p>
-
-                <p>Say we would like to dynamically get the site title from the controller and use it in our view file in this manner <code>&lt;title>&lt;?php echo $title; ?>&lt;/title></code>. Create a $data array and store the value of the title as a key in the array as <code>$data['title'] = "Gliver - Official Site";</code>, then pass this as a second parameter to the View::render() method as <code>View::render('home/index', $data);</code></p>
+                <h3>View::render</h3>
 
 
-                <h3>Templating</h3>
+                <p>The view class enables you to provide a response to the url request.</p>
 
-                <p>Out of the box, Gliver has an in built templating engine called glade. This engine is rather simple and has been kept light-weight for the purpose of faster view file parsing - so there are no complicated methods, only the most commonly repeated actions in view files have been abstracted.</p>
+                <p>This can be by loading html view files, sending pdf, json or xml responses.</p>
 
-                <p>All view files should have a <span class="text-primary">.glade.php</span> extension in order to be parsed by the View loader class. When specifying the view file though, you do not need to add the file extension as this is enabled by default. Say you have a file named <span class="text-success">index.glade.php</span> in your root views directory. In order to load this view file from the View class you will use this syntax <code>View::render('index');</code> and this would definitely load the view file at <code>application/views/index.glade.php</code>.</p>
+                <p>To use the View loader, first require it in your controller class as:</p>
+<pre>
+<code data-language="php">
+use Gliver\View\View;  
+</code>
+</pre>
 
-                <p>Glade basically has the following template methods that you can use in your view files</p>
+                <p>You can then access the View class and methods directly without creating an instance.</p>
 
-                <h3>Echo </h3>
+                <p>All view files resides in the application/views directory and must have a <span class="text-danger">.php</span> file extension.</p>
 
-                <p>In regular PHP in order to echo a string to the browser, you'd open and close PHP tags then use the echo statement in between the tags. You have more than 5 variables to echo in your view files and you are already wishing there was an alternative. Look at this <code>&lt;?php echo $username; ?></code>, ugly? Huh? Let's make it elegant -> <code><?php echo '{'; ?>{$username}}</code>. That's all you need to do to print out the value of a variable to the browser in glade template files. <code>&lt;p><?php echo '{'; ?>{$username}}&lt;/p></code></p>
+                <p>First instance, let's say you want to load the <span class="text-danger">users.php</span> view file in the home subdirectory, you'd do this:</p>
 
-                <h3><?php echo "@";?>include </h3>
+<pre>
+<code data-language="php">
+View::render('home/users');  
+</code>
+</pre>
 
-                <p>Subdeviding your view files into parts saves you time when you need to make updates. Say you have 100 view files that have the same content in the header and footer. You might want to ensure that you separate the header and footer and put them in a place where all the other view files refrence them. So if you need to make a change to the footer content, you just update one file - the footer, and all the other view files would be up-to date, as opposed to if you would have had to iterate through all the 100 views files updating header and footer content.</p>
-            
-                <p>Glade enables you to include sub-views into your view file using the <span class="text-info">@<?php echo 'include()';?></span> statement, passing the name of the file to include as the first parameter.</p>
+                <p>If you want to pass some variables to be available to the view files, pass them in an array as the second parameter. </p>
 
-                <p>Say you have a header.glade.php and footer file in your home directory and would like to pull it into your home/users page. </p>
+<pre>
+<code data-language="php">
+View::render('home/users', $data); 
+</code>
+</pre>
+          
+                <p>Say you would like to dynamically get the site title from the controller and use it in your view file.</p>
+
+                <p>Create a $data array and store the value of the title as a key in the $data array, then then pass it as a second parameter to the View::render() method:</p>
+
+<pre>
+<code data-language="php">
+$data['title'] = "Gliver - Official Site"; 
+
+View::render('home/users', $data);
+</code>
+</pre>
+
+                <p>You can then access it in your view file as:</p>
 
 <pre>
 <code data-language="html">
-{{'@'}}include('home/header')
+&lt;?php echo $title; ?>
+</code>
+</pre>
+
+    
+                <h3>View::renderJson</h3>
+
+                <p>If you want to return a json object instead of loading a html file, then use the renderJson method instead.</p>
+
+                <p>This method sets the content header as application/json.</p>
+
+                <p>Supply the array to be converted to a json object as an optional parameter as shown:</p>
+
+<pre>
+<code data-language="php">
+View::renderJson($data);
+</code>
+</pre>
+
+
+                <p>Out of the box, Gliver has an in built templating engine that abstracts the most commonly repeated actions when generating a view.</p>
+
+                <p class="alert alert-info">You do not need to specify a special file extension to activate the template engine. It is on by default.</p>
+
+
+                <p>The following template methods are available within the view files.</p>
+
+                <h3>Echo </h3>
+
+                <p>In regular PHP in order to echo a string to the browser, you open and close PHP tags then use the echo statement in between the tags:</p>
+
+<pre>
+<code data-language="php">
+&lt;?php echo $username; ?> 
+</code>
+</pre>               
+
+                <p>Gliver has a template method that does the same thing. Just put the variable to be printed within double curly braces.</p>
+
+<pre>
+<code data-langauge="html">
+<?php echo '{'; ?>{$username}} 
+</code>
+</pre>
+
+
+                <h3>{{"@"}}include </h3>
+
+                <p>This template method enables you to load view files that are shared as subviews.</p>
+
+                <p>You call this method from within your view files, while passing the name of the view file to be included as the first parameter.</p>
+
+<pre>
+<code data-language="html">
+{{"@"}}include('header') 
+</code>
+</pre>
+
+                <p>If the view file to be included exists in a sub directory, specify the directory structure separated by forward slash.</p>
+
+<pre>
+<code data-language="html">
+{{"@"}}include('admin/header')  
+</code>
+</pre>
+
+                <p>Say you have a <span class="text-danger">header.php</span> and <span class="text-danger"> footer.php</span> view files in your admin directory and would like to include them in your <span class="text-danger">home.php</span> view page.</p>
+
+                <p>This is what the code in your <span class="text-danger">home.php</span> file would look like</p>
+
+<pre>
+<code data-language="php">
+{{'@'}}include('admin/header')
 &lt;div class="container"&gt;
     &lt;div class="row"&gt;
         &lt;div class="col-lg-12"&gt;
@@ -459,57 +546,83 @@ http://localhost/myapp/login/login
     &lt;/div&gt;
 &lt;/div&gt;
 
-{{'@'}}include('home/footer')
+{{'@'}}include('admin/footer')
+</code>
+</pre>
+                
+                <h3>{{"@"}}if</h3>
+
+                <p>There are 3 ways you could use the {{"@"}}if method.</p>
+
+                <p>This depends on the type or length of the loop you want to execute.</p>
+
+                <p>The 3 code samples below demonstrate the different uses of the {{"@"}}if methid in the Gliver template view files.</p>
+
+                <p><strong>{{"@"}}if...</strong></p>
+
+
+<pre>
+<code data-language="php">
+{{"@"}}if(isset($email) AND ! empty($email))
+  &lt;p>Your email address is {{"{"}}{$email}}&lt;/p>
+{{"@"}}endif
+</code>
+</pre>
+         
+                <p><strong>{{"@"}}if...{{"@"}}else</strong></p>
+
+<pre>
+<code data-language="php">
+{{"@"}}if(count($users) > 0)
+  &lt;p>Registered users: {{"{"}}{count($users)}}&lt;/p>
+{{"@"}}else
+  &lt;p>There are no registered users yet!&lt;/p>
+{{"@"}}endif
 </code>
 </pre>
 
-                <h3>{{"@"}}if...{{"@"}}endif </h3>
-<pre class="bg-success">
-<?php echo "@";?>if(isset($email) AND ! empty($email))
-  &lt;p>Your email address is <?php echo "{";?>{$email}}&lt;/p>
-<?php echo "@";?>endif
-</pre>
+              <p><strong>{{"@"}}if...{{"@"}}elseif...{{"@"}}else</strong></p>
 
-            <h3 class="text-primary"><?php echo "@";?>if...<?php echo "@";?>else...<?php echo "@";?>endif </h3>
-<pre class="bg-success">
-<?php echo "@";?>if(count($users) > 0)
-  &lt;p>Registered users(<?php echo "{";?>{count($users)}})&lt;/p>
-<?php echo "@";?>else
-  &lt;p>There are no registered users yet!&lt;/p>
-<?php echo "@";?>endif
-</pre>
-
-            <h3 class="text-primary"><?php echo "@";?>if...<?php echo "@";?>elseif...<?php echo "@";?>else...<?php echo "@";?>endif </h3>
-<pre class="bg-success">
-<?php echo "@";?>if($score > 80) 
+<pre>
+<code data-language="php">
+{{"@"}}if($score > 80) 
   &lt;p>Grade : A  Remarks : Excellent&lt;/p>
-<?php echo "@";?>elseif($score > 60)
+{{"@"}}elseif($score > 60)
   &lt;p>Grade : B  Remarks : Good &lt;/p>
-<?php echo "@";?>else
+{{"@"}}else
   &lt;p>Grade : C  Remarks : Fair&lt;/p>
-<?php echo "@";?>endif
+{{"@"}}endif
+</code>
 </pre>
 
-            <h3 class="text-primary"><?php echo "@";?>while...<?php echo "@";?>endwhile </h3>
-<pre class="bg-success">
-<?php echo "@";?>while($number <= 10)
-  &lt;p>Number is <?php echo "{";?>{$number}}&lt;/p>
-  ....do something to terminate loop
-<?php echo "@";?>endwhile
+            <h3>{{"@"}}while...</h3>
+
+<pre>
+<code data-language="php">
+{{"@"}}while($number <= 10)
+  #do something to end this loop...
+{{"@"}}endwhile
+</code>
+</pre>
+            
+            <h3>{{"@"}}for...</h3>
+
+<pre>
+<code data-language="php">
+{{"@"}}for($itr = 1; $itr < 10; $itr++)
+  &lt;p>This is paragraph number {{"{"}}{$itr}} &lt;/p>
+{{"@"}}endfor
+</code>
 </pre>
 
-            <h3 class="text-primary"><?php echo "@";?>for...<?php echo "@";?>endfor </h3>
-<pre class="bg-success">
-<?php echo "@";?>for($itr = 1; $itr < 10; $itr++)
-  &lt;p>This is paragraph number <?php echo "{";?>{$itr}} &lt;/p>
-<?php echo "@";?>endfor
-</pre>
+            <h3>{{"@"}}foreach...</h3>
 
-            <h3 class="text-primary"><?php echo "@";?>foreach...<?php echo "@";?>endforeach</h3>
-<pre class="bg-success">
-<?php echo "@";?>foreach($users as $user)
-  &lt;p>Name <?php echo "{";?>{$user['first_name']}} : Email : <?php echo "{";?>{$user['email_address']}}&lt;/p>
-<?php echo "@";?>endforeach
+<pre>
+<code data-language="php">
+{{"@"}}foreach($users as $user)
+  &lt;p>Name {{"{"}}{$user['first_name']}} : Email : {{"{"}}{$user['email_address']}}&lt;/p>
+{{"@"}}endforeach
+</code>
 </pre>
 
             <p></p>

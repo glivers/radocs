@@ -262,29 +262,20 @@ application/controllers/Admin/HomeController
 
                   <h2>Controllers</h2>
 
-                  <p>Controllers form the entry point into your application. It is from here that you can call your model classes, libraries and load the view files, among other things... </p>
+                  <p>Controllers form the entry point into your application.</p>
+
+                  <p>It is from here that you can call your model classes, libraries and load the view files, among other things... </p>
 
 <pre>
 <code data-language="php">
 &lt;?php namespace Controllers;
 
-/**
- *This class loads the application homepage
- *@author Geoffrey Okongo &lt;code@gliver.org>
- *@copyright 2015 - 2030 Geoffrey Okongo
- *@category Controllers
- *@package Controllers\Home
- *@link https://github.com/gliverphp/gliver
- *@license http://opensource.org/licenses/MIT MIT License
- *@version 2.0.1
- */
+use Gliver\View\View;
 
-use Helpers\View\View;
-
-class HomeController extendsBaseController {
+class HomeController extends BaseController {
 
     /**
-     *This method loads the preface page.
+     *Load the home page.
      *@param null
      *@return void
      */
@@ -298,33 +289,127 @@ class HomeController extendsBaseController {
 }  
 </code>
 </pre>         
+                
 
-            
-                  <p>Controllers reside in the <code>application/controllers/</code> directory - and are always autoloaded as need be, so all you need is define the code to be executed and the excecution would proceed seamlessly. When defining your controllers, you wanna ensure you stick to this pattern:</p>
-                  
-                  <ul>
-                  <li>The file that contains your controller class must reside within the <code>application/controllers</code> directory or subdirectory</li>
-                  <li>One file can only contain one controller class.</li>
-                  <li>Controller class files must have a <span class="text-info">.php</span> file extension. The name of the controller class must be the same as the name of the file: <span class="text-info">HomeController</span> class should be in <span class="text-info">HomeController.php</span>. </li>
-                  <li>Controller class and file names must have the 'Controller' suffix as <span class="text-info">HomeController</span>.</li>
-                  <li>When accessing controllers from a url, you only specify the controller name without the 'Controller' suffix as <span class="text-danger">http://localhost/gliver/home</span></li>
-                  <li>All controllers classes must extend the <span class="text-primary">BaseController</span> class.</li>
-                  <li>You want to ensure you namespace your controllers, so that they will be autoloaded as expected. If your controller class resides in the <span class="text-warning">application/controllers</span> directory then use <span class="text-primary">namespace Controllers;</span> else if your controller resides within a subdirectory like 'Admin' as <span class="text-warning">application/controllers/Admin</span> use <span class="text-primary">namespace Controllers\Admin;</span> - this follows psr-4 namespace pattern.</li>
-                  
-                  <li>You cannot create static methods or properties in your controllers.</li>
-                  </ul>
+                <p>All controller classes reside in the application/controllers directory or subdirectory:</p>
 
-                  <p class="alert alert-info">Use PHPDoc commenting style to add metadata to your class - as part of your documentation. This would help you and other developers looking at your code understand the purpose of your controller classes, methods and expected behavior of the controllers.</p>
-
-                  <p>In order to use a class inside of your controller class, use the <span class="text-primary">use</span> statement with the full namespace of the class as <span class="text-primary">use Helpers\View\View;</span> to load the view helper class then access it as <span class="text-primary">View::render('home/users');</span></p>
+<pre>
+<code data-language="html">
+application/controllers/
+</code>
+</pre>
                   
-                  <p>When defining your methods in your controllers, you can choose to let all your methods be unique or you can use the same method name to excecute different methods based on the request method used. There are two request methods that would be detected by Gliver framework : GET and POST methods. </p>    
+                  <p class="alert alert-info">One file can only contain one controller class.</p>
+                  
+                  <p>Controller class files must have a <span class="text-danger">.php</span> file extension and the name of the controller class must be the same as the name of the file:
+
+<pre>
+<code data-language="html">
+HomeController class resides in HomeController.php
+</code>
+</pre>
+
+                  <p>Controller classes and file names must have the 'Controller' suffix as: <span class="text-danger">HomeController</span>.</p>
+
+                  <p>When accessing controllers from a url, you only specify the controller name without the 'Controller' suffix as:</p>
+
+<pre>
+<code data-language="html">
+http://localhost/myapp/home
+</code>
+</pre>
+
+                  <p>All controllers classes must extend the <span class="text-danger">BaseController</span> class.</p>
+
+<pre>
+<code data-language="php">
+class HomeController extends BaseController 
+</code>
+</pre>
+                  <p>Ensure you namespace your controllers, so that they are autoloaded as expected.</p>
+
+                  <p>If your controller class resides in the <span class="text-warning">application/controllers</span> directory then use:
+
+<pre>
+<code data-language="php">
+namespace Controllers;
+</code>
+</pre>
+                  <p>If your controller resides in a subdirectory like 'Admin' as <span class="text-danger">application/controllers/Admin</span> then use:
+
+<pre>
+<code data-language="php">
+namespace Controllers\Admin;  
+</code>
+</pre>
+
+                  <p>This follows psr-4 namespace pattern.</p>                  
+                  
+                  <p class="alert alert-info">You cannot create static methods or properties in your controllers.</p>
+
+                  <p>In order to use another class from the inside of your controller class, use the <span class="text-danger">use</span> statement with the full namespace of the class as:
+
+<pre>
+<code data-language="php">
+use Helpers\View\View;
+</code>
+</pre>
+                   <p> Do that to load the view helper class then access it from anywhere within your controllers as:
+
+<pre>
+<code data-language="php">
+View::render('home/users');
+</code>
+</pre>
+                  
+                  <p>When defining your methods in your controllers, you can choose to let all your methods have unique names or you can use the same method name to excecute different methods based on the request method used.</p>
+
+                  <p>There are two request methods that would be detected by Gliver framework : GET and POST methods.</p>    
                   
                   <p>With this feature comes a cool ability of Gliver to load a controller method based on your request method. This means that you can use the same method name in different request methods. For example:</p>
                   
-                  <p>Say you have a controller class named <span class="text-primary">LoginController</span> and would like to use the same method name for loading a login form and at the same time processing user login information - you will do this as below.</p>
+                  <p>Say you have a <span class="text-danger">LoginController</span> and would like to use the same method name for loading a login form and at the same time processing user login information - you will do this as below.</p>
                   
-                  <p>Create two methods named <span class="text-primary">getLogin()</span> and <span class="text-primary">postLogin()</span>. You will access both methods with the same url as <code>http://localhost/gliver/login/login</code>. Accessing this url in your address bar will load the user login form as the request method would be GET and the <span class="text-primary">getLogin</span> method would be excecuted. Once the user fills up the form, you specify in your action attribute the same url for form submission as this <code>&lt;form action="http://localhost/gliver/login/login" method="post" ></code>. When the user then submits the form, Gliver would detect this as a POST request and therefore submit your form to the <span class="text-primary">postLogin</span> method of the LoginController. So, there you go! Using the same method name to excecute different methods depening on the request method.</p>
+                  <p>Create two methods named:</p>
+
+<pre>
+<code data-language="php">
+public function getLogin()
+    {
+        //...
+
+    } 
+
+public function postLogin()
+    {
+        //...
+
+    } 
+</code>
+</pre>
+
+
+                  <p>You will access both methods with the same url as:</p>
+
+<pre>
+<code data-language="php">
+http://localhost/myapp/login/login
+</code>
+</pre>                 
+                    
+                  <p>Accessing this url in your address bar will load the user login form as the request method would be GET and the <span class="text-danger">getLogin</span> method would be excecuted.</p>
+
+                  <p>Once the user fills up the form, you specify in your action attribute the same url for form submission as:
+
+<pre>
+<code data-language="html">
+&lt;form action="http://localhost/myapp/login/login" method="post" > 
+</code>
+</pre>
+         
+                  <p>When the user then submits the form, Gliver would detect this as a POST request and therefore submit your form to the <span class="text-danger">postLogin()</span> method of the LoginController.</p>
+
+                  <p>So, there you go. Using the same method name to excecute different methods depending on the request method.</p>
 
 
                 <h2>Views</h2>

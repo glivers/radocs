@@ -282,7 +282,7 @@ class HomeController extends BaseController {
     public function getIndex()
     {
         //get the ending date today
-        View::render('home/index');
+        View::render('home');
 
     } 
 
@@ -625,49 +625,40 @@ View::renderJson($data);
 </code>
 </pre>
 
-            <p></p>
 
-                <h2 id="models" class="text-danger">Models</h2>
+                <h2>Models</h2>
 
-                <p>Models classes will help you handle database operations or API connection operations.</p>
+                <p>Models help you handle database or API connection operations.</p>
 
-                <p>All model classes reside in the <code>application/models</code> directory and must extend the <span class="text-primary">Model</span> class. This ensures acccess to the already built in functionality of the model class.</p>
+                <p>Models reside in the application/models directory or subdirectory and must extend the <span class="text-danger">Model</span> class.</p>
+
 
 <pre>
 <code data-language="php">
 &lt;?php namespace Models;
 
-/**
- *This models handles all user management datatabase operations
- *@author Geoffrey Bans &lt;code@gliver.org>
- *@copyright 2015 - 2030 Geoffrey Okongo
- *@category Models
- *@package Models\UsersModel
- *@link https://github.com/gliverphp/gliver
- *@license http://opensource.org/licenses/MIT MIT License
- *@version 2.0.1
- */
-
 class UsersModel extends Model {
 
   /**
-  *@var string The name of the table associated with this model
-  */
-  protected static $table = 'users';
-
-  /**
-   *This method gets the records of all users from the database
-   *
-   *@param null
-   *@return array The users data in an array format
+   *@var string Table name 
    */
-  public static function all()
-  {
-    //excecute query to return all users
-    $users = static::Query()->from(self::$table)->all();
+  protected static $table = 'users';
+}
+</code>
+</pre>
 
-    //return the rows found
-    return $users;
+                <p class="alert alert-info">All Model methods are declared as static. </p>
+
+<pre>
+<code data-language="php">
+&lt;?php namespace Models;
+
+class UsersModel extends Model {
+
+  public static function getUsers()
+  {
+    
+    #... code goes here
 
   }
 
@@ -675,55 +666,49 @@ class UsersModel extends Model {
 </code>
 </pre>
 
-                <p class="alert alert-info">All methods of the Model class must be declared <span class="text-danger">static</span> in order to be accessible.</p>
+
                 
-                <p>When defining your Model classes, you wanna ensure you stick to this pattern:</p>
-                
-                <ul>
-                  <li>The file that contains your model class must reside within the <code>application/models</code> directory or subdirectory</li>
-                  <li>One file can only contain one model class.</li>
-                  <li>Model class files must have a <span class="text-info">.php</span> file extension. The name of the Model class must be the same as the name of the file: <span class="text-info">UsersModel</span> class should be in <span class="text-info">UsersModel.php</span>. </li>
-                  <li>Model classes and file names can optionally have the 'Model' suffix as <span class="text-info">UsersModel</span>.</li>
-                  <li>When accessing models classes specify the complete name without omiting the 'Model' suffix as <span class="text-danger">use Models\UsersModel;</span></li>
-                  <li>All model classes must extend the <span class="text-primary">Model</span> class.</li>
-                  <li>Ensure you namespace your models, so that they will be autoloaded as expected. If your model class resides within a subdirectory like 'Admin' as <span class="text-warning">application/models/Admin</span> use <span class="text-primary">namespace Models\Admin;</span> - this follows psr-4 namespace pattern.</li>
-                  <li>All methods and properties of the model class must be declared static and the model class methods and properties are accessed 
-                    directly, without creating an instance of the model class by specifying the class name, the scope resolution operator and the property or method name as <span class="text-primary">UsersModel::all()</span> </li>
-                </ul>
+                  <p>Model classes and file names can optionally have the 'Model' suffix.</p>
 
-                <p>In order to use a model in your controllers, load the  model by use of the <span class="text-danger">use</span> keyword followed by the full namespace of the model. Say you have a model named <span class="text-primary">UsersModel</span> that resides within the Admin directory. Besides, our model has a static method <code>getUser()</code> that fetches the details of a user from the database. For us to access this model in our HomeController class as do as :</p>
+                  <p class="alert alert-info">When accessing models classes specify the complete name without omiting the 'Model' suffix.</p>
 
-<pre class="bg-success">
-<span class="text-danger">use Helpers\View\View;</span>
-<span class="text-danger">use Models\Admin\UsersModel;</span>
+                  <p>If your model class resides within a subdirectory like application/models/Admin use the correct namespace. </p>
 
-class HomeController <span class="text-danger">extends</span> <span class="text-success">BaseController</span> {
+<pre>
+<code data-language="php">
+namespace Models\Admin; 
+</code>
+</pre>
 
-  /**
-   *This method loads user's profile page 
-   *
-   *<span class="text-danger">@param</span> null
-   *<span class="text-danger">@return</span> void
-   */
-  <span class="text-danger">public </span><span class="text-primary">function</span> <span class="text-success">getUser()</span>
+
+                <p>In order to use a model in your controllers, require the model using its full namespace.</p>
+
+                <p>Say you have a <span class="text-danger">UsersModel</span> that has a static <span class="text-danger">getUser()</span> method that returns the list of all users from the database.</p>
+
+                <p>This is how you access this method from the HomeController class.</p>
+
+<pre>
+<code data-language="php">
+use Models\UsersModel;
+
+class HomeController extends BaseController {
+
+  public function Queue()
   {
-    //call model to get user information, passing the $user_id
-    <span class="text-primary">$data['user'] = UsersModel::getUser($user_id);</span>
+    //get all users
+    $data['users'] = UsersModel::getUsers();
 
-    //load the users profile page
-    <span class="text-primary">View</span>::render('home/user_profile', $data);
-
+    #... other code
   }
 
 }
+</code>
 </pre>     
 
-                <p class="alert alert-info">For more information on how to make use of the Query Builder and ORM read more on the <a href="{{Url::link('home/database')}}" class="lead">Database</a> section of this documentation.</p>
+                <p class="alert alert-info">More information is coming on how to use the Query Builder and Gliver ORM...</p>
 
 
                 <h2>Helpers</h2>
-
-                <br><br>
                 
                 <p class="alert alert-info">You only need to load the Helper classes when using them from your controllers, models or libraries. However, in the view files the helper classes are automatically loaded using the alias names specified in the <span class="text-info">config.php</span>. <br>All helper classes are accessed statically so you do not need to create an instance to access the methods. An attempt to create an instance using the <span class="text-danger">new</span> keyword would generate an error! <br> In order to access a helper method specify the helper class name, the scope resolution operator and then the name of the method as <span class="text-danger">ArrayHelper::parts()</span>.</p>
                 

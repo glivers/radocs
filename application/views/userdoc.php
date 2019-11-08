@@ -492,7 +492,7 @@ View::renderJson($data);
 
                 <p>The following template methods are available within the view files.</p>
 
-                <h3>Echo </h3>
+                <h3>echo </h3>
 
                 <p>In regular PHP in order to echo a string to the browser, you open and close PHP tags then use the echo statement in between the tags:</p>
 
@@ -1099,7 +1099,7 @@ Upload::doUpload($file_name, $target_dir = null, $file_type = null);
 &lt;html>
 &lt;body>
 
-&lt;form action="{{Url::link('home/upload')}}" method="post" enctype="multipart/form-data">
+&lt;form action="http://localhost/myapp/home/upload" method="post" enctype="multipart/form-data">
     Select image to upload:
     &lt;input type="file" name="gravator" id="gravator">
     &lt;input type="submit" value="Upload Profile Image" name="Upload">
@@ -1257,80 +1257,209 @@ Redirect::with($data)->to('profile/view');
                   <h2>Requests</h2>
 
 
-                  <p>What would be the purpose of a framework if it were not able to handle requests? Proper and secure request handling is key to a strong framework that wants to be efficient and at the same time safeguard your application and server resources. </p>
+                  <h3>Process</h3>
                   
-                  <p>A request in Gliver is invoked by accessing a url, for example <code>http://localhost/gliver</code>. This would look rather simple but there is much that goes in here Rodger!</p>
-                  
-                  <p>For the security of our application, excecutable PHP code does not reside in the root of the application. With the use of rules in our .htaccess file in the root directory, all requests are re-routed into the public directory. The second .htaccess file in the public directory would check for the nature of this request. If this is a request for an asset file i.e. a css, js, img files it would return the resource. If not, it would direct this request to the index.php file - thereby infering that this would be a request to load a controller. The controller is the entry point into your application.</p>
-                  
-                  <p>This means that we would then invoke the routing class. This class would first check and disarm the request url against XXS(Cross Site Scripting), as a security measure, before going ahead to parse the url into controller/method pairs.</p>
-                  
-                  <p>When making a request Gliver enables you to send with the request data in the form of GET, POST and URL parameters. All these you access using the <span class="text-primary">Input</span> helper class. More would be discussed about the Input helper class in the helpers section but you will need the parameter name in order to access its value. For example, if you submitted a form with field of name email in it, you will access the value of the email parameter in this manner <code>Input::get('email')</code>. </p>
-                  
-                  <p>If you defined a route in this manner <code>'adminusers' => 'Home@getUser/id/mode',</code> and you have a url of this nature <code>http://localhost/gliver/adminusers/4957450723/edit</code>, you access the value of the id parameter in this manner <code>Input::get('id')</code> - which would return <span class="text-primary">4957450723</span>.</p>
-                  
-                  <p class="alert alert-info">Gliver framework would only help you map a request to a controller and method pair to excecute passing along the parameters sent by request, besides securing your application from XXS. However, the rest of the logic on how, what and when your request is handled is code that you will have to write yourself.</p>
-            
-                  <p>Gliver framework can detect the request method - which can either be GET or POST. With this feature comes a cool ability of Gliver to load a controller method based on your request method. This means that you can use the same method name in different request methods. For example:</p>
-                  
-                  <p>Say you have a controller class named <span class="text-primary">LoginController</span> and would like to use the same method name for loading a login form and at the same time processing user login information - you will do this as below.</p>
-                  
-                  <p>Create two methods named <span class="text-primary">getLogin()</span> and <span class="text-primary">postLogin()</span>. You will access both methods with the same url as <code>http://localhost/gliver/login/login</code>. Accessing this url in your address bar will load the user login form as the request method would be GET and the <span class="text-primary">getLogin</span> method would be excecuted. Once the user fills up the form, you specify in your action attribute the same url for form submission as this <code>&lt;form action="http://localhost/gliver/login/login" method="post" ></code>. When the user then submits the form, Gliver would detect this as a POST request and therefore submit your form to the <span class="text-primary">postLogin</span> method of the LoginController. So, there you go! Using the same method name to excecute different methods depening on the request method.</p>
+                  <p>A request in Gliver is invoked by accessing a url, for example:</p>
 
+<pre>
+<code data-language="php">
+http://localhost/myapp 
+</code>
+</pre>
+                  
+                  <p class="alert alert-info">For the security of your application, excecutable PHP code does not reside in the root of the application.</p>
+
+                  <p>According to the rules in the .htaccess file in the root directory, all url requests are re-routed into the public directory.</p>
+
+                  <p>The second .htaccess file in the public directory would check for the nature of this request. If this is a request for an asset file i.e. a css, js, img files it would return the resource. If not, it would direct this request to the index.php file. </p>
+
+                  <p>It means it's a requests to load a controller class. The controller is the entry point into your application.</p>
+                  
+                  <p>This invokes the routing class which checks and disarms the request url against XXS(Cross Site Scripting), as a security measure, before going ahead to parse the request into a controller/method pair.</p>
+
+                  <h3>Request Methods</h3>
+                  
+                  <p>Gliver url requests are parsed as either a GET or POST request.</p>
+
+                  <p>You can also pass URL parameters along with the request. These parameters as access are variables through the <span class="text-danger">Input</span> helper class in your controllers.</p>
+
+                  <p>Check the Input class documentation for more methods that are available to this helper class.</p>
+
+                  <p>For instance, say you submit a form with a form field name 'email', this is how to access the value of the email parameter using the Input class: </p>
+
+<pre>
+<code data-language="php">
+Input::get('email') 
+</code>
+</pre>
+                  
+                  <p>If you define an 'adminusers' in your routes.php file as:</p>
+
+<pre>
+<code data-language="php">
+'adminusers' => 'Home@getUser/id/mode' 
+</code>
+</pre>
+                  <p>Then you access your application through this url:</p>
+
+<pre>
+<code data-language="html">
+http://localhost/myapp/adminusers/4957450723/edit 
+</code>
+</pre>
+
+                  <p>This is how you would access these variables in your application using the Input class.</p>
+
+<pre>
+<code data-language="php">
+echo Input::get('id'); //should output 4957450723
+echo Input::get('mode'); //should output 'edit'
+</code>
+</pre>
+
+                  
+            
+                  <p>Because Gliver framework can detect both GET or POST request methods, you can load different controller methods based on your request method.</p>
+
+                  <p>This means that you can use the same method name but each would be executed at different times depending on the request method</p>
+
+                  <p>For example:</p>
+                  
+                  <p>Say you have a <span class="text-danger">LoginController</span> class and you would like to use the same method name for loading a login form as well as for processing user login information, you will do this as below.</p>
+                  
+                  <p>Create two methods named <span class="text-danger">getLogin()</span> and <span class="text-danger">postLogin()</span>.</p>
+
+<pre>
+<code data-language="php">
+public function getLogin(){
+  #...load user login form
+}
+
+public function postLogin(){
+  #...authenticate email/password pair
+}
+</code>
+</pre>                 
+
+                  <p>You will access both methods with this url:</p>
+
+<pre>
+<code data-language="html">
+http://localhost/myapp/login/login 
+</code>
+</pre>
+                  <p>Accessing this url in your address bar will load the user login form as the request method is GET and the getLogin method is excecuted.</p>
+
+                  <p>Once the user fills in the form and submits, Gliver detects this as a POST request and the postLogin method is executed instead.</p>
+
+                  <p>So, there you go... executing different methods based on the url request method.</p>
+
+                  
                   <h3>Responses</h3>
 
-                  <p>Whenever a request is made, there is need for a response - or their might be no point of the request.</p>
                   
-                  <p>After processing a url request, it's time to respond back to the user and let them know what you did, the outcome of it and their next steps.... Most, if not all, responses are handled with the <span class="text-primary">View</span> helper class.
-                  The result of the request could be loading a view file, responding with json data, csv, pdf and others options as you may wish. You will look more on how to load and use the View helper class in the helpers section but we will show an example of how to load 
-                  a view file using the View helper class.</p>
-                  
-                  <p>Place all your view files in the <code>application/views/</code> directory. Gliver has glade templating inbuilt and is enabled by default and all view files must have a <span class="text-info">.glade.php</span> extension. </p>
-                  
-                  <p>Say you have a users.glade.php view file under the views/home directory so that your dir structure is <code>application/views/home/users.glade.php</code>, you 
-                      will load the users.glade.php view file in this manner <code>View::render('home/users')</code>.</p>
-                  
-                  <p>If you would like to pass data to be used by your view files, pass it as the second parameter in array format as <code>View::render('home/users', array('title'=>'Gliver - Official Site'))</code>, you will then access this variable in your view file as <span class="text-success">$title</span>.</p>        
-                   
+                  <p>After processing a url request, you respond to the user with the outcome of the request.</p>
+
+                  <p>All responses are handled with the <span class="text-danger">View</span> helper class.</p>
+
+                  <p class="alert alert-info">Check out the View class documentation for more methods that are available to this class.</p>
+                                                       
 
                   <h2 id="errors" class="text-danger">Error Handling</h2>
 
                   <p>Error handling in Gliver comes in two flavors - either through PHP errors or Exceptions.</p>
                   
-                  <p>Most likely when writing, testing and deploying your application you are going to break something - you are human, right? Informative error information is a very quick and effective way to troubleshoot and fix the bug. All errors encoutered in your application are logged into the error.log file found in the <code>bin/logs/error.log</code> directory. However, you can also choose to display these errors to the screen - a good idea if you are working in development mode to mend things a little faster. </p>
+                  <p>When writing, testing and deploying your application you are going to break something</p>
 
-                  <p>The setting on whether to display or hide and log error messages is defined in the config.php file where you set <code>"dev"=>true,</code> when working in a development environment - this makes error messages to be displayed to the screen. Setting <code>"dev"=>false,</code> would turn off error display on the screen, so that whenever there is an error message it is logged in the log file and a template error page is shown in the browser. This is good for production mode to avoid exposing your application or server directory structure to a malicious jerk.</p>
+                  <p>Informative error information is a very quick and effective way to troubleshoot and fix problem code.</p>
+
+                  <p>All errors encoutered in your application are logged into the error.log file found in:</p>
+
+<pre>
+<code data-language="html">
+bin/logs/error.log  
+</code>
+</pre>
+
+                  <p>You can also choose to display these errors on the screen, a good idea if you are  in development mode, or to hide them when in production mode. </p>
+
+                  <p>Turn error display on or off in the config.php file by either specifying the dev parameter to true or false: </p>
+
+<pre>
+<code data-language="php">
+"dev"=>true 
+</code>
+</pre>
+
+                  <p>Even if you turn error display off by setting dev->true, error messages will still be logged in the error.log file.</p>
+
+                  <p>So, when an error occurs a template error page is shown to the user without any idetifying information. No error code or anything like that.</p>
+
+                  <p>In order to find the particular error message, you'll need to open up the error log file and proceed from there.</p>
+
+                  <p class="alert alert-info">"dev"=> true, is good for production mode to avoid exposing your application or server directory structure to a malicious jerk.</p>
 
                   <p>You might however want to create custom error messages that might be more sensible to your users - who may not be techies...</p>
                   
-                  <p>In that case, therefore, you might want to consider using <span class="text-info">Exceptions</span>. You might want to use your exceptions within a try...catch block, but that is entrely up-to you. Create your own Exception class by extending the <span class="text-primary">Exceptions/BaseExceptionClass</span> so that you enjoy all the built in functionality in the exception class already. In order to make use of this class, throw exceptions by passing the custom error message in this manner <code>throw new BaseExceptionClass("...your error message here...");</code> then catch this in a block 
-                  and display the error message by calling the errorShow() method like so <code>$BaseExceptionClassInstance->errorShow()</code>.</p>
+                  <p>In that case use <span class="text-danger">Exceptions</span></p>
 
 
+                  <p>Write your code within a try...catch block.</p>
 
-                <h2>Release Notes</h2>
-                
-                <p>The official stable release of Gliver framework is <span class="text-danger">v1.0.0</span>. Gliver MVC is, however, under active developemnt and updates are being pushed to the <a href="https://github.com/gliver-mvc/gliver">repository</a> every day. However, the syntax defined in version 0.0.1 will not change, only functionlity will be added. So if you have already learnt the syntax with this version, you are good to go, nothing would change, only for better functionality. However, you might want to keep checking out for new updates, so remember to subscribe to our newsletter so that we can keep you informed of every advancement. The updates would only include the very cool features that you have been waiting for...you don't want to miss out on this.</p>   
+                  <p>Create your own Exception class by extending the exceptions class so that you have access to all the already in built functionality in the exception class.</p>
+<pre>
+<code data-language="php">
+Exceptions/BaseExceptionClass 
+</code>
+</pre>
 
-                <h4>Gliver 1.0.0</h4> 
+                   
 
-                <p>This is the first stable official release of Gliver framework after the many alpha versions released earlier. Out of the box, this version has</p>
-                
-                <ul>
-                    <li>Glade Templating Implementation with .glade.php extension for all view files</li>
-                    <li>Advanced Routing with ability to name url parameters</li>
-                    <li>Express Query Builder and Model Class for automated query generation and execution</li>
-                </ul>      
+                  <p>In order to make use of this class, throw exceptions by passing the custom error message in this manner <span class="text-danger">throw new BaseExceptionClass("...your error message here...");</span> then catch this in a block and display the error message by calling the errorShow() method like so:</p>
+
+<pre>
+<code data-language="php">
+$BaseExceptionClassInstance->errorShow(); 
+</code>
+</pre>
 
 
                 <h2>Upgrade Guide</h2>
                 
 
-                <p>Things can only always get better. If you realize that we have updates and there are some really cool features that you like in the updates, you can always pull the new code and put you application on steriods. At the moment, for you to pull down updates to your application, you need to <a href="https://github.com/gliver-mvc/gliver/archive/master.zip"> download </a> the framework extract and replace only the content of the system directory with the contents of the system directory in your application. You thought there was more to it? We are sorry, that's all, your framework is now  up to date. Enjoy the new funcitonality. We are working on a way to be able to update your whole application by a simple composer update statement on the command line, this is more reason you wanna subscribe to our newsletter, so that you be the first to know when this is done so that you can begin using it right away. </p>
+                <p>Gliver framework is work in progress and code is being pushed to GitHub to fix bugs and build new features every other week.</p>
+
+                <p>Running the latest release of the Gliver framework will ensure the security of your application.</p>
+
+                <p>You can update your Gliver installation by running this single line of code from the root of your Gliver installation:</p>
+
+<pre>
+<code data-language="php">
+composer update
+</code>
+</pre>
 
 
                 <h2>Contribution Guide</h2>
 
 
-                <p>We are really grateful you are amazed by this wonderful light weight framework and would like to contribute code to make it better. We can't wait to see you getting started! Contribution of code is as easy. You need to bundle you code in packages
-                , use psr-0 or psr-4 namespacing and publish then on the <a href="https://packagist.org/">packagist repository</a>, you can then install them via composer. With this you can contribute to the core of the framework as well. There is a more in depth guide on contributing code in the tutorials sections. Be sure to check it out. We welcome your contributions as the main drive for this framework is to develop an active community around this code base. To contribute just folk this repository and fire on... Once we have some cool features in, do a pull request and we will be in touch to get the code merged in a reasonable time</p>     
+                <p>Gliver is a free and open source framework so anyone can be part.</p>
+
+                <p>Please support Gliver by <a href="https://github.com/gliverphp/gliver" target="_blank">giving the Gliver repo a star.</a></p>
+
+                <p>You could contribute to the Gliver framework in various ways:</p>
+
+                <ul>
+                  <li>Identifying and reporting mistakes in the documentation.</li>
+                  <li>Indetifying and reporting bugs in the code.</li>
+                  <li>Submitting to fix bugs.</li>
+                  <li>Submitting code to build new features.</li>
+                </ul>
+
+                <p>First, <a href="https://github.com/gliverphp/gliver/issues" target="_blank">check the issue tracker</a> to see if there is already an open issue about the same thing to avoid duplicate issues.</p>
+
+                <p>Through the issue tracker you'll also get to know if some is already working on a similar feature.</p>
+
+                <p>If your issue is a completely new, then open a new public thread. I'll see it and give your a go ahead if it's something I think you should be doing.</p>
+
+                <p>After that then just, write some code and <span class="text-danger">submit a pull request.</span></p>

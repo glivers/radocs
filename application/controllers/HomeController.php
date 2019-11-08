@@ -12,7 +12,6 @@
  */
 
 use Gliver\Templates\View;
-use Libraries\CronLibrary\SampleCronController;
 use Models\UsersModel;
 use Gliver\Url\Url;
 

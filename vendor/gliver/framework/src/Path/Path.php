@@ -88,7 +88,7 @@ class Path {
 
         if(count($array) == 1) $array = explode('.',$fileName);
 
-		return Registry::getConfig()['root'] . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, $array) . '.glade.php';
+		return Registry::getConfig()['root'] . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, $array) . '.php';
 
 	}
 	

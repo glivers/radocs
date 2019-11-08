@@ -20,35 +20,18 @@
                   <div class="row">
                       <div class="col-lg-12">
                           <ul class="list-inline">
-                              <li>
-                                  <a href="{{Url::link('home')}}">Home</a>
-                              </li>
+                              <li><a href="https://gliver.org/">Home</a></li>
                               <li class="footer-menu-divider">&sdot;</li>
-                              <li>
-                                  <a href="{{Url::link('preface')}}">Documentation</a>
-                              </li>
+                              <li><a href="{{Url::link()}}">Documentation</a></li>
                               <li class="footer-menu-divider">&sdot;</li>
-                              <li>
-                                  <a href="https://github.com/gliver-mvc/gliver/archive/master.zip">Download</a>
-                              </li>
+                              <li><a href="https://github.com/gliverphp/gliver/">GitHub</a></li>
                               <li class="footer-menu-divider">&sdot;</li>
-                              <li>
-                                  <a href="#contact">Contact</a>
-                              </li>
+                              <li><a href="https://gliver.org/blog/">Blog</a></li>
                               <li class="footer-menu-divider">&sdot;</li>
-                              <li>
-                                  <a href="#contact">Blog</a>
-                              </li>
+                              <li><a href="https://gliver.org/blog/contact">Contact</a></li>
                               <li class="footer-menu-divider">&sdot;</li>
-                              <li>
-                                  <a href="#contact">Contribute</a>
-                              </li>
-                              <li class="footer-menu-divider">&sdot;</li>
-                              <li>
-                                  <a href="https://github.com/gliver-mvc/gliver">Github</a>
-                              </li>
                            </ul>
-                          <p class="copyright text-muted small">Copyright &copy; Glivers Limited 2014. All Rights Reserved</p>
+                          <p class="copyright text-center">Copyright &copy; Gliver.org. All Rights Reserved</p>
                       </div>
                   </div>
               </div>

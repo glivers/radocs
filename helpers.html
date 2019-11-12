@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Gliver Framework Documentation</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/lightbox/dist/ekko-lightbox.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-blue">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">Gliver</span><span class="text-bold">Docs</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Helpers</li>
+                </ol>
+                <div class="top-search-box">
+	                 <form class="form-inline search-form justify-content-center" action="" method="get">
+	            
+			            <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+			            
+			            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+			            
+			        </form>
+                </div>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_datareport_alt"></span>Helpers</h1>
+                </div><!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+
+                            <section class="doc-section">
+                                <p>You only need to load the Helper classes when using them from your controllers, models or libraries.</p>
+
+                                <p>However, they are autoloaded by default in the view files using the alias names specified in the <span class="text-danger">config.php</span> file.</p>
+
+                                <p>All helper classes are accessed statically so you do not need to create an instance to access the methods.</p>
+
+                                <p>In order to access a helper method specify the helper class name, the scope resolution operator and then the name of the method:</p>
+
+<pre>
+<code class="language-php">
+Redirect::to(); 
+</code>
+</pre>
+                
+                                <p>To use a helper class in your controller, first require it by specifying the full namespace.</p>
+
+<pre>
+<code class="language-php">
+use Gliver\Redirect\Redirect;
+</code>
+</pre>
+                                <p>You can also alias the helper class name to a name of your choice:</p>
+
+<pre>
+<code class="language-php">
+use Gliver\Redirect\Redirect as Red; 
+</code>
+</pre>
+
+                                <p>Then use the Red class to access all the Redirect helper methods.</p>
+
+
+<pre>
+<code class="language-php">
+&lt;?php namespace Controllers;
+
+use Gliver\Redirect\Redirect; 
+
+class HomeController extends BaseController {
+
+    public function goThere()
+    {
+        $path = "...";
+
+        Redirect::to($path);
+        
+    }  
+
+}
+</code> 
+</pre>                            
+                            </section>
+
+                            <section id="array" class="doc-section">
+                                <h2 class="section-title">Array</h2>
+                                <div class="section-block">
+                                    <p>The ArrayHelper class enables you to create arrays out of string as well as manipulate arrays.</p>
+
+                                    <p>This class allows for method chaining, so you can chain all the methods you would like to use in one method call and get the final result returned.</p>
+                                                    
+                                    <p>Here are the methods available with the ArrayHelper class.</p>
+
+                                    <h4 class="text-danger">ArrayHelper::parts</h4>
+
+                                    <p>This method splits a string into a numerically indexed array depending on the delimiter provided.</p>
+                                    
+                                    <p>It expects three parameters:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::parts($delimiter = null, $string = null, $limit = null)->get() 
+</code>
+</pre> 
+
+                                    <p><strong>$delimtier</strong> is the character(s) to use as a separator for exploding the input string into an array. </p>
+                                    
+                                    <p><strong>$string</strong> is the input string which is to be exploded into an array</p>
+                                    
+                                    <p><strong>$limit</strong> is an integer value that limits the number of elements to return</p>
+
+                                    <p>Example:</p>
+
+<pre>
+<code class="language-php">
+$name_string  = "This is Gliver Documentation";
+
+$name_array = ArrayHelper::parts(' ', $name_string)->get();
+
+//the final value of the $name_array is this
+$name_array = array(
+    0 => 'This',
+    1 => 'is',
+    2 => 'Gliver',
+    3 => 'Documentation'
+);
+</code>
+</pre>
+
+                                    <p class="well">If we only wanted the first two elements to be returned, we would pass 2 as the third parameter so that the parts after 'is' are not returned.</p>
+
+                                    <h4 class="text-danger">ArrayHelper::join</h4>
+
+                                    <p>This method joins an array into a string based on the joining parameter provided</p>
+                                    
+                                    <p>It expects two parameters:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::join($glue = null, array $inputArray = null)->get();  
+</code>
+</pre>
+                
+                                    <p><strong>$glue</strong> The string to use to join the array elements into string</p>
+                                    
+                                    <p><strong>$array</strong> The string which is to be exploded into an array</p>
+
+                                    <p>Example:</p>
+
+<pre>
+<code class="language-php">
+//input array
+$names = array(
+    0 => 'Scott',
+    1 => 'Mendoza',
+    2 => 'Stuart'
+);
+
+$names_string  = ArrayHelper::join(', ', $names_array)->get();
+
+//the final value of $names_string becomes
+$names_string = 'Scott, Mendoza, Stuart';
+</code>
+</pre>
+
+
+                                    <h4 class="text-danger">ArrayHelper::clean</h4>
+
+                                    <p>This method loops through the items of an array removing elements with empty or null values</p>
+                                    
+                                    <p>It expects one parameter:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::clean($array = null)->get();
+</code>
+</pre>               
+                
+                                    <p><strong>$array</strong> The array whose values are to be cleaned</p>
+
+                                    <p>Example:</p>
+
+
+<pre>
+<code class="language-php">
+//input array
+$user_info = array(
+    'name' => 'Bernhard Anaurdis',
+    'gender' => 'male',
+    'address' => null,
+    'age' => 78
+);
+
+//remove empty and null values
+$user_info = ArrayHelper::clean($user_info)->get();
+
+//the final content of $user_info
+$user_info = array(
+    'name' => 'Bernhard Anaurdis',
+    'gender' => 'male',
+    'age' => 78
+);
+</code>
+</pre>
+
+
+    
+                                    <h4 class="text-danger">ArrayHelper::trim</h4>
+
+                                    <p>This method loops through array elements removing whitespaces from begining and ending of string element values</p>
+                
+                                    <p>It expects one parameter:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::trim($array = null)->get();  
+</code>
+</pre>
+                
+                                    <p><strong>$array</strong> The input array to be trimmed of whitespace</p>
+
+                                    <p>Example:</p>
+
+<pre>
+<code class="language-php">
+//input array
+$user_info = array(
+    'name' => '  Sagini Obed  ',
+    'status' => ' Will tell you    when   I see u',
+    'address' => '4399  6th Street    Benton Harbor  '
+);
+
+//get trimmed user_info
+$user_info = ArrayHelper::trim($user_info)->get();
+
+//final content of $user_info
+$user_info = array(
+    'name' => 'Sagini Obed',
+    'status' => 'Will tell you    when   I see u',
+    'address' => '4399  6th Street    Benton Harbor'
+);
+</code>
+</pre>
+
+
+
+                                    <h4 class="text-danger">ArrayHelper::flatten</h4>
+
+                                    <p>This method converts an associative array into a numerically indexed array</p>
+                                    
+                                    <p>It expects two paramaters:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::flatten($array = null, $return = array())->get(); 
+</code>
+</pre>
+                
+                                    <p><strong>$array</strong> The array to flatten</p>
+                                    
+                                    <p><strong>$return</strong> The return array</p>
+
+
+                                    <p>Example:</p>
+
+
+<pre>
+<code class="language-php">
+//input array 
+$array = array(
+    'first_name' => 'Vince',
+    'middle_name' => 'Fargo',
+    'last_name' => 'Lombardi'
+);
+
+$array = ArrayHelper::flatten($array)->get();
+
+//final content of the $array
+$array = array(
+    0 => 'Vince',
+    1 => 'Fargo',
+    2 => 'Lombardi'
+);
+</code>
+</pre>
+
+
+
+                                    <h4 class="text-danger">ArrayHelper::first</h4>
+
+                                    <p>This method returns the first element in an array</p>
+                                    
+                                    <p>It expects one argument:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::first($array = null)->get(); 
+</code>
+</pre>
+                
+                                    <p><strong>$array</strong> The array whose first element is to be returned</p>
+
+                                    <p>Example:</p>
+
+
+<pre>
+<code class="language-php">
+//input array
+$cities = array('New York', 'New Hamshire', 'New Jersy');
+
+$city = ArrayHelper::first($cities)->get();
+
+//content of city
+$city = array('New York');
+</code>
+</pre>
+
+                                    <h4 class="text-danger">ArrayHelper::slice</h4>
+
+                                    <p>This method splits an array and returns the specified section.parts</p>
+                                    
+                                    <p>It expects four parameters:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::slice($inputArray = null, $offset = null,  = null, $preserveKeys = false)->get();
+</code>
+</pre>
+                
+                                    <p><strong>$inputArray</strong> The input array that is to be split and parts returned</p>
+                                    
+                                    <p><strong>$offset</strong> The int to specify where to start truncating from</p>
+                                    
+                                    <p><strong>$length</strong>  The int to specify the number of elements to return</p>
+                                    
+                                    <p><strong>$preserveKeys</strong> boolean true|false Set to true to preserver numberic keys, otherwise would be reindexed</p>
+
+
+                                    <p>Example:</p>
+
+<pre>
+<code class="language-php">
+//inpur array
+$employee == array(
+    0 => 'Software Engineer',
+    1 => '$47,000',
+    2 => 'Marcial Araujo',
+    3 => '6th Street Benton Harbor, MI',
+    4 => 'female'
+);
+
+$employee = ArrayHelper::slice($employee, 2)->get();
+
+//final content of $employee
+$employee = array(
+    0 => 'Marcial Araujo',
+    1 => '6th Street Benton Harbor, MI',
+    2 => 'female'
+);
+</code>
+</pre>
+
+
+                                    <h4 class="text-danger">ArrayHelper::KeyExists</h4>
+
+                                    <p>This method checks if an array key exists</p>
+                                    
+                                    <p>This method expects two parameters:</p>
+
+<pre>
+<code class="language-php">
+ArrayHelper::KeyExists($key = null, array $inputArrayToSearch = null)->get();  
+</code>
+</pre>
+                
+                                    <p><strong>$key</strong> The key to search for inthe input array</p>
+                
+                                    <p><strong> $inputArrayToSearch</strong> The array to check against</p>
+                                </div>
+                            </section>
+
+                            <section id="upload" class="doc-section">
+                                <h2 class="section-title">Upload</h2>
+                                <div class="section-block">
+                                    <p>This helper class performs file uploads on the server.</p>
+                                    
+                                    <h4 class="text-danger">Upload::doUpload</h4>
+
+                                    <p>The Upload helper class has one method which takes three parameters:</p>
+
+<pre>
+<code class="language-php">
+Upload::doUpload($file_name, $target_dir = null, $file_type = null); 
+</code>
+</pre>
+                
+                                    <p><strong>$file_name</strong>The name of the file to upload as submitted in the form</p>
+                                    
+                                    <p><strong>$target_dir</strong>The name of the directory where to upload the file to.</p>
+
+                                    <p>If you leave this option or set it to null, the file would be uploaded to the default upload directory specified in the config.php file.</p>
+
+                                    <p>In order to specify a different directory, you give the relative path to the folder including the trailing forward slash as:</p>
+
+                                    <p><code>public/uploads/profilepics/</code></p>
+
+                
+                                    <p><strong>$file_type</strong> The file type to be checked for validation.</p>
+
+                                    <p>If you would like to only upload image files, set this option to <span class="text-danger">'images'</span> so that the uploaded file is checked for valid image format.</p>
+                                    
+                                    <p>This method returns a <span class="text-danger">Helpers\Upload\UploadResponseClass</span> object with data about the performed upload and the property for checking if the upload was successful or unsuccessful.</p>
+                                    
+                                    <p>Example:</p>
+
+<pre>
+<code class="language-markup">
+//lets  write a simple form for uploading image file
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;body>
+
+&lt;form action="http://localhost/myapp/home/upload" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    &lt;input type="file" name="gravator" id="gravator">
+    &lt;input type="submit" value="Upload Profile Image" name="Upload">
+&lt;/form>
+
+//let's write some code to upload this file after submission
+
+use Helpers\Upload\Upload;
+
+class HomeController extends BaseController {
+
+    public function postUpload()
+    {   
+        $upload = Upload::doUpload('gravator', null, 'image');
+
+        print_r($upload);
+
+        //the object printed would have this structure
+        Helpers\Upload\UploadResponseClass Object
+        (
+            [success] => //1 if upload was successful
+            [upload_path_full] => //full path to the uploaded file
+            [upload_path_relative] => //relative path to file from root if your installation
+            [file_name] => //name of the file before uploading, different from final file name
+            [file_size] => //interger representing the size of the file
+        )
+
+    }
+    ...
+}
+
+&lt;/body>
+&lt;/html> 
+</code>
+</pre>                                
+                                </div>
+                            </section>
+
+                            <section id="url" class="doc-section">
+                                <h2 class="section-title">Url</h2>
+                                <div class="section-block">
+                                    <p>This helper class resolves urls and returns the appropriate url string required</p>
+                                    
+                                    <p>To load this class use:</p>
+
+<pre>
+<code class="language-php">
+use Gliver\Url\Url; 
+</code>
+</pre>
+
+                                    <h4 class="text-danger">Url::link</h4>
+
+                                    <p>This method returns the base url string - the url to your root installation</p>
+                                    
+                                    <p>It does not expect any parameter</p>
+                                    
+                                    <p>It returns the url string</p>
+
+                                    <p>Example:</p>
+
+
+<pre>
+<code class="language-php">
+//say you installed gliver in 'myapp' folder in your localhost
+
+$base_url = Url::link();
+
+echo $base_url; //should output http://localhost/myapp/
+</code>
+</pre>                          </div>
+                            </section>
+
+                            <section id="redirect" class="doc-section">
+                                <h2 class="section-title">Redirect</h2>
+                                <div class="section-block">
+                                    <p>This helper class helps you to manage php session re-direction</p>
+
+                                    <p>You load this class in this manner:</p>
+
+<pre>
+<code class="language-php">
+use Gliver\Redirect\Redirect;
+</code>
+</pre>                
+                
+                                    <p>This class sends headers back to the browser and returns a REDIRECT(302) status code to the browser.</p>
+                                    
+                                    <h4 class="text-danger">Redirect::to</h4>
+                                    
+                                    <p>This method redirects the browser to the url specified</p>
+                                    
+                                    <p>It can take two parameters:</p>
+
+<pre>
+<code class="language-php"> 
+Redirect::to($path, array $data = null);  
+</code>
+</pre>
+
+                
+                                    <p><strong>$path</strong> The controller or route name to redirect to. This parameter is required.</p>
+                                    
+                                    <p><strong>$data</strong> The data to append to the url as query string. This has to be in a valid array format. This parameter is optional.</p>
+
+                                    <p>Example:</p>
+
+<pre>
+<code class="language-php">
+//say we would like to redirect to the ProfileController view() method with user id information
+//lets compose the data array
+$data = array('id'=>9897717171);
+
+//this loads this url http://localhost/gliver/profile/view?id=9897717171
+Redirect::to('profile/view', $data); 
+</code>
+</pre>
+
+                                    <h4 class="text-danger">Redirect::with</h4>
+
+                                    <p>This method enables you to specify parameters to be set as part of the redirect url.</p>
+
+                                    <p>These parameters will be appended as a query string to the url string generated.</p>
+                                    
+                                    <p>It expects one parameter - an array with the key/value pairs to be appended to url.</p>
+
+                                    <p>Array keys with null or empty elements will be stripped off from the query string.</p>
+                                    
+                                    <p><strong>$data</strong> The array with parameter to pass to url as query string. This parameter is required.</p>
+                                    
+                                    <p>You call this method chainied with the to() method in this manner:</p>
+
+<pre>
+<code class="language-php">
+Redirect::with($data)->to('home'); 
+</code>
+</pre>
+                
+                                    <p class="alert alert-info">Calling this method is the same as passing the $data array as a second parameter to the Redirect::to() method</p>
+
+                                    <p>Example:</p>
+
+<pre>
+<code class="language-php">
+//say we would like to redirect to the ProfileController view() method with user id information
+//lets compose the data array
+$data = array('id'=>9897717171);
+
+//this loads this url http://localhost/gliver/profile/view?id=9897717171
+Redirect::with($data)->to('profile/view'); 
+</code>
+</pre>
+                                </div>
+                            </section>
+                            
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                                <a class="nav-link scrollto" href="#array">Array</a>
+                                <a class="nav-link scrollto" href="#upload">Upload</a>
+                                <a class="nav-link scrollto" href="#url">Url</a>
+                                <a class="nav-link scrollto" href="#redirect">Redirect</a>
+                            </nav><!--//doc-menu-->
+                        </div>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Design by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a></small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>  
+    <script type="text/javascript" src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>       
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                            
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+

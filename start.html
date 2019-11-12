@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gliver Framework Documentation</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+      
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-blue">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">Gliver</span><span class="text-bold">Docs</span>
+                        </a>
+                    </h1>
+                    
+                </div><!--//branding-->
+                
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Quick Start</li>
+                </ol>
+                
+                <div class="top-search-box">
+	                 <form class="form-inline search-form justify-content-center" action="" method="get">
+	            
+			            <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+			            
+			            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+			            
+			        </form>
+                </div>
+                
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i>Quick Start</h1>
+                </div><!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="installation-section" class="doc-section">
+                                <h2 class="section-title">Installation</h2>
+                                <div class="section-block">
+                                    <p class="well">Gliver Framework requires PHP version 7.0 or greater to run. In order to avoid broken functionality or open security holes in your application, upgrade to version >=7.0</p>
+
+                                    <p>You also need to have <a href="https://getcomposer.org/doc/00-intro.md" target="_blank">Composer</a> installed on your computer in order to be able to install the Gliver framework</p>
+
+                                    <p>Gliver framework uses .htaccess rules to process requests so ModeRewrite should be enabled on your server.</p>
+
+                                    <p><strong>Step 1.</strong></p>
+
+                                    <p>Click here to <a href="https://github.com/gliverphp/gliver/archive/master.zip" class="btn btn-green" target="_blank"><i class="fas fa-download"></i> Download Gliver</a> from GitGub and extract it in your root directory<</p>
+
+                                    <p><strong>Step 2.</strong></p>
+
+                                    <p>Run 'composer update' from the root directory of your Gliver installation to install the Gliver framework dependencies</p>
+
+                                    <pre><code class="language-git">composer update</code></pre>
+
+                                    <p><strong>Step 3.</strong></p>
+
+                                    <p>Alternatively, can install Gliver framework directly from Packagist repository by running 'composer create-project gliver/gliver myapp' in from command line</p>
+
+                                    <pre><code class="language-git">composer create-project gliver/gliver myapp</code></pre>
+
+
+
+                
+                                    <p>This command would download the latest stable version of Gliver framework and all dependencies and install them in the directory <span class="text-danger">myapp</span>.</p>
+
+                                    <p>You can change the name of the directory to your directory of choice, or better still rename it after installation...</p>               
+                                </div>
+                            </section>
+                            <section id="configuration-section" class="doc-section">
+                                <h2 class="section-title">Configuration</h2>
+                                <div class="section-block">
+                                    <p>There are four configuration files where you can specify the settings for your application.</p>
+
+                                    <p class="alert alert-info">These options can be accessed from anywhere within your application using specific class methods.</p>
+
+                                    <h3 class="text-danger">Config.php</h3>  
+
+                                    <p>This file contains the general configuration options of your application. 
+
+                                    <p>The config.php resides in the config directory.</p>
+
+                                    <p><code>config/config.php</code></p> 
+
+
+                                    <p>Set the value of 'dev => true' if your application is running in development mode and set this to 'false' as soon as you deploy to production.</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+'dev' => true,
+</code>  
+</pre>
+</div>
+
+                                    <p>This would do is to ensure that error messages are not shown to the user when in production mode in order to avoid exposing your server directory structure to that malicious jerk.</p>
+                            
+                                    <div class="callout-block callout-success">
+                                        <div class="icon-holder">
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <h4 class="callout-title">Useful Tip:</h4>
+                                            <p>Define your default controller and method pair for your entire application here.</p>
+                                        </div><!--//content-->
+                                    </div>
+
+                                    <p>These are key as they will be loaded as your homepage i.e. whenever you access you application without specifying the controller and method</p>
+<div class="code-block">
+<pre>
+<code class="language-php">
+/**
+ *Default controller
+ */
+'controller' => 'Home',
+/**
+ *Set default method
+ */
+'action' => 'Index' 
+</code>
+</pre>
+</div>
+
+                            
+                                    <h3 class="text-danger">Database.php</h3>  
+
+                                    <p>The Gliver database configuration file resides in the config directoty.</p>
+
+                                    <p><code>config/database.php</code></p>
+                                                                     
+                                    <p>In the database configuration, you can specify the settings for any supported database then specify the default database you would like the application to alwasy connect to.</p>
+
+                                    <p>As soon as you change your mind and would like to use a different database, just set it as the default.</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+/**
+ *Define the database server hostname
+ */
+'host'    => 'localhost',
+/*
+ *Define the username
+ */
+'username'  => 'root',
+/*
+ *Define the database password
+ */
+'password'  => '',  
+</code>
+</pre>
+</div>
+                            
+                                    <h3 class="text-danger">Constants.php</h3>  
+
+                                    <p>The constants configuration file resides in the application directoy.</p>
+
+                                    <p><code>application/constants.php</code></p>
+
+                                    <p>Here you can define all the values that you will need throughout all your application.</p>
+
+                                    <p>Once defined, you can access them from anywhere in your application by using the constant name.</p>
+<div class="code-block">
+<pre>
+<code class="language-php">
+//Specify the network id constant
+define('NETWORK_ID', 'gliver'); 
+</code>
+</pre>
+</div>
+                                  
+                                    <p>You can then access them from anywhere in this manner:</p>
+<div class="code-block">
+<pre>
+<code class="language-php"> 
+echo NETWORK_ID; 
+</code>
+</pre>
+</div>
+
+ 
+                                </div>
+                            </section>
+                            <section id="routing-section" class="doc-section">
+                                <h2 class="section-title">Routing</h2>
+                                <div class="section-block">
+                                <p>The routing feature enables mapping of defined keywords to particular controllers/action pairs.</p>
+
+                                <p>Routing also enables you to pass url parameters to your controllers which it parses and includes as part of the GET parameters you access them via the Input helper class.</p>
+
+                                <p>The routing class gives much flexibility so that you can map a defined route to a controller, a controller method pair and optionally name the parameters that you expect to recieve along with the url request</p>
+
+                                <p>Routes are defined in the routes.php file found in the application directory.</p>
+
+                                <p><code>application/routes.php</code></p>
+
+
+                                <p>Defining routes is, however, optional as you can decide to call your controllers directly from the url and pass unamed parameters and accessing them using numbered indexes.</p>
+                                                
+                                <p class="alert alert-info">Remember that the routes.php file is an array and therefore should maintain a valid array format.</p>
+                              
+                                <p>Say you have a controller class named <span class="text-danger">LoadController</span> that you would like to invoke using the word <span class="text-danger">blog</span>.</p>
+
+                                <p>In order to achieve this you will define this name value pair in the routes file as: 
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+"blog" => "Load",
+</code>
+</pre>
+</div>
+
+                                <p>This simply means the word blog maps to the LoadController class, so that when you access the LoadController class from the url you use the word blog in this manner:</p>
+
+                                <p><code>http://localhost/myapp/blog</code></p>
+
+
+                                <p class="alert alert-info">If you define a route to map to a controller without specifying a method pair, you can still supply the method name as the second parameter in the url. Otherwise the default method name set in your config.php would be excecuted whenever this route is accessed.</p>
+
+                                <p>If you want to define a route that maps to a controller class with the particular method to be executed, separate the controller class and method name with an @ symbol.</p>
+
+                                <p>Say you have an <span class="text-danger">AdminController</span> class that loads users profiles using a getUser() method.</p>
+
+                                <p>You can define an 'adminusers' route that maps to this controller class and the getUser() method in order to load a user's profile.</p>
+
+                                <p>It would be something like:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+"adminusers"=>"Home@getUser"
+</code>
+</pre>
+</div>
+
+                                <p>And you would access it using a url like:</p>
+
+                                <p><code>http://localhost/myapp/adminusers</code></p>
+                              
+                                <p>In case each user on your system has a unique id and you would like to load different pages for editing or viewing mode, pass all these parameters in the url and give them names with which to access them in this manner:
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+"adminusers"=>"Home@getUser/id/mode"
+</code>
+</pre>  
+</div>                  
+
+                                <p>Here is an example url you would use to access it:</p>
+
+                                <p><code>http://localhost/myapp/adminusers/49723/edit</code></p>
+
+                              
+                                <p class="alert alert-info">If you define named url parameters in routes file for a particular route, any additional parameters passed along with the url would be discarded and only the named values would to available.</p>
+
+                                <p>If you don't name your url parameters, you can access unlimited number of url parameters in the order in which they appear in the url by using indexes begining from 0...onwards.</p>
+
+                                <p>In case you want to define a route for a controller that is within a subdirectory, e.g:</p>
+
+                                <p><code>application/controllers/Admin/HomeController</code></p>
+
+                                <p>Specify the namespace in this manner as:
+<div class="code-block">
+<pre>
+<code class="language-php">
+"adminusers"=>"Admin\Home@getUser/id/mode
+</code>
+</pre>  
+</div>          
+                                </div>
+                            </section>
+                            <section id="requests-section" class="doc-section">
+                                <h2 class="section-title">Requests</h2>
+                                <div class="section-block">
+                                <h3>Process</h3>
+                              
+                                <p>A request in Gliver is invoked by accessing a url, for example:</p>
+
+                                <p><code>http://localhost/myapp</code></p>
+                              
+                                <p class="alert alert-info">For the security of your application, excecutable PHP code does not reside in the root of the application.</p>
+
+                                <p>According to the rules in the .htaccess file in the root directory, all url requests are re-routed into the public directory.</p>
+
+                                <p>The second .htaccess file in the public directory would check for the nature of this request. If this is a request for an asset file i.e. a css, js, img files it would return the resource. If not, it would direct this request to the index.php file. </p>
+
+                                <p>It means it's a requests to load a controller class. The controller is the entry point into your application.</p>
+                              
+                                <p>This invokes the routing class which checks and disarms the request url against XXS(Cross Site Scripting), as a security measure, before going ahead to parse the request into a controller/method pair.</p>
+
+                                <h3>Request Methods</h3>
+                              
+                                <p>Gliver url requests are parsed as either a GET or POST request.</p>
+
+                                <p>You can also pass URL parameters along with the request. These parameters as access are variables through the <span class="text-danger">Input</span> helper class in your controllers.</p>
+
+                                <p>Check the Input class documentation for more methods that are available to this helper class.</p>
+
+                                <p>For instance, say you submit a form with a form field name 'email', this is how to access the value of the email parameter using the Input class: </p>
+<div class="code-block">
+<pre>
+<code class="language-php">
+Input::get('email') 
+</code>
+</pre>
+</div>
+                              
+                                <p>If you define an 'adminusers' in your routes.php file as:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+'adminusers' => 'Home@getUser/id/mode' 
+</code>
+</pre>
+</div>
+                                <p>Then you access your application through this url:</p>
+
+                                <p><code>http://localhost/myapp/adminusers/4957450723/edit</code></p>
+
+                                <p>This is how you would access these variables in your application using the Input class.</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+echo Input::get('id'); //should output 4957450723
+echo Input::get('mode'); //should output 'edit'
+</code>
+</pre>
+</div>
+
+                              
+                        
+                                <p>Because Gliver framework can detect both GET or POST request methods, you can load different controller methods based on your request method.</p>
+
+                                <p>This means that you can use the same method name but each would be executed at different times depending on the request method</p>
+
+                                <p>For example:</p>
+                              
+                                <p>Say you have a <span class="text-danger">LoginController</span> class and you would like to use the same method name for loading a login form as well as for processing user login information, you will do this as below.</p>
+                              
+                                <p>Create two methods named <span class="text-danger">getLogin()</span> and <span class="text-danger">postLogin()</span>.</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+public function getLogin(){
+  #...load user login form
+}
+
+public function postLogin(){
+  #...authenticate email/password pair
+}
+</code>
+</pre>
+</div>                 
+
+                                <p>You will access both methods with this url:</p>
+
+                                <p><code>http://localhost/myapp/login/login</code></p>
+
+                                <p>Accessing this url in your address bar will load the user login form as the request method is GET and the getLogin method is excecuted.</p>
+
+                                <p>Once the user fills in the form and submits, Gliver detects this as a POST request and the postLogin method is executed instead.</p>
+
+                                <p>So, there you go... executing different methods based on the url request method.</p>
+
+                              
+                                <h3>Responses</h3>
+
+                              
+                                <p>After processing a url request, you respond to the user with the outcome of the request.</p>
+
+                                <p>All responses are handled with the <span class="text-danger">View</span> helper class.</p>
+
+                                <p class="alert alert-info">Check out the View class documentation for more methods that are available to this class.</p>              
+
+                                </div>
+                            </section>
+                            <section id="upgrade-section" class="doc-section">
+                                <h2 class="section-title">Upgrade Guide</h2>
+                                <div id="upgrade" class="section-block">
+                                    <h3 class="block-title">Previous Versions</h3>
+                                </div>
+                            </section>
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+	                        
+	                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+	                                <a class="nav-link scrollto" href="#installation-section">Installation</a>
+	                                <a class="nav-link scrollto" href="#configuration-section">Configuration</a>
+	                                <a class="nav-link scrollto" href="#routing-section">Routing</a>
+	                                <a class="nav-link scrollto" href="#requests-section">Requests</a>
+	                                <a class="nav-link scrollto" href="#upgrade-section">Upgrade</a>
+	                            </nav><!--//doc-menu-->
+	                        
+                        </div>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Design by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a></small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
+    <script type="text/javascript" src="assets/plugins/stickyfill/stickyfill.min.js"></script>                                                             
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+

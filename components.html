@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Gliver Framework Documentation</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/lightbox/dist/ekko-lightbox.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-blue">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">Gliver</span><span class="text-bold">Docs</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Components</li>
+                </ol>
+                <div class="top-search-box">
+	                 <form class="form-inline search-form justify-content-center" action="" method="get">
+	            
+			            <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+			            
+			            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+			            
+			        </form>
+                </div>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_puzzle_alt"></span> Components</h1>
+                </div><!--//doc-header-->
+                <div class="doc-body row" >
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+
+                            <section id="controllers-section" class="doc-section">
+                                <h2 class="section-title">Controllers</h2>
+                                <div class="section-block">
+                                    <p>Controllers form the entry point into your application. It handles requests by loading a controller class and the respective method.</p>
+
+                                    <p>It is from here that you can call your model classes, libraries and load the view files, among other things... </p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+&lt;?php namespace Controllers;
+
+use Gliver\View\View;
+
+class HomeController extends BaseController {
+
+    /**
+     *Load the home page.
+     *@param null
+     *@return void
+     */
+    public function getIndex()
+    {
+        //get the ending date today
+        View::render('home');
+
+    } 
+
+}  
+</code>
+</pre> 
+</div>        
+                                
+
+                                    <p>All controller classes reside in the application/controllers directory or subdirectory:</p>
+
+                                    <p><code>application/controllers/</code></p>
+
+                                  
+                                    <p class="alert alert-info">One file can only contain one controller class.</p>
+                                  
+                                    <p>Controller class files must have a <span class="text-danger">.php</span> file extension and the name of the controller class must be the same as the name of the file:</p>
+
+                                    <p class="alert-info alert">HomeController class resides in HomeController.php</p>
+
+                                    <p>Controller classes and file names must have the 'Controller' suffix as: <span class="text-danger">HomeController</span>.</p>
+
+                                    <p>When accessing controllers from a url, you only specify the controller name without the 'Controller' suffix as:</p>
+
+                                    <p><code>http://localhost/myapp/home</code></p>
+
+
+                                    <p>All controllers classes must extend the <span class="text-danger">BaseController</span> class.</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+class HomeController extends BaseController 
+</code>
+</pre>
+</div>
+                                    <p>Ensure you namespace your controllers, so that they are autoloaded as expected.</p>
+
+                                    <p>If your controller class resides in the <span class="text-warning">application/controllers</span> directory then use:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+namespace Controllers;
+</code>
+</pre>
+</div>
+                                    <p>If your controller resides in a subdirectory like 'Admin' as <span class="text-danger">application/controllers/Admin</span> then use:
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+namespace Controllers\Admin;  
+</code>
+</pre>
+</div>
+
+                                    <p>This follows psr-4 namespace pattern.</p>                  
+                                  
+                                    <p class="alert alert-info">You cannot create static methods or properties in your controllers.</p>
+
+                                    <p>In order to use another class from the inside of your controller class, use the <span class="text-danger">use</span> statement with the full namespace of the class as:
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+use Helpers\View\View;
+</code>
+</pre>
+</div>
+                                    <p> Do that to load the view helper class then access it from anywhere within your controllers as:
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+View::render('home/users');
+</code>
+</pre>
+</div>
+                  
+                                    <p>When defining your methods in your controllers, you can choose to let all your methods have unique names or you can use the same method name to excecute different methods based on the request method used.</p>
+
+                                    <p>There are two request methods that would be detected by Gliver framework : GET and POST methods.</p>    
+                                  
+                                    <p>With this feature comes a cool ability of Gliver to load a controller method based on your request method. This means that you can use the same method name in different request methods. For example:</p>
+                                  
+                                    <p>Say you have a <span class="text-danger">LoginController</span> and would like to use the same method name for loading a login form and at the same time processing user login information - you will do this as below.</p>
+                                  
+                                    <p>Create two methods named:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+public function getLogin()
+    {
+        //...
+
+    } 
+
+public function postLogin()
+    {
+        //...
+
+    } 
+</code>
+</pre>
+</div>
+
+
+                                    <p>You will access both methods with the same url as:</p>
+
+                                    <p><code>http://localhost/myapp/login/login</code></p>
+               
+                                    
+                                    <p>Accessing this url in your address bar will load the user login form as the request method would be GET and the <span class="text-danger">getLogin</span> method would be excecuted.</p>
+
+                                    <p>Once the user fills up the form, you specify in your action attribute the same url for form submission as:
+
+<div class="code-block">
+<pre>
+<code class="language-markup">
+&lt;form action="http://localhost/myapp/login/login" method="post" > 
+</code>
+</pre>
+</div>
+                         
+                                    <p>When the user then submits the form, Gliver would detect this as a POST request and therefore submit your form to the <span class="text-danger">postLogin()</span> method of the LoginController.</p>
+
+                                    <p>So, there you go. Using the same method name to excecute different methods depending on the request method.</p>
+
+                                </div>
+                            </section>
+
+                            <section id="views-section" class="doc-section">
+                                <h2 class="section-title">Views</h2>
+                                <div class="section-block">
+                                    <h3>View::render</h3>
+
+                                    <p>The view class enables you to provide a response to the url request.</p>
+
+                                    <p>This can be by loading html view files, sending pdf, json or xml responses.</p>
+
+                                    <p>To use the View loader, first require it in your controller class as:</p>
+
+<div class="code-block">                                   
+<pre>
+<code class="language-php">
+use Gliver\View\View;  
+</code>
+</pre>
+</div>
+
+                                    <p>You can then access the View class and methods directly without creating an instance.</p>
+
+                                    <p>All view files resides in the application/views directory and must have a <span class="text-danger">.php</span> file extension.</p>
+
+                                    <p>First instance, let's say you want to load the <span class="text-danger">users.php</span> view file in the home subdirectory, you'd do this:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+View::render('home/users');  
+</code>
+</pre>
+</div>
+
+                                    <p>If you want to pass some variables to be available to the view files, pass them in an array as the second parameter. </p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+View::render('home/users', $data); 
+</code>
+</pre>
+</div>
+                              
+                                    <p>Say you would like to dynamically get the site title from the controller and use it in your view file.</p>
+
+                                    <p>Create a $data array and store the value of the title as a key in the $data array, then then pass it as a second parameter to the View::render() method:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+$data['title'] = "Gliver - Official Site"; 
+
+View::render('home/users', $data);
+</code>
+</pre>
+</div>
+
+                                    <p>You can then access it in your view file as:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+&lt;?php echo $title; ?>
+</code>
+</pre>
+</div>
+
+                        
+                                    <h3>View::renderJson</h3>
+
+                                    <p>If you want to return a json object instead of loading a html file, then use the renderJson method instead.</p>
+
+                                    <p>This method sets the content header as application/json.</p>
+
+                                    <p>Supply the array to be converted to a json object as an optional parameter as shown:</p>
+
+<div class="code-block">
+<pre>
+<code class="language-php">
+View::renderJson($data);
+</code>
+</pre>
+</div>
+
+                               </div>
+                            </section>  
+
+                            <section id="templates-section" class="doc-section">
+                                <h2 class="section-title">Templates</h2>
+                                <div class="section-block">
+                                    <p>Out of the box, Gliver has an in built templating engine that abstracts the most commonly repeated actions when generating a view.</p>
+
+                                    <p class="alert alert-info">You do not need to specify a special file extension to activate the template engine. It is on by default.</p>
+
+                                    <p>The following template methods are available within the view files.</p>
+
+                                    <h3>echo </h3>
+
+                                    <p>In regular PHP in order to echo a string to the browser, you open and close PHP tags then use the echo statement in between the tags:</p>
+
+<pre>
+<code class="language-php">
+&lt;?php echo $username; ?> 
+</code>
+</pre>               
+
+                                    <p>Gliver has a template method that does the same thing. Just put the variable to be printed within double curly braces.</p>
+
+<pre>
+<code class="language-markup">
+{{$username}} 
+</code>
+</pre>
+
+
+                                    <h3>@include </h3>
+
+                                    <p>This template method enables you to load view files that are shared as subviews.</p>
+
+                                    <p>You call this method from within your view files, while passing the name of the view file to be included as the first parameter.</p>
+
+<pre>
+<code class="language-markup">
+@include('header') 
+</code>
+</pre>
+
+                                    <p>If the view file to be included exists in a sub directory, specify the directory structure separated by forward slash.</p>
+
+<pre>
+<code class="language-markup">
+@include('admin/header')  
+</code>
+</pre>
+
+                                    <p>Say you have a <span class="text-danger">header.php</span> and <span class="text-danger"> footer.php</span> view files in your admin directory and would like to include them in your <span class="text-danger">home.php</span> view page.</p>
+
+                                    <p>This is what the code in your <span class="text-danger">home.php</span> file would look like</p>
+
+<pre>
+<code class="language-markup">
+@include('admin/header')
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-lg-12"&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+@include('admin/footer')
+</code>
+</pre>
+                
+                                    <h3>@if</h3>
+
+                                    <p>There are 3 ways you could use the @if method.</p>
+
+                                    <p>This depends on the type or length of the loop you want to execute.</p>
+
+                                    <p>The 3 code samples below demonstrate the different uses of the @if methid in the Gliver template view files.</p>
+
+                                    <p><strong>@if...</strong></p>
+
+
+<pre>
+<code class="language-markup">
+@if(isset($email) AND ! empty($email))
+  &lt;p>Your email address is {{$email}}&lt;/p>
+@endif
+</code>
+</pre>
+         
+                                    <p><strong>@if...@else</strong></p>
+
+<pre>
+<code class="language-markup">
+@if(count($users) > 0)
+  &lt;p>Registered users: {{count($users)}}&lt;/p>
+@else
+  &lt;p>There are no registered users yet!&lt;/p>
+@endif
+</code>
+</pre>
+
+                                    <p><strong>@if...@elseif...@else</strong></p>
+
+<pre>
+<code class="language-markup">
+@if($score > 80) 
+  &lt;p>Grade : A  Remarks : Excellent&lt;/p>
+@elseif($score > 60)
+  &lt;p>Grade : B  Remarks : Good &lt;/p>
+@else
+  &lt;p>Grade : C  Remarks : Fair&lt;/p>
+@endif
+</code>
+</pre>
+
+                                    <h3>@while...</h3>
+
+<pre>
+<code class="language-markup">
+@while($number <= 10)
+  #do something to end this loop...
+@endwhile
+</code>
+</pre>
+            
+                                    <h3>@for...</h3>
+
+<pre>
+<code class="language-markup">
+@for($itr = 1; $itr < 10; $itr++)
+  &lt;p>This is paragraph number {{$itr}} &lt;/p>
+@endfor
+</code>
+</pre>
+
+                                    <h3>@foreach...</h3>
+
+<pre>
+<code class="language-markup">
+@foreach($users as $user)
+  &lt;p>Name {{$user['first_name']}} : Email : {{$user['email_address']}}&lt;/p>
+@endforeach
+</code>
+</pre>
+
+                                </div>
+                            </section>
+
+                            <section id="models-section" class="doc-section">
+                                <h2 class="section-title">Models</h2>
+                                <div class="section-block">
+                                    <p>Models help you handle database or API connection operations.</p>
+
+                                    <p>Models reside in the application/models directory or subdirectory and must extend the <span class="text-danger">Model</span> class.</p>
+
+
+<pre>
+<code class="language-php">
+&lt;?php namespace Models;
+
+class UsersModel extends Model {
+
+  /**
+   *@var string Table name 
+   */
+  protected static $table = 'users';
+}
+</code>
+</pre>
+
+                                    <p class="alert alert-info">All Model methods are declared as static. </p>
+
+<pre>
+<code class="language-php">
+&lt;?php namespace Models;
+
+class UsersModel extends Model {
+
+  public static function getUsers()
+  {
+    
+    #... code goes here
+
+  }
+
+}
+</code>
+</pre>
+
+
+                
+                                    <p>Model classes and file names can optionally have the 'Model' suffix.</p>
+
+                                    <p class="alert alert-info">When accessing models classes specify the complete name without omiting the 'Model' suffix.</p>
+
+                                    <p>If your model class resides within a subdirectory like application/models/Admin use the correct namespace. </p>
+
+<pre>
+<code class="language-php">
+namespace Models\Admin; 
+</code>
+</pre>
+
+
+                                    <p>In order to use a model in your controllers, require the model using its full namespace.</p>
+
+                                    <p>Say you have a <span class="text-danger">UsersModel</span> that has a static <span class="text-danger">getUser()</span> method that returns the list of all users from the database.</p>
+
+                                    <p>This is how you access this method from the HomeController class.</p>
+
+<pre>
+<code class="language-php">
+use Models\UsersModel;
+
+class HomeController extends BaseController {
+
+  public function Queue()
+  {
+    //get all users
+    $data['users'] = UsersModel::getUsers();
+
+    #... other code
+  }
+
+}
+</code>
+</pre>     
+
+                                    <p class="alert alert-info">More information is coming on how to use the Query Builder and Gliver ORM...</p>
+
+                                </div>
+                            </section>
+
+                            <section id="error-section" class="doc-section">
+                                <h2 class="section-title">Error Handling</h2>
+                                <div class="section-block">
+                                    <p>Error handling in Gliver comes in two flavors - either through PHP errors or Exceptions.</p>
+                                  
+                                    <p>When writing, testing and deploying your application you are going to break something</p>
+
+                                    <p>Informative error information is a very quick and effective way to troubleshoot and fix problem code.</p>
+
+                                    <p>All errors encoutered in your application are logged into the error.log file found in:</p>
+
+                                    <p><code>bin/logs/error.log</code></p>
+
+
+
+                                    <p>You can also choose to display these errors on the screen, a good idea if you are  in development mode, or to hide them when in production mode. </p>
+
+                                    <p>Turn error display on or off in the config.php file by either specifying the dev parameter to true or false: </p>
+
+<pre>
+<code class="language-php">
+"dev"=>true 
+</code>
+</pre>
+
+                                    <p>Even if you turn error display off by setting dev->true, error messages will still be logged in the error.log file.</p>
+
+                                    <p>So, when an error occurs a template error page is shown to the user without any idetifying information. No error code or anything like that.</p>
+
+                                    <p>In order to find the particular error message, you'll need to open up the error log file and proceed from there.</p>
+
+                                    <p class="alert alert-info">"dev"=> true, is good for production mode to avoid exposing your application or server directory structure to a malicious jerk.</p>
+
+                                    <p>You might however want to create custom error messages that might be more sensible to your users - who may not be techies...</p>
+                  
+                                    <p>In that case use <span class="text-danger">Exceptions</span></p>
+
+                                    <p>Write your code within a try...catch block.</p>
+
+                                    <p>Create your own Exception class by extending the exceptions class so that you have access to all the already in built functionality in the exception class.</p>
+
+<pre>
+<code class="language-php">
+Exceptions/BaseExceptionClass 
+</code>
+</pre>
+              
+
+                                    <p>In order to make use of this class, throw exceptions by passing the custom error message in this manner <span class="text-danger">throw new BaseExceptionClass("...your error message here...");</span> then catch this in a block and display the error message by calling the errorShow() method like so:</p>
+
+<pre>
+<code class="language-php">
+$BaseExceptionClassInstance->errorShow(); 
+</code>
+</pre>                          </div>
+                            </section>
+
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+
+                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                                <a class="nav-link scrollto" href="#controllers-section">Controllers</a>
+                                <a class="nav-link scrollto" href="#views-section">Views</a>
+                                <a class="nav-link scrollto" href="#templates-section">Templates</a>
+                                <a class="nav-link scrollto" href="#models-section">Models</a>
+                                <a class="nav-link scrollto" href="#error-section">Error Handling</a>
+                            </nav><!--//doc-menu-->
+
+                        </div><!--//doc-nav-->
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Design by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a></small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>  
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                              
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+

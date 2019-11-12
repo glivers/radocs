@@ -13,17 +13,9 @@
             "role" : "developer"
         }
     ],
-    "require" : {
-        "php" : ">=5.6.0",
-        "gliver/framework" : "2.*"
-    },
+    "require" : {},
     "autoload" : {
-        "psr-4" : {
-            "Models\\" : "application/models",
-            "Controllers\\" : "application/controllers",
-            "Exceptions\\"  : "system/Exceptions",
-            "Libraries\\"  : "application/libraries"
-        }
+        "psr-4" : {}
 
     }
     

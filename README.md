@@ -18,7 +18,7 @@ Gliver Framework requires PHP version 5.4 or greater to run. In order to avoid b
 
 # Installation
 
-For detailed installation instructions please visit the <a href="http://getgliver.com/home/installation">installation section</a>  of the Gliver User Guide.
+For detailed installation instructions please visit the <a href="https://gliver.org/docs/start.html">installation section</a>  of the Gliver User Guide.
 
 # Security Vulnerabilities
 

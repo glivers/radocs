@@ -22,7 +22,7 @@ For detailed installation instructions please visit the <a href="https://gliver.
 
 # Security Vulnerabilities
 
-The security of the information you handle with your application is at the core of Gliver. We have already addressed the major security vulnerabilites that are associated with PHP applications, but should you spot any vulnerability please send an email to geoffreybans@gmail.com and this would be fixed ASAP!
+The security of the information you handle with your application is at the core of Gliver. We have already addressed the major security vulnerabilites that are associated with PHP applications, but should you spot any vulnerability please send an email to and this would be fixed ASAP!
 
 # License
 
